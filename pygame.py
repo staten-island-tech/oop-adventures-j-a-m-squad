@@ -1,5 +1,4 @@
 import pygame
-from pygame.locals import *
 
 pygame.init()
 
@@ -10,9 +9,6 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("Platformer")
 
 #for images
-"https://www.youtube.com/watch?v=Ongc4EVqRjo"
-
-
 run = True
 while run:
     for event in pygame.event.get():
