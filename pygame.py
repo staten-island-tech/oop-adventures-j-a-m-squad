@@ -10,9 +10,8 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("Platformer")
 
 #for images
-"https://www.youtube.com/watch?v=Ongc4EVqRjo"
-
-
+back_img = pygame.image.load('img/he.png')
+bg_img = pygame.image.load('img/he.png')
 run = True
 while run:
     for event in pygame.event.get():
