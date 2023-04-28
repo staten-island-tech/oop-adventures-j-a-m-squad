@@ -35,22 +35,16 @@ while running:
         player_pos.y += 300 * dt
     if keys[pygame.K_a]:
         player_pos.x -= 300 * dt
-        pygame.mixer.Sound.play(scroll)
     if keys[pygame.K_d]:
         player_pos.x += 300 * dt
-        pygame.mixer.Sound.play(scroll)
     if keys[pygame.K_UP]:
         player_pos.y -= 300 * dt
-        pygame.mixer.Sound.play(scroll)
     if keys[pygame.K_DOWN]:
         player_pos.y += 300 * dt
-        pygame.mixer.Sound.play(scroll)
     if keys[pygame.K_LEFT]:
         player_pos.x -= 300 * dt
-        pygame.mixer.Sound.play(scroll)
     if keys[pygame.K_RIGHT]:
         player_pos.x += 300 * dt
-        pygame.mixer.Sound.play(scroll)
  
 
     # flip() the display to put your work on screen
