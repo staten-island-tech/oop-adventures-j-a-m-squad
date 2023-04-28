@@ -15,7 +15,7 @@ dt = 0
 #Setup the players position on the screen
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 #Load and play music
-pygame.mixer.music.load("assets\music\PokedexTheme.ogg")
+pygame.mixer.music.load("assets\music\Stardust Speedway Bad Future.ogg")
 pygame.mixer.music.play(-1)
 #Load and scale Player
 berkovich = pygame.image.load("assets\images\characters\Berkovich.jpeg")
