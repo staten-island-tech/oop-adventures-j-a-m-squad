@@ -28,7 +28,7 @@ while running:
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_ESCAPE]:
-        running == False
+        pygame.quit()
     if keys[pygame.K_w]:
         player_pos.y -= 300 * dt
     if keys[pygame.K_s]:
