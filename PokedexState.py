@@ -1,6 +1,5 @@
-# Example file showing a circle moving on screen
 import pygame
-
+from pygame.locals import *
 # pygame setup
 pygame.init()
 screen = pygame.display.set_mode((320, 224), pygame.RESIZABLE)
@@ -40,6 +39,19 @@ while running:
     if keys[pygame.K_d]:
         player_pos.x += 300 * dt
         pygame.mixer.Sound.play(scroll)
+    if keys[pygame.K_UP]:
+        player_pos.y -= 300 * dt
+        pygame.mixer.Sound.play(scroll)
+    if keys[pygame.K_DOWN]:
+        player_pos.y += 300 * dt
+        pygame.mixer.Sound.play(scroll)
+    if keys[pygame.K_LEFT]:
+        player_pos.x -= 300 * dt
+        pygame.mixer.Sound.play(scroll)
+    if keys[pygame.K_RIGHT]:
+        player_pos.x += 300 * dt
+        pygame.mixer.Sound.play(scroll)
+ 
 
     # flip() the display to put your work on screen
     pygame.display.flip()
