@@ -18,8 +18,8 @@ player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 pygame.mixer.music.load("assets\music\Stardust Speedway Bad Future.ogg")
 pygame.mixer.music.play(-1)
 #Load and scale Player
-berkovich = pygame.image.load("assets\images\characters\egghead.jpeg")
-berkovich = pygame.transform.scale(berkovich, (300,300))
+player = pygame.image.load("assets\images\characters\egghead.jpeg")
+player = pygame.transform.scale(player, (300,400))
 #Loads our Background and Foreground
 bg = pygame.image.load("assets\images\stages\Stardust Speedway\stardustBg.png").convert()
 fg = pygame.image.load("assets\images\stages\Stardust Speedway\stardustFloor.png").convert_alpha()
@@ -52,7 +52,7 @@ while running:
     if abs(scroll) > bg_width:
         scroll = 0
     #Adds our Player
-    screen.blit(berkovich, player_pos)
+    screen.blit(player, player_pos)
     #Add the foreground after the player for layering
     for i in range(0, tiles):
         screen.blit(fg, (i * bg_width + scroll - bg_width, -100))
