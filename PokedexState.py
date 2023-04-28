@@ -1,5 +1,5 @@
 import pygame
-from pygame.locals import *
+import time
 # pygame setup
 pygame.init()
 screen = pygame.display.set_mode((320, 224), pygame.RESIZABLE)
@@ -14,6 +14,9 @@ pygame.mixer.music.play(-1)
 
 scroll = pygame.mixer.Sound("assets\sounds\scrollMenu.ogg")
 
+class main_charater():
+    def berkovich():
+        print('berkovich')
 while running:
     # poll for events
     # pygame.QUIT event means the user clicked X to close your window
@@ -22,7 +25,7 @@ while running:
             running = False
 
     # fill the screen with a color to wipe away anything from last frame
-    screen.fill("purple")
+    screen.fill("cyan")
 
     pygame.draw.circle(screen, "red", player_pos, 40)
 
@@ -39,19 +42,6 @@ while running:
     if keys[pygame.K_d]:
         player_pos.x += 300 * dt
         pygame.mixer.Sound.play(scroll)
-    if keys[pygame.K_UP]:
-        player_pos.y -= 300 * dt
-        pygame.mixer.Sound.play(scroll)
-    if keys[pygame.K_DOWN]:
-        player_pos.y += 300 * dt
-        pygame.mixer.Sound.play(scroll)
-    if keys[pygame.K_LEFT]:
-        player_pos.x -= 300 * dt
-        pygame.mixer.Sound.play(scroll)
-    if keys[pygame.K_RIGHT]:
-        player_pos.x += 300 * dt
-        pygame.mixer.Sound.play(scroll)
- 
 
     # flip() the display to put your work on screen
     pygame.display.flip()
@@ -62,3 +52,4 @@ while running:
     dt = clock.tick(60) / 1000
 
 pygame.quit()
+
