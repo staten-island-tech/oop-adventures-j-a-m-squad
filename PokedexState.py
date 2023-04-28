@@ -13,7 +13,7 @@ pygame.mixer.music.load("assets\music\PokedexTheme.ogg")
 pygame.mixer.music.play(-1)
 
 scroll = pygame.mixer.Sound("assets\sounds\scrollMenu.ogg")
-
+class main_character
 while running:
     # poll for events
     # pygame.QUIT event means the user clicked X to close your window
@@ -22,7 +22,7 @@ while running:
             running = False
 
     # fill the screen with a color to wipe away anything from last frame
-    screen.fill("purple")
+    screen.fill("cyan")
 
     pygame.draw.circle(screen, "red", player_pos, 40)
 
