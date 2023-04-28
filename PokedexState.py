@@ -21,13 +21,14 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("purple")
 
     screen.blit(image, player_pos)
 
     keys = pygame.key.get_pressed()
+    if keys[pygame.K_ESCAPE]:
+        running == False
     if keys[pygame.K_w]:
         player_pos.y -= 300 * dt
     if keys[pygame.K_s]:
