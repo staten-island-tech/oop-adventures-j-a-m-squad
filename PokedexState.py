@@ -13,7 +13,6 @@ pygame.mixer.music.load("assets\music\PokedexTheme.ogg")
 pygame.mixer.music.play(-1)
 
 image = pygame.image.load("berkovich.jpeg")
-scroll = pygame.mixer.Sound("assets\sounds\scrollMenu.ogg")
 
 
 while running:
