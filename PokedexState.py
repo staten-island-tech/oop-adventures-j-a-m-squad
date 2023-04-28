@@ -12,7 +12,7 @@ player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 pygame.mixer.music.load("assets\music\PokedexTheme.ogg")
 pygame.mixer.music.play(-1)
 
-image = pygame.image.load("berkovich.jpeg")
+berkovich = pygame.image.load("berkovich.jpeg")
 bg = pygame.image.load("background0 for platform.png")
 
 
@@ -24,8 +24,7 @@ while running:
             running = False
     # fill the screen with a color to wipe away anything from last frame
     screen.blit(bg, (0,0))
-
-    screen.blit(image, player_pos)
+    screen.blit(berkovich, pygame.mouse.get_pos())
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_ESCAPE]:
