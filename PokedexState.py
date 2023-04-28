@@ -1,8 +1,12 @@
 import pygame
+import math
 from pygame.locals import *
 # pygame setup
 pygame.init()
-screen = pygame.display.set_mode((1080, 720), pygame.RESIZABLE)
+SCREEN_WIDTH = 1080
+SCREEN_HEIGHT = 720
+screen = pygame.display.set_mode((1080, 720))
+display = pygame.Surface((1080,720))
 clock = pygame.time.Clock()
 running = True
 dt = 0
@@ -12,9 +16,21 @@ player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 pygame.mixer.music.load("assets\music\PokedexTheme.ogg")
 pygame.mixer.music.play(-1)
 
+size = (1080,720)
 berkovich = pygame.image.load("berkovich.jpeg")
-bg = pygame.image.load("background0 for platform.png")
+berkovich = pygame.transform.scale(berkovich, (200,200))
 
+bg = pygame.image.load("stardustBg.png").convert()
+fg = pygame.image.load("stardustFloor.png").convert_alpha()
+bg = pygame.transform.scale(bg, size)
+fg = pygame.transform.scale(fg, size)
+bg_width = bg.get_width()
+bg_rect = bg.get_rect()
+fg_width = fg.get_width()
+fg_rect = fg.get_rect()
+
+scroll = 0
+tiles = math.ceil(SCREEN_WIDTH  / bg_width) + 1
 
 while running:
     # poll for events
@@ -23,8 +39,25 @@ while running:
         if event.type == pygame.QUIT:
             running = False
     # fill the screen with a color to wipe away anything from last frame
-    screen.blit(bg, (0,0))
-    screen.blit(berkovich, pygame.mouse.get_pos())
+  #draw scrolling background
+    for i in range(0, tiles):
+        screen.blit(bg, (i * bg_width + scroll, 0))
+        bg_rect.x = i * bg_width + scroll
+        pygame.draw.rect(screen, (255, 0, 0), bg_rect, 1)
+
+  #scroll background
+    scroll -= 25
+
+  #reset scroll
+    if abs(scroll) > bg_width:
+        scroll = 0
+
+    screen.blit(berkovich, player_pos)
+    
+    for i in range(0, tiles):
+        screen.blit(fg, (i * fg_width + scroll, 0))
+        fg_rect.x = i * fg_width + scroll
+        pygame.draw.rect(screen, (0, 0, 0), fg_rect, 1)
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_ESCAPE]:
