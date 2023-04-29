@@ -11,11 +11,12 @@ SCREEN_HEIGHT = 1080
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 clock = pygame.time.Clock()
 running = True
+dead = False
 dt = 0
 #Setup the players position on the screen
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2.1)
 #Load and play music
-pygame.mixer.music.load("assets\music\Stardust Speedway Bad Future.ogg")
+pygame.mixer.music.load("assets\music\Stardust Speedway Good Future.ogg")
 pygame.mixer.music.play(-1)
 #Load Sound Effects
 sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
@@ -39,7 +40,7 @@ scroll = 0
 tiles = math.ceil(SCREEN_WIDTH  / bg_width) + 2
 #Variables for jumping
 boingoing = False
-jumpgravity = 1
+jumpGravity = 1
 jump = 20
 jumpVelocity = jump
 #Everything after this point is what happens while our game is running
@@ -61,8 +62,8 @@ while running:
         #Forces our background to scroll
         screen.blit(bg, (i * bg_width + scroll - bg_width, 0))
     #How fast our Background and Foreground should scroll
-    #Keep the minus sign, Pygame hates if the background our Foreground goes backwards as it glitches them out
-    scroll -= 25
+    #Change the minus sign to the plus sign to make everything go backwards or vice versa
+    scroll -= 100
     #Resets Scrolling
     if abs(scroll) > bg_width:
         scroll = 0
@@ -99,7 +100,7 @@ while running:
     #Jump logic handled here
     if boingoing:
         player_pos.y -= jumpVelocity
-        jumpVelocity -= jumpgravity
+        jumpVelocity -= jumpGravity
         if jumpVelocity < -jump:
             boingoing = False
             jumpVelocity =jump
