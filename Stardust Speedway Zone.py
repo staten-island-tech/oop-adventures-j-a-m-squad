@@ -24,9 +24,11 @@ sonicJumpWacky = pygame.mixer.Sound("assets\sounds\I'm outta here.ogg")
 #Loads the Player and Enemy
 player = pygame.image.load("assets\images\characters\egghead.jpeg")
 player = pygame.transform.scale(player, (250,250))
-enemy = pygame.image.load("assets\images\characters\STARVED.jpeg").get_alpha()
+enemy = pygame.image.load("assets\images\characters\Lighting_McQueen.png")
+enemy = pygame.transform.scale(enemy, (250,250))
 #Loads our Background and Foreground
-bg = pygame.image.load("assets\images\stages\Stardust Speedway\stardustBg.png").convert()
+#bg = pygame.image.load("assets\images\stages\Stardust Speedway\stardustBg.png").convert()
+bg = pygame.image.load("assets\images\characters\Berkovich.jpeg").convert()
 fg = pygame.image.load("assets\images\stages\Stardust Speedway\stardustFloor.png").convert_alpha()
 #Scales our background and foregroudn to the size of the screen
 bg = pygame.transform.scale(bg, (SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -74,7 +76,7 @@ while running:
     for i in range(0, tiles):
         screen.blit(fg, (i * bg_width + scroll - bg_width, -100))
     #Adds our enemy
-    screen.blit(enemy,  pygame.mouse.get_pos())
+    screen.blit(enemy, (350,350))
     #All the keys our Game uses
     keys = pygame.key.get_pressed()
     if keys[pygame.K_ESCAPE]:
