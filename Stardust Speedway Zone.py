@@ -16,13 +16,13 @@ dt = 0
 #Setup the players position on the screen
 player_pos = pygame.Vector2(screen.get_width() / 1.75, screen.get_height() / 2.1)
 #Load and play music
-pygame.mixer.music.load("assets\music\Stardust Speedway Good Future.ogg")
+pygame.mixer.music.load("assets\music\Stardust Speedway.ogg")
 pygame.mixer.music.play(-1)
 #Load Sound Effects
 sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
 sonicJumpWacky = pygame.mixer.Sound("assets\sounds\I'm outta here.ogg")
 #Loads the Player
-player = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (250,250))
+player = pygame.transform.scale(pygame.image.load("assets\images\characters\egghead.jpeg"), (250,250))
 #Loads our Background and Foreground and scales them to the size of our screen
 bg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustBg.png").convert(), (SCREEN_WIDTH, SCREEN_HEIGHT))
 fg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustFloor.png").convert_alpha(), (SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -72,12 +72,13 @@ while running:
     keys = pygame.key.get_pressed()
     if keys[pygame.K_ESCAPE]:
         pygame.quit()
+    #Every key below this is keys for movement
     if keys[pygame.K_a]:
-        player_pos.x -= 1000 * dt
+        player_pos.x -= 500 * dt
         if keys[pygame.K_LSHIFT]:
             player_pos.x -= 5000 * dt
     if keys[pygame.K_d]:
-        player_pos.x += 1000 * dt
+        player_pos.x += 500 * dt
         if keys[pygame.K_LSHIFT]:
             player_pos.x += 5000 * dt
     #Enables Jumping        
@@ -85,6 +86,7 @@ while running:
         boingoing = True
         if keys[pygame.K_LSHIFT]:
            jump = 60
+    #Alternative keys for movement
     if keys[pygame.K_LEFT]:
         player_pos.x -= 500 * dt
         if keys[pygame.K_LSHIFT]:
