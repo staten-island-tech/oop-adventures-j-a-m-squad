@@ -14,23 +14,19 @@ running = True
 dead = False
 dt = 0
 #Setup the players position on the screen
-player_pos = pygame.Vector2(screen.get_width() / 2.2, screen.get_height() / 2.1)
+player_pos = pygame.Vector2(screen.get_width() / 1.75, screen.get_height() / 2.1)
 #Load and play music
-pygame.mixer.music.load("assets\music\Stardust Speedway Bad Future.ogg")
+pygame.mixer.music.load("assets\music\Stardust Speedway Good Future.ogg")
 pygame.mixer.music.play(-1)
 #Load Sound Effects
 sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
 sonicJumpWacky = pygame.mixer.Sound("assets\sounds\I'm outta here.ogg")
-#Loads the Player and Enemy
-player = pygame.image.load("assets\images\characters\egghead.jpeg")
-player = pygame.transform.scale(player, (250,250))
-#Loads our Background and Foreground
-bg = pygame.image.load("assets\images\stages\Stardust Speedway\stardustBg.png").convert()
-fg = pygame.image.load("assets\images\stages\Stardust Speedway\stardustFloor.png").convert_alpha()
-#Scales our background and foregroudn to the size of the screen
-bg = pygame.transform.scale(bg, (SCREEN_WIDTH, SCREEN_HEIGHT))
-fg = pygame.transform.scale(fg, (SCREEN_WIDTH, SCREEN_HEIGHT))
-#Sets the background and foreground as rectangles in order to manipulate them
+#Loads the Player
+player = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (250,250))
+#Loads our Background and Foreground and scales them to the size of our screen
+bg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustBg.png").convert(), (SCREEN_WIDTH, SCREEN_HEIGHT))
+fg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustFloor.png").convert_alpha(), (SCREEN_WIDTH, SCREEN_HEIGHT))
+#Sets the background and foreground as rectangles in order to manipulate them later
 bg_width = bg.get_width()
 bg_rect = bg.get_rect()
 fg_width = fg.get_width()
@@ -63,7 +59,7 @@ while running:
         screen.blit(bg, (i * bg_width + scroll - bg_width, 0))
     #How fast our Background and Foreground should scroll
     #Change the minus sign to the plus sign to make everything go backwards or vice versa
-    scroll -= 88
+    scroll -= 100
     #Resets Scrolling
     if abs(scroll) > bg_width:
         scroll = 0
@@ -77,11 +73,11 @@ while running:
     if keys[pygame.K_ESCAPE]:
         pygame.quit()
     if keys[pygame.K_a]:
-        player_pos.x -= 500 * dt
+        player_pos.x -= 1000 * dt
         if keys[pygame.K_LSHIFT]:
             player_pos.x -= 5000 * dt
     if keys[pygame.K_d]:
-        player_pos.x += 500 * dt
+        player_pos.x += 1000 * dt
         if keys[pygame.K_LSHIFT]:
             player_pos.x += 5000 * dt
     #Enables Jumping        
@@ -90,11 +86,11 @@ while running:
         if keys[pygame.K_LSHIFT]:
            jump = 60
     if keys[pygame.K_LEFT]:
-        player_pos.x -= 300 * dt
+        player_pos.x -= 500 * dt
         if keys[pygame.K_LSHIFT]:
             player_pos.x -= 5000 * dt
     if keys[pygame.K_RIGHT]:
-        player_pos.x += 300 * dt
+        player_pos.x += 500 * dt
         if keys[pygame.K_LSHIFT]:
             player_pos.x += 5000 * dt
     #Jump logic handled here
@@ -103,7 +99,7 @@ while running:
         jumpVelocity -= jumpGravity
         if jumpVelocity < -jump:
             boingoing = False
-            jumpVelocity =jump
+            jumpVelocity = jump
     #Adds our work to the screen
     pygame.display.flip()
     #The FPS our game runs at
