@@ -18,7 +18,8 @@ player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2.1)
 pygame.mixer.music.load("assets\music\Stardust Speedway Bad Future.ogg")
 pygame.mixer.music.play(-1)
 #Load Sound Effects
-sonicJumpWacky = pygame.mixer.Sound("assets\sound\I'm outta here.ogg")
+sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
+sonicJumpWacky = pygame.mixer.Sound("assets\sounds\I'm outta here.ogg")
 #Load and scale Player
 player = pygame.image.load("assets\images\characters\egghead.jpeg")
 player = pygame.transform.scale(player, (250,250))
@@ -48,6 +49,13 @@ while running:
         if event.type == pygame.QUIT:
             #Stops running the game
             running = False
+        #The reason the sound effects are put here is to only play them after the spacebar is released
+        elif event.type == pygame.KEYUP:
+            if keys[pygame.K_SPACE]:
+                pygame.mixer.Sound.play(sonicJump)
+            if keys[pygame.K_LSHIFT] and keys[pygame.K_SPACE]:
+                pygame.mixer.Sound.play(sonicJumpWacky)
+
     #Adds our background
     for i in range(tiles):
         #Forces our background to scroll
@@ -75,11 +83,11 @@ while running:
         player_pos.x += 500 * dt
         if keys[pygame.K_LSHIFT]:
             player_pos.x += 5000 * dt
+    #Enables Jumping        
     if keys[pygame.K_SPACE]:
         boingoing = True
         if keys[pygame.K_LSHIFT]:
            jump = 60
-           pygame.mixer.Sound.play(sonicJumpWacky)
     if keys[pygame.K_LEFT]:
         player_pos.x -= 300 * dt
         if keys[pygame.K_LSHIFT]:
