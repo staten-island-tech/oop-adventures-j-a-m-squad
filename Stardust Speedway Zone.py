@@ -16,7 +16,7 @@ dt = 0
 #Setup the players position on the screen
 player_pos = pygame.Vector2(screen.get_width() / 2.4, screen.get_height() / 2.1)
 #Load and play music
-pygame.mixer.music.load("assets\music\Stardust Speedway Bad Future.ogg")
+pygame.mixer.music.load("assets\music\PokedexTheme.ogg")
 pygame.mixer.music.play(-1)
 #Load Sound Effects
 sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
@@ -24,11 +24,8 @@ sonicJumpWacky = pygame.mixer.Sound("assets\sounds\I'm outta here.ogg")
 #Loads the Player and Enemy
 player = pygame.image.load("assets\images\characters\egghead.jpeg")
 player = pygame.transform.scale(player, (250,250))
-enemy = pygame.image.load("assets\images\characters\Lighting_McQueen.png")
-enemy = pygame.transform.scale(enemy, (250,250))
 #Loads our Background and Foreground
-#bg = pygame.image.load("assets\images\stages\Stardust Speedway\stardustBg.png").convert()
-bg = pygame.image.load("assets\images\characters\Berkovich.jpeg").convert()
+bg = pygame.image.load("assets\images\stages\Stardust Speedway\stardustBg.png").convert()
 fg = pygame.image.load("assets\images\stages\Stardust Speedway\stardustFloor.png").convert_alpha()
 #Scales our background and foregroudn to the size of the screen
 bg = pygame.transform.scale(bg, (SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -75,8 +72,6 @@ while running:
     #Add the foreground after the player for layering
     for i in range(0, tiles):
         screen.blit(fg, (i * bg_width + scroll - bg_width, -100))
-    #Adds our enemy
-    screen.blit(enemy, (350,350))
     #All the keys our Game uses
     keys = pygame.key.get_pressed()
     if keys[pygame.K_ESCAPE]:
