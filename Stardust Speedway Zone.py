@@ -21,8 +21,8 @@ pygame.mixer.music.play(-1)
 #Load Sound Effects
 sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
 sonicJumpWacky = pygame.mixer.Sound("assets\sounds\I'm outta here.ogg")
-#Load and scale Player
-player = pygame.image.load("assets\images\characters\MR.BEAST.png")
+#Loads the Player
+player = pygame.image.load("assets\images\characters\egghead.jpeg")
 player = pygame.transform.scale(player, (250,250))
 #Loads our Background and Foreground
 bg = pygame.image.load("assets\images\stages\Stardust Speedway\stardustBg.png").convert()
@@ -68,7 +68,7 @@ while running:
     if abs(scroll) > bg_width:
         scroll = 0
     #Adds our Player
-    screen.blit(player, player_pos)
+    screen.blit(player.image(), player_pos)
     #Add the foreground after the player for layering
     for i in range(0, tiles):
         screen.blit(fg, (i * bg_width + scroll - bg_width, -100))
