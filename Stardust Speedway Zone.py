@@ -14,15 +14,15 @@ running = True
 dead = False
 dt = 0
 #Setup the players position on the screen
-player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2.1)
+player_pos = pygame.Vector2(screen.get_width() / 2.4, screen.get_height() / 2.1)
 #Load and play music
-pygame.mixer.music.load("assets\music\Stardust Speedway Good Future.ogg")
+pygame.mixer.music.load("assets\music\Stardust Speedway Bad Future.ogg")
 pygame.mixer.music.play(-1)
 #Load Sound Effects
 sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
 sonicJumpWacky = pygame.mixer.Sound("assets\sounds\I'm outta here.ogg")
 #Load and scale Player
-player = pygame.image.load("assets\images\characters\egghead.jpeg")
+player = pygame.image.load("assets\images\characters\MR.BEAST.png")
 player = pygame.transform.scale(player, (250,250))
 #Loads our Background and Foreground
 bg = pygame.image.load("assets\images\stages\Stardust Speedway\stardustBg.png").convert()
@@ -63,7 +63,7 @@ while running:
         screen.blit(bg, (i * bg_width + scroll - bg_width, 0))
     #How fast our Background and Foreground should scroll
     #Change the minus sign to the plus sign to make everything go backwards or vice versa
-    scroll -= 100
+    scroll -= 88
     #Resets Scrolling
     if abs(scroll) > bg_width:
         scroll = 0
