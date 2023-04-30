@@ -16,8 +16,8 @@ running = True
 dt = 0
 FontSonic = pygame.font.Font("assets/fonts/sonic1.ttf", 50)
 #Setup the players and enemys position on the screen
-player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2.1)
-player2_pos = pygame.Vector2(screen.get_width()/ 2.75, screen.get_height() / 1.9)
+player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 1.9)
+player2_pos = pygame.Vector2(screen.get_width()/ 2.5, screen.get_height() / 1.75)
 #Load and play music
 pygame.mixer.music.load("assets\music\Stardust Speedway Bad Future.ogg")
 pygame.mixer.music.play(-1)
@@ -25,8 +25,8 @@ pygame.mixer.music.play(-1)
 sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
 sonicJumpWacky = pygame.mixer.Sound("assets\sounds\I'm outta here.ogg")
 #Loads the Player and Enemy
-prey = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (250,250))
-bystander = pygame.transform.scale(pygame.image.load("assets\images\characters\When you outside and smell that ZAZA.png"), (200,200))
+prey = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (200,200))
+bystander = pygame.transform.scale(pygame.image.load("assets\images\characters\When you outside and smell that ZAZA.png"), (150,150))
 predator = pygame.transform.scale(pygame.image.load("assets\images\characters\egghead.jpeg"), (250,250))
 #Loads our Background and Foreground and scales them to the size of our screen
 bg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustBg.png").convert(), (SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -97,7 +97,7 @@ while running:
         screen.blit(bg, (i * bg_width + scroll - bg_width, 0))
     #How fast our Background and Foreground should scroll
     #Change the minus sign to the plus sign to make everything go backwards or vice versa
-    scroll -= 64
+    scroll -= 25
     #Resets Scrolling
     if abs(scroll) > bg_width:
         scroll = 0
