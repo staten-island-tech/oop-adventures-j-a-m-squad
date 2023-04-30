@@ -4,6 +4,7 @@ import math
 from pygame.locals import *
 #Start Pygame
 pygame.init()
+pygame.font.init()
 #Screen Width and Height Variable (Makes it super easy if we ever want to change it)
 SCREEN_WIDTH = 1920
 SCREEN_HEIGHT = 1080
@@ -14,6 +15,8 @@ running = True
 dead = False
 dt = 0
 timer = 21
+#Setup Font
+pygame.font.Font("assets/fonts/sonic1.ttf")
 #Setup the players and enemys position on the screen
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2.1)
 player2_pos = pygame.Vector2(screen.get_width()/ 2.75, screen.get_height() / 1.9)
