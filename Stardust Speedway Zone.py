@@ -18,7 +18,7 @@ timer = 21
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2.1)
 player2_pos = pygame.Vector2(screen.get_width()/ 2.75, screen.get_height() / 1.9)
 #Load and play music
-pygame.mixer.music.load("assets\music\Ballin'.ogg")
+pygame.mixer.music.load("assets\music\Stardust Speedway Bad Future.ogg")
 pygame.mixer.music.play(-1)
 #Load Sound Effects
 sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
@@ -38,8 +38,6 @@ fg_rect = fg.get_rect()
 #Variabels for scrolling images
 scroll = 0
 tiles = math.ceil(SCREEN_WIDTH  / bg_width) + 2
-#Variables for enemy
-hunting = False
 #Variables for jumping
 boingoing = False
 jumpGravity = 1
@@ -64,7 +62,7 @@ while running:
         screen.blit(bg, (i * bg_width + scroll - bg_width, 0))
     #How fast our Background and Foreground should scroll
     #Change the minus sign to the plus sign to make everything go backwards or vice versa
-    scroll += 64
+    scroll -= 64
     #Resets Scrolling
     if abs(scroll) > bg_width:
         scroll = 0
@@ -84,11 +82,13 @@ while running:
         player2_pos.x -= 950 * dt
         if keys[pygame.K_LSHIFT]:
             player_pos.x -= 5000 * dt
+            player2_pos.x -= 4500 * dt
     if keys[pygame.K_d]:
         player_pos.x += 1000 * dt
         player2_pos.x += 950 * dt
         if keys[pygame.K_LSHIFT]:
             player_pos.x += 5000 * dt
+            player2_pos.x += 4500 * dt
     #Enables Jumping        
     if keys[pygame.K_SPACE]:
         boingoing = True
@@ -100,11 +100,13 @@ while running:
         player2_pos.x -= 950 * dt
         if keys[pygame.K_LSHIFT]:
             player_pos.x -= 5000 * dt
+            player2_pos.x -= 4500 * dt
     if keys[pygame.K_RIGHT]:
         player_pos.x += 1000 * dt
         player2_pos.x += 950 * dt
         if keys[pygame.K_LSHIFT]:
             player_pos.x += 5000 * dt
+            player2_pos.x += 4500 * dt
     #Jump logic handled here
     if boingoing:
         player_pos.y -= jumpVelocity
