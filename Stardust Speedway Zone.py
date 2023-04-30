@@ -1,7 +1,6 @@
 #Setup Python
 import pygame
 import math
-import time
 from pygame.locals import *
 #Start Pygame
 pygame.init()
@@ -19,7 +18,7 @@ timer = 21
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2.1)
 player2_pos = pygame.Vector2(screen.get_width()/ 2.75, screen.get_height() / 1.9)
 #Load and play music
-pygame.mixer.music.load("assets\music\Stardust Speedway.ogg")
+pygame.mixer.music.load("assets\music\Stardust Speedway Bad Future.ogg")
 pygame.mixer.music.play(-1)
 #Load Sound Effects
 sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
@@ -65,7 +64,7 @@ while running:
         screen.blit(bg, (i * bg_width + scroll - bg_width, 0))
     #How fast our Background and Foreground should scroll
     #Change the minus sign to the plus sign to make everything go backwards or vice versa
-    scroll -= 100
+    scroll += 64
     #Resets Scrolling
     if abs(scroll) > bg_width:
         scroll = 0
