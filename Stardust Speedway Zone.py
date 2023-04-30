@@ -17,7 +17,7 @@ dt = 0
 timer = 21
 #Setup the players and enemys position on the screen
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2.1)
-player2_pos = pygame.Vector2(screen.get_width()/ 4, screen.get_height() / 2.1)
+player2_pos = pygame.Vector2(screen.get_width()/ 2.75, screen.get_height() / 2.1)
 #Load and play music
 pygame.mixer.music.load("assets\music\Stardust Speedway Bad Future.ogg")
 pygame.mixer.music.play(-1)
@@ -82,12 +82,12 @@ while running:
     #Every key below this is keys for movement
     if keys[pygame.K_a]:
         player_pos.x -= 1000 * dt
-        player2_pos.x -= 500 * dt
+        player2_pos.x -= 950 * dt
         if keys[pygame.K_LSHIFT]:
             player_pos.x -= 5000 * dt
     if keys[pygame.K_d]:
         player_pos.x += 1000 * dt
-        player2_pos.x += 500 * dt
+        player2_pos.x += 950 * dt
         if keys[pygame.K_LSHIFT]:
             player_pos.x += 5000 * dt
     #Enables Jumping        
@@ -98,12 +98,12 @@ while running:
     #Alternative keys for movement
     if keys[pygame.K_LEFT]:
         player_pos.x -= 1000 * dt
-        player2_pos.x -= 500 * dt
+        player2_pos.x -= 950 * dt
         if keys[pygame.K_LSHIFT]:
             player_pos.x -= 5000 * dt
     if keys[pygame.K_RIGHT]:
         player_pos.x += 1000 * dt
-        player2_pos.x += 500 * dt
+        player2_pos.x += 950 * dt
         if keys[pygame.K_LSHIFT]:
             player_pos.x += 5000 * dt
     #Jump logic handled here
