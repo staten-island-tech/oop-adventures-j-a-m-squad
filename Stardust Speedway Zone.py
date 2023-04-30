@@ -11,6 +11,7 @@ SCREEN_HEIGHT = 1080
 #Setup Game
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 clock = pygame.time.Clock()
+start = pygame.time.get_ticks()
 running = True
 dt = 0
 FontSonic = pygame.font.Font("assets/fonts/sonic1.ttf", 50)
@@ -47,10 +48,16 @@ jumpVelocity = jump
 scoreLabel = FontSonic.render('SCORE', False, (255,255,0))
 scoreValueText = FontSonic.render('0', False, (255,255,255))
 timeLabel = FontSonic.render('TIME', False, (255,255,0))
-timeValueText = FontSonic.render("00'00'00", False, (255,255,255))
 ringsLabel = FontSonic.render('RINGS', False, (255,255,0))
 ringsValueText = FontSonic.render('0', False, (255,255,255))
-healthSprite = pygame.transform.scale(pygame.image.load("assets\images\UI\sonicLifeCounter.png"), (250,250))
+healthSprite = pygame.transform.scale(pygame.image.load("assets/images/UI/sonicLifeCounter.png"), (75,50))
+healthValueText = FontSonic.render('3', False, (255,255,255))
+#Variables for Time
+sonicCDMil = 0
+sonicCDSec = 0
+sonicCDMin = 0
+finalMil = 00
+finalSec = 00
 #Everything after this point is what happens while our game is running
 while running:
     #Quits the game
@@ -64,6 +71,26 @@ while running:
                 pygame.mixer.Sound.play(sonicJump)
             if keys[pygame.K_LSHIFT] and keys[pygame.K_SPACE]:
                 pygame.mixer.Sound.play(sonicJumpWacky)
+    #Time logic handled here
+    counting = pygame.time.get_ticks() - start
+    if (math.floor(start) >= 0):
+        sonicCDSec = (math.floor((math.floor(counting) / 1000) % 60))
+        sonicCDMil = ((round(((math.floor(counting)) % 1000) / 10) % 100))
+        sonicCDMin = (math.floor(math.floor((math.floor(counting) / 1000) / 60) % 60))
+    if (sonicCDMil < 10):
+        finalMil = sonicCDMil
+    else:
+        finalMil = sonicCDMil
+    if (sonicCDSec < 10):
+        finalSec = sonicCDSec
+    else:
+        finalSec = sonicCDSec
+    timeValue = "0%s'0%s'%s" % (sonicCDMin, sonicCDSec, sonicCDMil)
+    if (sonicCDSec >= 10):
+        timeValue = "0%s'%s'%s" % (sonicCDMin, sonicCDSec, sonicCDMil)
+    if (sonicCDMin >= 10):
+        timeValue = "%s'%s'%s" % (sonicCDMin, sonicCDSec, sonicCDMil)
+    timeValueText = FontSonic.render(timeValue, False, (255,255,255))
     #Adds our background
     for i in range(tiles):
         #Forces our background to scroll
@@ -87,7 +114,8 @@ while running:
     screen.blit(timeValueText, (350,190))
     screen.blit(ringsLabel, (222, 240))
     screen.blit(ringsValueText, (482, 240))
-    screen.blit(healthSprite, (222, 400))
+    screen.blit(healthSprite, (222, 888))
+    screen.blit(healthValueText, (310, 892))
     #All the keys our Game uses
     keys = pygame.key.get_pressed()
     if keys[pygame.K_ESCAPE]:
