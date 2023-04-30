@@ -18,7 +18,7 @@ timer = 21
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2.1)
 player2_pos = pygame.Vector2(screen.get_width()/ 2.75, screen.get_height() / 1.9)
 #Load and play music
-pygame.mixer.music.load("assets\music\Stardust Speedway Bad Future.ogg")
+pygame.mixer.music.load("assets\music\Ballin'.ogg")
 pygame.mixer.music.play(-1)
 #Load Sound Effects
 sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
