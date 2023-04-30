@@ -19,7 +19,7 @@ FontSonic = pygame.font.Font("assets/fonts/sonic1.ttf", 50)
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 player2_pos = pygame.Vector2(screen.get_width()/ 2.5, screen.get_height() / 1.83)
 #Load and play music
-pygame.mixer.music.load("assets\music\Trip to Harlem.ogg")
+pygame.mixer.music.load("assets\music\Trip to the Saloon.ogg")
 pygame.mixer.music.play(-1)
 #Load Sound Effects
 sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
@@ -109,7 +109,7 @@ while running:
         screen.blit(fg, (i * bg_width + scroll - bg_width, -200))
     #Add the HUD above everything else
     screen.blit(scoreLabel, (222,140))
-    screen.blit(scoreValueText, (507,140))
+    screen.blit(scoreValueText, (505,140))
     screen.blit(timeLabel, (222,190))
     screen.blit(timeValueText, (350,190))
     screen.blit(ringsLabel, (222, 240))
