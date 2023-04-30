@@ -19,7 +19,7 @@ FontSonic = pygame.font.Font("assets/fonts/sonic1.ttf", 50)
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 1.9)
 player2_pos = pygame.Vector2(screen.get_width()/ 2.5, screen.get_height() / 1.75)
 #Load and play music
-pygame.mixer.music.load("assets\music\Ballin'.ogg")
+pygame.mixer.music.load("assets\music\Trip to Harlem.ogg")
 pygame.mixer.music.play(-1)
 #Load Sound Effects
 sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
