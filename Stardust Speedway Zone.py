@@ -16,8 +16,8 @@ running = True
 dt = 0
 FontSonic = pygame.font.Font("assets/fonts/sonic1.ttf", 50)
 #Setup the players and enemys position on the screen
-player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 1.9)
-player2_pos = pygame.Vector2(screen.get_width()/ 2.5, screen.get_height() / 1.75)
+player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
+player2_pos = pygame.Vector2(screen.get_width()/ 2.5, screen.get_height() / 1.83)
 #Load and play music
 pygame.mixer.music.load("assets\music\Trip to Harlem.ogg")
 pygame.mixer.music.play(-1)
@@ -30,7 +30,7 @@ bystander = pygame.transform.scale(pygame.image.load("assets\images\characters\W
 predator = pygame.transform.scale(pygame.image.load("assets\images\characters\egghead.jpeg"), (250,250))
 #Loads our Background and Foreground and scales them to the size of our screen
 bg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustBg.png").convert(), (SCREEN_WIDTH, SCREEN_HEIGHT))
-fg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustFloor.png").convert_alpha(), (SCREEN_WIDTH, SCREEN_HEIGHT))
+fg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustFloor.png").convert_alpha(), (SCREEN_WIDTH+100, SCREEN_HEIGHT+100))
 #Sets the background and foreground as rectangles in order to manipulate them later
 bg_width = bg.get_width()
 bg_rect = bg.get_rect()
@@ -106,7 +106,7 @@ while running:
     screen.blit(bystander, player2_pos)
     #Add the foreground after the player and enemy for layering
     for i in range(0, tiles):
-        screen.blit(fg, (i * bg_width + scroll - bg_width, -100))
+        screen.blit(fg, (i * bg_width + scroll - bg_width, -200))
     #Add the HUD above everything else
     screen.blit(scoreLabel, (222,140))
     screen.blit(scoreValueText, (507,140))
