@@ -12,11 +12,8 @@ SCREEN_HEIGHT = 1080
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 clock = pygame.time.Clock()
 running = True
-dead = False
 dt = 0
-timer = 21
-#Setup Font
-pygame.font.Font("assets/fonts/sonic1.ttf")
+FontSonic = pygame.font.Font("assets/fonts/sonic1.ttf", 50)
 #Setup the players and enemys position on the screen
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2.1)
 player2_pos = pygame.Vector2(screen.get_width()/ 2.75, screen.get_height() / 1.9)
@@ -46,6 +43,14 @@ boingoing = False
 jumpGravity = 1
 jump = 20
 jumpVelocity = jump
+#Variables for HUD
+scoreLabel = FontSonic.render('SCORE', False, (255,255,0))
+scoreValueText = FontSonic.render('0', False, (255,255,255))
+timeLabel = FontSonic.render('TIME', False, (255,255,0))
+timeValueText = FontSonic.render("00'00'00", False, (255,255,255))
+ringsLabel = FontSonic.render('RINGS', False, (255,255,0))
+ringsValueText = FontSonic.render('0', False, (255,255,255))
+healthSprite = pygame.transform.scale(pygame.image.load("assets\images\UI\sonicLifeCounter.png"), (250,250))
 #Everything after this point is what happens while our game is running
 while running:
     #Quits the game
@@ -75,6 +80,14 @@ while running:
     #Add the foreground after the player and enemy for layering
     for i in range(0, tiles):
         screen.blit(fg, (i * bg_width + scroll - bg_width, -100))
+    #Add the HUD above everything else
+    screen.blit(scoreLabel, (222,140))
+    screen.blit(scoreValueText, (507,140))
+    screen.blit(timeLabel, (222,190))
+    screen.blit(timeValueText, (350,190))
+    screen.blit(ringsLabel, (222, 240))
+    screen.blit(ringsValueText, (482, 240))
+    screen.blit(healthSprite, (222, 400))
     #All the keys our Game uses
     keys = pygame.key.get_pressed()
     if keys[pygame.K_ESCAPE]:
