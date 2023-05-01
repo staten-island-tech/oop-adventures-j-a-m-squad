@@ -120,9 +120,9 @@ while running:
     for i in range(0, tiles):
         screen.blit(fg, (i * bg_width + scroll - bg_width, -500))
     #Add the HUD above everything else
-    screen.blit(scoreLabel, (222,140))
-    screen.blit(scoreValueText, (505,140))
-    screen.blit(timeLabel, (222,190))
+    screen.blit(scoreLabel, (30,25))
+    screen.blit(scoreValueText, (400,25))
+    screen.blit(timeLabel, (111,100))
     screen.blit(timeValueText, (350,190))
     screen.blit(ringsLabel, (222, 240))
     screen.blit(ringsValueText, (482, 240))
