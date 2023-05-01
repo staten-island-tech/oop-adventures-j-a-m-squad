@@ -16,10 +16,11 @@ running = True
 dt = 0
 FontSonic = pygame.font.Font("assets/fonts/sonic1.ttf", 50)
 #Setup the players and enemys position on the screen
-player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
-player2_pos = pygame.Vector2(screen.get_width()/ 2.5, screen.get_height() / 1.83)
+player_pos = pygame.Vector2(screen.get_width() / 1.5, screen.get_height() / 2)
+player2_pos = pygame.Vector2(screen.get_width()/ 1.75, screen.get_height() / 1.83)
+enemy_pos = pygame.Vector2(-50, 360)
 #Load and play music
-pygame.mixer.music.load("assets\music\Trip to the Saloon.ogg")
+pygame.mixer.music.load("assets\music\Stardust Speedway Bad Future.ogg")
 pygame.mixer.music.play(-1)
 #Load Sound Effects
 sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
@@ -27,7 +28,7 @@ sonicJumpWacky = pygame.mixer.Sound("assets\sounds\I'm outta here.ogg")
 #Loads the Player and Enemy
 prey = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (200,200))
 bystander = pygame.transform.scale(pygame.image.load("assets\images\characters\When you outside and smell that ZAZA.png"), (150,150))
-predator = pygame.transform.scale(pygame.image.load("assets\images\characters\egghead.jpeg"), (250,250))
+predator = pygame.transform.scale(pygame.image.load("assets\images\characters\egghead.jpeg"), (222,222))
 #Loads our Background and Foreground and scales them to the size of our screen
 bg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustBg.png").convert(), (SCREEN_WIDTH, SCREEN_HEIGHT))
 fg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustFloor.png").convert_alpha(), (SCREEN_WIDTH+100, SCREEN_HEIGHT+100))
@@ -77,6 +78,7 @@ while running:
         sonicCDSec = (math.floor((math.floor(counting) / 1000) % 60))
         sonicCDMil = ((round(((math.floor(counting)) % 1000) / 10) % 100))
         sonicCDMin = (math.floor(math.floor((math.floor(counting) / 1000) / 60) % 60))
+
     if (sonicCDMil < 10):
         finalMil = sonicCDMil
     else:
@@ -85,11 +87,13 @@ while running:
         finalSec = sonicCDSec
     else:
         finalSec = sonicCDSec
+
     timeValue = "0%s'0%s'%s" % (sonicCDMin, sonicCDSec, sonicCDMil)
     if (sonicCDSec >= 10):
         timeValue = "0%s'%s'%s" % (sonicCDMin, sonicCDSec, sonicCDMil)
     if (sonicCDMin >= 10):
         timeValue = "%s'%s'%s" % (sonicCDMin, sonicCDSec, sonicCDMil)
+
     timeValueText = FontSonic.render(timeValue, False, (255,255,255))
     #Adds our background
     for i in range(tiles):
@@ -97,13 +101,21 @@ while running:
         screen.blit(bg, (i * bg_width + scroll - bg_width, 0))
     #How fast our Background and Foreground should scroll
     #Change the minus sign to the plus sign to make everything go backwards or vice versa
-    scroll -= 25
+    scroll -= 64
     #Resets Scrolling
     if abs(scroll) > bg_width:
         scroll = 0
     #Adds our Player, Player 2, and enemy
-    screen.blit(prey, player_pos)  
-    screen.blit(bystander, player2_pos)
+    screen.blit(predator, enemy_pos)
+    screen.blit(bystander, player2_pos) 
+    screen.blit(prey, player_pos) 
+    #Get the enemy into frame
+    if sonicCDSec == 22:
+        if enemy_pos.x != 555:
+            enemy_pos.x += 55
+    if sonicCDMin == 2 and sonicCDSec == 10:
+        if enemy_pos.x != -55:
+            enemy_pos.x -= 55
     #Add the foreground after the player and enemy for layering
     for i in range(0, tiles):
         screen.blit(fg, (i * bg_width + scroll - bg_width, -200))
