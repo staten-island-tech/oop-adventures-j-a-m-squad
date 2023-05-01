@@ -118,7 +118,7 @@ while running:
             enemy_pos.x -= 55
     #Add the foreground after the player and enemy for layering
     for i in range(0, tiles):
-        screen.blit(fg, (i * bg_width + scroll - bg_width, -600))
+        screen.blit(fg, (i * bg_width + scroll - bg_width, -500))
     #Add the HUD above everything else
     screen.blit(scoreLabel, (222,140))
     screen.blit(scoreValueText, (505,140))
