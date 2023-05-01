@@ -16,8 +16,8 @@ running = True
 dt = 0
 FontSonic = pygame.font.Font("assets/fonts/sonic1.ttf", 50)
 #Setup the players and enemys position on the screen
-player_pos = pygame.Vector2(screen.get_width() / 1.5, screen.get_height() / 2)
-player2_pos = pygame.Vector2(screen.get_width()/ 1.75, screen.get_height() / 1.83)
+player_pos = pygame.Vector2(screen.get_width() / 1.5, screen.get_height() / 1.92)
+player2_pos = pygame.Vector2(screen.get_width()/ 1.75, screen.get_height() / 1.75)
 enemy_pos = pygame.Vector2(-555, 360)
 #Load and play music
 pygame.mixer.music.load("assets\music\Stardust Speedway Bad Future.ogg")
