@@ -9,12 +9,12 @@ pygame.font.init()
 SCREEN_WIDTH = 1920
 SCREEN_HEIGHT = 1080
 #Setup Game
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.RESIZABLE)
 clock = pygame.time.Clock()
 start = pygame.time.get_ticks()
 running = True
 dt = 0
-FontSonic = pygame.font.Font("assets/fonts/sonic1.ttf", 50)
+FontSonic = pygame.font.Font("assets/fonts/sonic1.ttf", 64)
 #Setup the players and enemys position on the screen
 player_pos = pygame.Vector2(screen.get_width() / 1.5, screen.get_height() / 1.92)
 player2_pos = pygame.Vector2(screen.get_width()/ 1.75, screen.get_height() / 1.75)
@@ -120,14 +120,14 @@ while running:
     for i in range(0, tiles):
         screen.blit(fg, (i * bg_width + scroll - bg_width, -500))
     #Add the HUD above everything else
-    screen.blit(scoreLabel, (30,25))
-    screen.blit(scoreValueText, (400,25))
-    screen.blit(timeLabel, (111,100))
-    screen.blit(timeValueText, (350,190))
-    screen.blit(ringsLabel, (222, 240))
+    screen.blit(scoreLabel, (25,15))
+    screen.blit(scoreValueText, (374,15))
+    screen.blit(timeLabel, (25,75))
+    screen.blit(timeValueText, (175,75))
+    screen.blit(ringsLabel, (25, 135))
     screen.blit(ringsValueText, (482, 240))
-    screen.blit(healthSprite, (222, 888))
-    screen.blit(healthValueText, (310, 892))
+    screen.blit(healthSprite, (30, 888))
+    screen.blit(healthValueText, (118, 892))
     #All the keys our Game uses
     keys = pygame.key.get_pressed()
     if keys[pygame.K_ESCAPE]:
