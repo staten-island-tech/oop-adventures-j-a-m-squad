@@ -101,7 +101,7 @@ while running:
         screen.blit(bg, (i * bg_width + scroll - bg_width, 0))
     #How fast our Background and Foreground should scroll
     #Change the minus sign to the plus sign to make everything go backwards or vice versa
-    scroll -= 64
+    scroll -= 50
     #Resets Scrolling
     if abs(scroll) > bg_width:
         scroll = 0
