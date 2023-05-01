@@ -112,7 +112,7 @@ while running:
     #Get the enemy into frame
     if sonicCDSec == 22:
         if enemy_pos.x != 555:
-            enemy_pos.x += 55
+            enemy_pos.x += 11
     if sonicCDMin == 2 and sonicCDSec == 10:
         if enemy_pos.x != -55:
             enemy_pos.x -= 55
