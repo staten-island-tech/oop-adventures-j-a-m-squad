@@ -125,9 +125,9 @@ while running:
     screen.blit(timeLabel, (25,75))
     screen.blit(timeValueText, (175,75))
     screen.blit(ringsLabel, (25, 135))
-    screen.blit(ringsValueText, (342, 135))
+    screen.blit(ringsValueText, (374, 135))
     screen.blit(healthSprite, (25, 888))
-    screen.blit(healthValueText, (75, 892))
+    screen.blit(healthValueText, (110, 892))
     #All the keys our Game uses
     keys = pygame.key.get_pressed()
     if keys[pygame.K_ESCAPE]:
