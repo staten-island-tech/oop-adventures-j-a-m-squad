@@ -16,11 +16,11 @@ running = True
 dt = 0
 FontSonic = pygame.font.Font("assets/fonts/sonic1.ttf", 64)
 #Setup the players and enemys position on the screen
-player_pos = pygame.Vector2(screen.get_width() / 1.5, screen.get_height() / 1.92)
-player2_pos = pygame.Vector2(screen.get_width()/ 1.75, screen.get_height() / 1.75)
+player_pos = pygame.Vector2(screen.get_width() / 1.5, screen.get_height() / 2.34)
+player2_pos = pygame.Vector2(screen.get_width()/ 1.75, screen.get_height() / 2.1)
 enemy_pos = pygame.Vector2(-555, 360)
 #Load and play music
-pygame.mixer.music.load("assets\music\Stardust Speedway Bad Future.ogg")
+pygame.mixer.music.load("assets\music\Trip to Harlem.ogg")
 pygame.mixer.music.play(-1)
 #Load Sound Effects
 sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
@@ -118,16 +118,16 @@ while running:
             enemy_pos.x -= 55
     #Add the foreground after the player and enemy for layering
     for i in range(0, tiles):
-        screen.blit(fg, (i * bg_width + scroll - bg_width, -500))
+        screen.blit(fg, (i * bg_width + scroll - bg_width, -600))
     #Add the HUD above everything else
     screen.blit(scoreLabel, (25,15))
     screen.blit(scoreValueText, (374,15))
     screen.blit(timeLabel, (25,75))
     screen.blit(timeValueText, (175,75))
     screen.blit(ringsLabel, (25, 135))
-    screen.blit(ringsValueText, (482, 240))
-    screen.blit(healthSprite, (30, 888))
-    screen.blit(healthValueText, (118, 892))
+    screen.blit(ringsValueText, (342, 135))
+    screen.blit(healthSprite, (25, 888))
+    screen.blit(healthValueText, (75, 892))
     #All the keys our Game uses
     keys = pygame.key.get_pressed()
     if keys[pygame.K_ESCAPE]:
