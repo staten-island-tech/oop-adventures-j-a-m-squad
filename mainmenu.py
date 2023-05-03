@@ -7,10 +7,10 @@ SCREEN = pygame.display.set_mode((1920, 1080))
 pygame.display.set_caption("Menu")
 
 BG = pygame.transform.scale(pygame.image.load("tails.png").convert(), (1920, 1080))
-SCREEN = pygame.display.set_mode((1280, 720))
+SCREEN = pygame.display.set_mode((1920, 1080))
 pygame.display.set_caption("COOL")
 
-BG = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (1280,720))
+BG = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (1920,1080))
 
 def get_font(size): # Returns Press-Start-2P in the desired size
     return pygame.font.Font("assets/fonts/sonic1.ttf", size)
