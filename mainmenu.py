@@ -38,7 +38,7 @@ def play():
         player2_pos = pygame.Vector2(screen.get_width()/ 1.75, screen.get_height() / 1.75)
         enemy_pos = pygame.Vector2(-555, 360)
         #Load and play music
-        pygame.mixer.music.load("assets\music\Trip to the Saloon.ogg")
+        pygame.mixer.music.load("assets\music\Rag'n'Bone Man - Human (Official Video).mp3")
         pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
@@ -46,7 +46,7 @@ def play():
         #Loads the Player and Enemy
         prey = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (200,200))
         bystander = pygame.transform.scale(pygame.image.load("assets\images\characters\When you outside and smell that ZAZA.png"), (150,150))
-        predator = pygame.transform.scale(pygame.image.load("assets\images\characters\egghead.jpeg"), (222,222))
+        predator = pygame.transform.scale(pygame.image.load("dr.png"), (300,280))
         #Loads our Background and Foreground and scales them to the size of our screen
         bg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustBg.png").convert(), (SCREEN_WIDTH, SCREEN_HEIGHT))
         fg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustFloor.png").convert_alpha(), (SCREEN_WIDTH+500, SCREEN_HEIGHT+500))
@@ -128,9 +128,9 @@ def play():
             screen.blit(bystander, player2_pos) 
             screen.blit(prey, player_pos) 
             #Get the enemy into frame
-            if sonicCDSec == 22:
+            if sonicCDSec == 8:
                 if enemy_pos.x != 555:
-                    enemy_pos.x += 55
+                    enemy_pos.x += 35
             if sonicCDMin == 2 and sonicCDSec == 10:
                 if enemy_pos.x != -55:
                     enemy_pos.x -= 55
@@ -193,5 +193,6 @@ def play():
             pygame.display.flip()
             #The FPS our game runs at
             dt = clock.tick(60) / 1000
+
 
             pygame.display.update()
