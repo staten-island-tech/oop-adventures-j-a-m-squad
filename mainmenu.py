@@ -3,17 +3,28 @@ from button import Button
 import math
 pygame.init()
 
+<<<<<<< Updated upstream
 SCREEN = pygame.display.set_mode((1920, 1080))
 pygame.display.set_caption("Menu")
 
 BG = pygame.transform.scale(pygame.image.load("tails.png").convert(), (1920, 1080))
+=======
+SCREEN = pygame.display.set_mode((1280, 720))
+pygame.display.set_caption("COOL")
+
+BG = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (1280,720))
+>>>>>>> Stashed changes
 
 def get_font(size): # Returns Press-Start-2P in the desired size
-    return pygame.font.Font("font.ttf", size)
+    return pygame.font.Font("assets/fonts/sonic1.ttf", size)
 
 def play():
     while True:
-        PLAY_MOUSE_POS = pygame.mouse.get_pos()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                    #Stops running the game
+                pygame.quit()
+                sys.exit()
 
         SCREEN_WIDTH = 1920
         SCREEN_HEIGHT = 1080
@@ -29,7 +40,11 @@ def play():
         player2_pos = pygame.Vector2(screen.get_width()/ 1.75, screen.get_height() / 1.75)
         enemy_pos = pygame.Vector2(-555, 360)
         #Load and play music
+<<<<<<< Updated upstream
         pygame.mixer.music.load("assets\music\Trip to Burger King.ogg")
+=======
+        pygame.mixer.music.load("assets\music\Trip to Harlem.ogg")
+>>>>>>> Stashed changes
         pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
@@ -219,12 +234,21 @@ def main_menu():
 
         MENU_MOUSE_POS = pygame.mouse.get_pos()
 
+<<<<<<< Updated upstream
         MENU_TEXT = get_font(100).render("MAIN MENU", True, "#b68f40")
         MENU_RECT = MENU_TEXT.get_rect(center=(1000, 300))
 
         PLAY_BUTTON = Button(image=pygame.image.load("lol.png"), pos=(1000, 450), 
                             text_input="PLAY", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
         OPTIONS_BUTTON = Button(image=pygame.image.load("lol.png"), pos=(1000, 600), 
+=======
+        MENU_TEXT = get_font(100).render("MAIN MENU", True, "#FFFFFF")
+        MENU_RECT = MENU_TEXT.get_rect(center=(640, 100))
+
+        PLAY_BUTTON = Button(image=pygame.image.load("lol.png"), pos=(640, 250), 
+                            text_input="STUPID", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
+        OPTIONS_BUTTON = Button(image=pygame.image.load("lol.png"), pos=(640, 400), 
+>>>>>>> Stashed changes
                             text_input="OPTIONS", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
         QUIT_BUTTON = Button(image=pygame.image.load("lol.png"), pos=(1000, 750), 
                             text_input="QUIT", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
