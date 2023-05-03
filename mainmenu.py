@@ -29,7 +29,7 @@ def play():
         player2_pos = pygame.Vector2(screen.get_width()/ 1.75, screen.get_height() / 1.75)
         enemy_pos = pygame.Vector2(-555, 360)
         #Load and play music
-        pygame.mixer.music.load("assets\music\Stardust Speedway Bad Future.ogg")
+        pygame.mixer.music.load("assets\music\Trip to Burger King.ogg")
         pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
