@@ -142,7 +142,7 @@ def play():
             screen.blit(timeLabel, (25,75))
             screen.blit(timeValueText, (175,75))
             screen.blit(ringsLabel, (25, 135))
-            screen.blit(ringsValueText, (482, 240))
+            screen.blit(ringsValueText, (374, 135))
             screen.blit(healthSprite, (30, 888))
             screen.blit(healthValueText, (118, 892))
             #All the keys our Game uses
