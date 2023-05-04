@@ -160,7 +160,7 @@ def play():
             if keys[pygame.K_d]:
                 player_pos.x += 1000 * dt
                 player2_pos.x += 950 * dt
-                if keys[pygame.K_LSHIFT]:
+                if keys[pygame.K_LSHIFT]: 
                     player_pos.x += 5000 * dt
                     player2_pos.x += 4500 * dt
             #Enables Jumping        
