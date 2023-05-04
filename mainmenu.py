@@ -39,7 +39,7 @@ def play():
         player2_pos = pygame.Vector2(screen.get_width()/ 1.75, screen.get_height() / 1.75)
         enemy_pos = pygame.Vector2(-555, 360)
         #Load and play music
-        pygame.mixer.music.load("assets\music\Stardust Speedway.ogg")
+        pygame.mixer.music.load("assets\music\Trip to Burger King.ogg")
         pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
@@ -81,6 +81,7 @@ def play():
         finalSec = 00
         #Everything after this point is what happens while our game is running
         while running:
+            print(player_pos)
             #Quits the game
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -139,6 +140,17 @@ def play():
             if sonicCDMin == 2 and sonicCDSec == 10:
                 if enemy_pos.x != -55:
                     enemy_pos.x -= 55
+            if player_pos.x > 1750 :
+                player_pos.x = 1700
+                player2_pos.x = 1700
+            if player_pos.x < -100:
+                player_pos.x = 0
+                player2_pos.x = 0
+            if player_pos.y > 600:
+                player_pos.y = 400
+                player2_pos.y = 400
+            if player_pos.y < -0 
+            
             #Add the foreground after the player and enemy for layering
             for i in range(0, tiles):
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
