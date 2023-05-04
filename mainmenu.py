@@ -2,6 +2,7 @@ import pygame, sys
 from button import Button
 import math
 import menu
+import random
 pygame.init()
 
 SCREEN = pygame.display.set_mode((1920, 1080))
@@ -192,7 +193,7 @@ def play():
             #Adds our work to the screen
             pygame.display.flip()
             #The FPS our game runs at
-            dt = clock.tick(60) / 1000
+            dt = clock.tick(5) / 1000
 
 
             pygame.display.update()
