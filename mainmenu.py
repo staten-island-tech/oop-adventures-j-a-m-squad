@@ -39,7 +39,7 @@ def play():
         player2_pos = pygame.Vector2(screen.get_width()/ 1.75, screen.get_height() / 1.75)
         enemy_pos = pygame.Vector2(-555, 360)
         #Load and play music
-        pygame.mixer.music.load("assets\music\Rag'n'Bone Man - Human (Official Video).mp3")
+        pygame.mixer.music.load("assets\music\Stardust Speedway.ogg")
         pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
@@ -57,7 +57,8 @@ def play():
         fg_width = fg.get_width()
         fg_rect = fg.get_rect()
         #Variabels for scrolling images
-        scroll = 0
+        bgSpeed = 0
+        floorSpeed = 0
         tiles = math.ceil(SCREEN_WIDTH  / bg_width) + 2
         #Variables for jumping
         boingoing = False
@@ -117,13 +118,16 @@ def play():
             #Adds our background
             for i in range(tiles):
                 #Forces our background to scroll
-                screen.blit(bg, (i * bg_width + scroll - bg_width, 0))
+                screen.blit(bg, (i * bg_width + bgSpeed - bg_width, 0))
             #How fast our Background and Foreground should scroll
             #Change the minus sign to the plus sign to make everything go backwards or vice versa
-            scroll -= 50
+            bgSpeed -= 25
+            floorSpeed += 25
             #Resets Scrolling
-            if abs(scroll) > bg_width:
-                scroll = 0
+            if abs(bgSpeed) > bg_width:
+                bgSpeed = 0
+            if abs(floorSpeed) > bg_width:
+                floorSpeed = 0
             #Adds our Player, Player 2, and enemy
             screen.blit(predator, enemy_pos)
             screen.blit(bystander, player2_pos) 
@@ -137,7 +141,7 @@ def play():
                     enemy_pos.x -= 55
             #Add the foreground after the player and enemy for layering
             for i in range(0, tiles):
-                screen.blit(fg, (i * bg_width + scroll - bg_width, -500))
+                screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
             #Add the HUD above everything else
             screen.blit(scoreLabel, (25,15))
             screen.blit(scoreValueText, (374,15))
@@ -193,7 +197,7 @@ def play():
             #Adds our work to the screen
             pygame.display.flip()
             #The FPS our game runs at
-            dt = clock.tick(5) / 1000
+            dt = clock.tick(60) / 1000
 
 
             pygame.display.update()
