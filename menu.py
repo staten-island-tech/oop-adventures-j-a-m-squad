@@ -8,10 +8,10 @@ pygame.init()
 def get_font(size): # Returns Press-Start-2P in the desired size
     return pygame.font.Font("assets/fonts/sonic1.ttf", size)
 SCREEN = pygame.display.set_mode((1920, 1080))
-BG = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (1920,1080))
+BG = pygame.transform.scale(pygame.image.load("IMG_8638.jpg"), (1920,1080))
 def options():
     while True:
-        wega = pygame.transform.scale(pygame.image.load("assets\images\characters\WEGA.png"), (1080,1080))
+        wega = pygame.transform.scale(pygame.image.load("assets\images\characters\meow.jpg"), (1080,1080))
         spooky = pygame.mixer.Sound("assets\sounds\HL2 Stalker Scream.ogg")
         SCREEN.fill((0,0,0))
         SCREEN.blit(wega, (400, 0))
@@ -25,7 +25,7 @@ def main_menu():
 
         MENU_MOUSE_POS = pygame.mouse.get_pos()
 
-        MENU_TEXT = get_font(100).render("MAIN MENU", True, "#b68f40")
+        MENU_TEXT = get_font(100).render("ATTACK OF THE KILLER WHALE(N)", True, "#b68f40")
         MENU_RECT = MENU_TEXT.get_rect(center=(1000, 300))
 
         PLAY_BUTTON = Button(image=pygame.image.load("lol.png"), pos=(1000, 450), 
