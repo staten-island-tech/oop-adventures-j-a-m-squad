@@ -12,7 +12,7 @@ BG = pygame.transform.scale(pygame.image.load("tails.png").convert(), (1920, 108
 SCREEN = pygame.display.set_mode((1920, 1080))
 pygame.display.set_caption("COOL")
 
-BG = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (1920,1080))
+BG = pygame.transform.scale(pygame.image.load("IMG_8638.jpg"), (1920,1080))
 
 def get_font(size): # Returns Press-Start-2P in the desired size
     return pygame.font.Font("assets/fonts/sonic1.ttf", size)
@@ -47,7 +47,7 @@ def play():
         #Loads the Player and Enemy
         prey = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (200,200))
         bystander = pygame.transform.scale(pygame.image.load("assets\images\characters\When you outside and smell that ZAZA.png"), (150,150))
-        predator = pygame.transform.scale(pygame.image.load("dr.png"), (300,280))
+        predator = pygame.transform.scale(pygame.image.load("Untitled.png"), (300,280))
         #Loads our Background and Foreground and scales them to the size of our screen
         bg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustBg.png").convert(), (SCREEN_WIDTH, SCREEN_HEIGHT))
         fg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustFloor.png").convert_alpha(), (SCREEN_WIDTH+500, SCREEN_HEIGHT+500))
