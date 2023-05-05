@@ -146,9 +146,12 @@ def play():
             if player_pos.x < -100:
                 player_pos.x = 0
                 player2_pos.x = 0
-            if player_pos.y > 600:
-                player_pos.y = 400
-                player2_pos.y = 300
+            if player_pos.y > 563:
+                player_pos.y = 562.5
+                player2_pos.y = 562.5
+            if player_pos.y < 0:
+                player_pos.y = 1
+                player2_pos.y = 1
             
             #Add the foreground after the player and enemy for layering
             for i in range(0, tiles):
