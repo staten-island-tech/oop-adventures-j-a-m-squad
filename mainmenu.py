@@ -73,6 +73,7 @@ def play():
         ringsValueText = FontSonic.render('0', False, (255,255,255))
         healthSprite = pygame.transform.scale(pygame.image.load("assets/images/UI/sonicLifeCounter.png"), (75,50))
         healthValueText = FontSonic.render('3', False, (255,255,255))
+        SaveYour = FontSonic.render('SAVE YOUR WORK', False, (255,255,0))
         #Variables for Time
         sonicCDMil = 0
         sonicCDSec = 0
@@ -133,6 +134,9 @@ def play():
             screen.blit(predator, enemy_pos)
             screen.blit(bystander, player2_pos) 
             screen.blit(prey, player_pos) 
+            screen.blit(SaveYour, (1700,400))
+            if sonicCDSec == 10:
+                
             #Get the enemy into frame
             if sonicCDSec == 8:
                 if enemy_pos.x != 555:
