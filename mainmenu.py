@@ -42,8 +42,8 @@ def play():
         SaveYour_pos = pygame.Vector2(1700, 400)
         commit_pos = pygame.Vector2(1700,600)
         #Load and play music
-        """ pygame.mixer.music.load("assets\music\Trip to Burger King.ogg")
-        pygame.mixer.music.play(-1) """
+        pygame.mixer.music.load("assets\music\Trip to Burger King.ogg")
+        pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
         sonicJumpWacky = pygame.mixer.Sound("assets\sounds\I'm outta here.ogg")
@@ -87,7 +87,7 @@ def play():
         finalSec = 00
         #Everything after this point is what happens while our game is running
         while running:
-            print(player_pos)
+
             #Quits the game
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
