@@ -3,6 +3,7 @@ from button import Button
 import math
 import menu
 import random
+import time
 pygame.init()
 
 SCREEN = pygame.display.set_mode((1920, 1080))
@@ -39,13 +40,14 @@ def play():
         player2_pos = pygame.Vector2(screen.get_width()/ 1.75, screen.get_height() / 1.75)
         enemy_pos = pygame.Vector2(-555, 360)
         SaveYour_pos = pygame.Vector2(1700, 400)
-        commit_pos = pygame.Vector2(1700,400)
+        commit_pos = pygame.Vector2(1700,600)
         #Load and play music
-        pygame.mixer.music.load("assets\music\Trip to Burger King.ogg")
-        pygame.mixer.music.play(-1)
+        """ pygame.mixer.music.load("assets\music\Trip to Burger King.ogg")
+        pygame.mixer.music.play(-1) """
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
         sonicJumpWacky = pygame.mixer.Sound("assets\sounds\I'm outta here.ogg")
+        SaveYourAudio = pygame.mixer.Sound("assets\sounds\Save Your Work audio.mp3")
         #Loads the Player and Enemy
         prey = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (200,200))
         bystander = pygame.transform.scale(pygame.image.load("assets\images\characters\When you outside and smell that ZAZA.png"), (150,150))
@@ -141,7 +143,8 @@ def play():
                 screen.blit(SaveYour, SaveYour_pos)
                 if SaveYour_pos.x != 0:
                     SaveYour_pos.x += -35
-            if sonicCDSec == 12:
+                    pygame.mixer.Sound.play(SaveYourAudio)
+            if sonicCDSec == 11:
                 screen.blit(commit, commit_pos) 
                 if commit_pos.x != 0:
                     commit_pos.x += -35
@@ -175,7 +178,7 @@ def play():
             screen.blit(timeValueText, (175,75))
             screen.blit(ringsLabel, (25, 135))
             screen.blit(ringsValueText, (374, 135))
-            screen.blit(healthSprite, (30, 888))
+            screen.blit(healthSprite, (30, 900))
             screen.blit(healthValueText, (118, 892))
             #All the keys our Game uses
             keys = pygame.key.get_pressed()
