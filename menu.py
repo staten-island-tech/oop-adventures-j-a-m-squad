@@ -43,7 +43,7 @@ def main_menu():
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                gameoverstart()
+                pygame.QUIT
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if PLAY_BUTTON.checkForInput(MENU_MOUSE_POS):
                     play()
