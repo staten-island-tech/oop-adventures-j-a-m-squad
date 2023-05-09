@@ -64,7 +64,7 @@ def play():
         #Variabels for scrolling images
         bgSpeed = 0
         floorSpeed = 0
-        tiles = math.ceil(SCREEN_WIDTH  / bg_width) + 5
+        tiles = math.ceil(SCREEN_WIDTH  / bg_width) + 2
         #Variables for jumping
         boingoing = False
         jumpGravity = 1
