@@ -206,7 +206,7 @@ def play():
             if keys[pygame.K_SPACE]:
                 boingoing = True
                 if keys[pygame.K_LSHIFT]:
-                    jump = 60
+                    exec(open('GameOverSubstate.py').read())
             #Alternative keys for movement
             if keys[pygame.K_LEFT]:
                 player_pos.x -= 1000 * dt
