@@ -150,7 +150,7 @@ def play():
                 screen.blit(commit, commit_pos) 
                 if commit_pos.x != 0:
                     commit_pos.x += -35
-            if sonicCDSec == 10:
+            if sonicCDSec == 10 + 1:
                 screen.blit(github, github_pos) 
                 if github_pos.x != 0:
                     github_pos.x += -35
