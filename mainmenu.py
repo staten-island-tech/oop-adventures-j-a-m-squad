@@ -42,6 +42,7 @@ def play():
         enemy_pos = pygame.Vector2(-555, 360)
         SaveYour_pos = pygame.Vector2(1700, 400)
         commit_pos = pygame.Vector2(1700,600)
+        github_pos = pygame.Vector2(1700,300)
         #Load and play music
         pygame.mixer.music.load("assets\sounds\Save Your Work audio.mp3")
         pygame.mixer.music.play(-1)
@@ -50,7 +51,7 @@ def play():
         sonicJumpWacky = pygame.mixer.Sound("assets\sounds\I'm outta here.ogg")
         SaveYourAudio = pygame.mixer.Sound("assets\sounds\Save Your Work audio.mp3")
         #Loads the Player and Enemy
-        prey = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (200,200))
+        prey = pygame.transform.scale(pygame.image.load("oie_transparent.png"), (200,200))
         bystander = pygame.transform.scale(pygame.image.load("assets\images\characters\When you outside and smell that ZAZA.png"), (150,150))
         predator = pygame.transform.scale(pygame.image.load("Untitled.png"), (300,280))
         #Loads our Background and Foreground and scales them to the size of our screen
@@ -80,6 +81,7 @@ def play():
         healthValueText = FontSonic.render('3', False, (255,255,255))
         SaveYour = FontSonic.render('SAVE YOUR WORK', False, (255,255,0))
         commit =  FontSonic.render('COMMIT TO GITHUB', False, (255,255,0))
+        github =  pygame.transform.scale(pygame.image.load("git.png"), (300,280))
         #Variables for Time
         sonicCDMil = 0
         sonicCDSec = 0
@@ -89,7 +91,7 @@ def play():
         #Everything after this point is what happens while our game is running
         while running:
             saving += 1
-            #Quits the game
+            #Quits the game d
             for event in pygame.event.get():
                 saving += 1
                 if event.type == pygame.QUIT:
@@ -148,6 +150,10 @@ def play():
                 screen.blit(commit, commit_pos) 
                 if commit_pos.x != 0:
                     commit_pos.x += -35
+            if sonicCDSec == 10:
+                screen.blit(github, github_pos) 
+                if github_pos.x != 0:
+                    github_pos.x += -35
             #Get the enemy into frame
             if sonicCDSec == 8:
                 if enemy_pos.x != 555:
