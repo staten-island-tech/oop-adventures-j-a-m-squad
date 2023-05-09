@@ -2,6 +2,7 @@ import pygame, sys
 from button import Button
 import math
 import menu
+import os
 from pyvidplayer import Video
 pygame.init()
 
@@ -206,7 +207,7 @@ def play():
             if keys[pygame.K_SPACE]:
                 boingoing = True
                 if keys[pygame.K_LSHIFT]:
-                    exec(open('GameOverSubstate.py').read())
+                    jump = 60
             #Alternative keys for movement
             if keys[pygame.K_LEFT]:
                 player_pos.x -= 1000 * dt

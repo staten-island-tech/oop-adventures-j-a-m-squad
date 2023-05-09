@@ -1,6 +1,7 @@
 #Menu
 import pygame   
 import pygame, sys
+import os
 from button import Button
 from mainmenu import play
 pygame.init()
@@ -24,7 +25,7 @@ def main_menu():
 
         MENU_MOUSE_POS = pygame.mouse.get_pos()
 
-        MENU_TEXT = get_font(100).render("ATTACK OF THE KILLER WHALE(N)", True, "#b68f40")
+        MENU_TEXT = get_font(100).render("ATTACK OF THE KILLER WHALE(N)", True, "#FFFFFF")
         MENU_RECT = MENU_TEXT.get_rect(center=(1000, 300))
 
         PLAY_BUTTON = Button(image=pygame.image.load("lol.png"), pos=(1000, 450), 
@@ -42,14 +43,14 @@ def main_menu():
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.QUIT
+                os.system('python GameOverSubstate.py')
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if PLAY_BUTTON.checkForInput(MENU_MOUSE_POS):
                     play()
                 if OPTIONS_BUTTON.checkForInput(MENU_MOUSE_POS):
                     options()
                 if QUIT_BUTTON.checkForInput(MENU_MOUSE_POS):
-                    play()
+                    os.system('python GameOverSubstate.py')
         pygame.display.update()
 
 main_menu()

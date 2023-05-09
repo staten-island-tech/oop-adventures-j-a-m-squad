@@ -8,12 +8,10 @@ ico = pygame.image.load("icon.png")
 pygame.display.set_caption("06-06-06. I'm sorry for your loss. He will be missed by everyone that knew him. He was a lovely man and will be greatly missed. You and your family are in my thoughts and prayers.")
 pygame.display.set_icon(ico)
 daVideo.set_size((1280,720))
-def gameoverstart():
-    while True:
-        daVideo.draw(display, (0,0), force_draw=False)
+while True:
+    daVideo.draw(display, (0,0), force_draw=False)
+    pygame.display.update()
+    for event in pygame.event.get():
         pygame.display.update()
-        for event in pygame.event.get():
-            pygame.display.update()
-            if event.type == pygame.QUIT:
-                pygame.quit()
-gameoverstart()
+        if event.type == pygame.QUIT:
+            pygame.quit()
