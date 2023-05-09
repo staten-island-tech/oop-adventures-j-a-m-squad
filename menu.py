@@ -2,8 +2,8 @@
 import pygame   
 import pygame, sys
 from button import Button
-import math
 from mainmenu import play
+from GameOverSubstate import gameoverstart
 pygame.init()
 def get_font(size): # Returns Press-Start-2P in the desired size
     return pygame.font.Font("assets/fonts/sonic1.ttf", size)
@@ -43,17 +43,14 @@ def main_menu():
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
+                gameoverstart()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if PLAY_BUTTON.checkForInput(MENU_MOUSE_POS):
                     play()
                 if OPTIONS_BUTTON.checkForInput(MENU_MOUSE_POS):
                     options()
                 if QUIT_BUTTON.checkForInput(MENU_MOUSE_POS):
-                    pygame.quit()
-                    sys.exit()
-
+                    play()
         pygame.display.update()
 
 main_menu()

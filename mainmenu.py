@@ -2,8 +2,7 @@ import pygame, sys
 from button import Button
 import math
 import menu
-import random
-import time
+from pyvidplayer import Video
 pygame.init()
 
 SCREEN = pygame.display.set_mode((1920, 1080))
@@ -34,6 +33,7 @@ def play():
         start = pygame.time.get_ticks()
         running = True
         dt = 0
+        saving = 0
         FontSonic = pygame.font.Font("assets/fonts/sonic1.ttf", 64)
         #Setup the players and enemys position on the screen
         player_pos = pygame.Vector2(screen.get_width() / 1.5, screen.get_height() / 1.92)
@@ -42,7 +42,7 @@ def play():
         SaveYour_pos = pygame.Vector2(1700, 400)
         commit_pos = pygame.Vector2(1700,600)
         #Load and play music
-        pygame.mixer.music.load("assets\music\Trip to Burger King.ogg")
+        pygame.mixer.music.load("assets\sounds\Save Your Work audio.mp3")
         pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
@@ -63,7 +63,7 @@ def play():
         #Variabels for scrolling images
         bgSpeed = 0
         floorSpeed = 0
-        tiles = math.ceil(SCREEN_WIDTH  / bg_width) + 2
+        tiles = math.ceil(SCREEN_WIDTH  / bg_width) + 5
         #Variables for jumping
         boingoing = False
         jumpGravity = 1
@@ -87,9 +87,10 @@ def play():
         finalSec = 00
         #Everything after this point is what happens while our game is running
         while running:
-
+            saving += 1
             #Quits the game
             for event in pygame.event.get():
+                saving += 1
                 if event.type == pygame.QUIT:
                     #Stops running the game
                     running = False
@@ -115,10 +116,8 @@ def play():
             else:
                 finalSec = sonicCDSec
 
-            timeValue = "0%s'0%s'%s" % (sonicCDMin, sonicCDSec, sonicCDMil)
+            timeValue = "%s'0%s'%s" % (sonicCDMin, sonicCDSec, sonicCDMil)
             if (sonicCDSec >= 10):
-                timeValue = "0%s'%s'%s" % (sonicCDMin, sonicCDSec, sonicCDMil)
-            if (sonicCDMin >= 10):
                 timeValue = "%s'%s'%s" % (sonicCDMin, sonicCDSec, sonicCDMil)
 
             timeValueText = FontSonic.render(timeValue, False, (255,255,255))
@@ -144,7 +143,7 @@ def play():
                 if SaveYour_pos.x != 0:
                     SaveYour_pos.x += -35
                     pygame.mixer.Sound.play(SaveYourAudio)
-            if sonicCDSec == 11:
+            if sonicCDSec == 10 + 1:
                 screen.blit(commit, commit_pos) 
                 if commit_pos.x != 0:
                     commit_pos.x += -35
@@ -168,7 +167,13 @@ def play():
                 player_pos.y = 1
                 player2_pos.y = 1
             
-            #Add the foreground after the player and enemy for layering
+            #Add the foreground after the player and enemy for layering            
+            for i in range(0, tiles):
+                screen.blit(SaveYour, (i * bg_width + floorSpeed - bg_width, +400))
+                pygame.mixer.Sound.play(SaveYourAudio)
+            for i in range(0, tiles):
+                screen.blit(commit, (i * bg_width + bgSpeed - bg_width, +650))
+                pygame.mixer.Sound.play(SaveYourAudio)
             for i in range(0, tiles):
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
             #Add the HUD above everything else
