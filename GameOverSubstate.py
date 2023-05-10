@@ -9,7 +9,7 @@ pygame.display.set_caption("06-06-06. I'm sorry for your loss. He will be missed
 pygame.display.set_icon(ico)
 daVideo.set_size((1280,720))
 while True:
-    daVideo.draw(display, (0,0), force_draw=False)
+    daVideo.draw(display, (0,0))
     pygame.display.update()
     for event in pygame.event.get():
         pygame.display.update()
