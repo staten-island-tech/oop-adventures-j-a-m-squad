@@ -28,7 +28,7 @@ def main_menu():
         MENU_TEXT = get_font(100).render("ATTACK OF THE KILLER WHALE(N)", True, "#FFFFFF")
         MENU_RECT = MENU_TEXT.get_rect(center=(1000, 300))
 
-        PLAY_BUTTON = Button(image=pygame.image.load("lol.png"), pos=(1000, 450), 
+        PLAY_BUTTON = Button(image=pygame.transform.scale(pygame.image.load("meow.jpg"), (300,150)), pos=(1000, 450), 
                             text_input="PLAY", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
         OPTIONS_BUTTON = Button(image=pygame.image.load("lol.png"), pos=(1000, 600), 
                             text_input="OPTIONS", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
