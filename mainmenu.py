@@ -148,7 +148,7 @@ def play():
                 if sonicCDSec == sec + 1:
                     screen.blit(commit, commit_pos)
                     if commit_pos.x != 0:
-                        commit_pos.x += -35 * dt
+                        commit_pos.x += -30 * dt
             attack(1)
             """ def Enemy_attack(z):
                 SaveYour_pos = pygame.Vector2(1600, 400)
