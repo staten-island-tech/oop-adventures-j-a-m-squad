@@ -144,7 +144,7 @@ def play():
                     screen.blit(SaveYour, SaveYour_pos)
                     if SaveYour_pos.x != 0:
                         SaveYour_pos.x += -100
-                        pygame.mixer.Sound.play(SaveYourAudio)
+                        SaveYourAudio.play()
                 if sonicCDSec == sec + 1:
                     screen.blit(commit, commit_pos)
                     if commit_pos.x != 0:
