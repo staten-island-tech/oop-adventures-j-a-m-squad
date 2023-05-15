@@ -40,18 +40,15 @@ def play():
         player_pos = pygame.Vector2(screen.get_width() / 1.5, screen.get_height() / 1.92)
         player2_pos = pygame.Vector2(screen.get_width()/ 1.75, screen.get_height() / 1.75)
         enemy_pos = pygame.Vector2(-555, 360)
-        SaveYour_pos = pygame.Vector2(1700, 400)
-        commit_pos = pygame.Vector2(1700,600)
-        github_pos = pygame.Vector2(1700,300)
         #Load and play music
-        pygame.mixer.music.load("assets\sounds\Save Your Work audio.mp3")
-        pygame.mixer.music.play(-1)
+        # pygame.mixer.music.load("assets\sounds\Save Your Work audio.mp3")
+        # pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
         sonicJumpWacky = pygame.mixer.Sound("assets\sounds\I'm outta here.ogg")
         SaveYourAudio = pygame.mixer.Sound("assets\sounds\Save Your Work audio.mp3")
         #Loads the Player and Enemy
-        prey = pygame.transform.scale(pygame.image.load("oie_transparent.png"), (200,200))
+        prey = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (200,200))
         bystander = pygame.transform.scale(pygame.image.load("assets\images\characters\When you outside and smell that ZAZA.png"), (150,150))
         predator = pygame.transform.scale(pygame.image.load("Untitled.png"), (300,280))
         #Loads our Background and Foreground and scales them to the size of our screen
@@ -81,7 +78,6 @@ def play():
         healthValueText = FontSonic.render('3', False, (255,255,255))
         SaveYour = FontSonic.render('SAVE YOUR WORK', False, (255,255,0))
         commit =  FontSonic.render('COMMIT TO GITHUB', False, (255,255,0))
-        github =  pygame.transform.scale(pygame.image.load("git.png"), (300,280))
         #Variables for Time
         sonicCDMil = 0
         sonicCDSec = 0
@@ -90,8 +86,10 @@ def play():
         finalSec = 00
         #Everything after this point is what happens while our game is running
         while running:
+            SaveYour_pos = pygame.Vector2(1500, 400)
+            commit_pos = pygame.Vector2(1500,600)
             saving += 1
-            #Quits the game d
+            #Quits the game
             for event in pygame.event.get():
                 saving += 1
                 if event.type == pygame.QUIT:
@@ -140,27 +138,40 @@ def play():
             #Adds our Player, Player 2, and enemy
             screen.blit(predator, enemy_pos)
             screen.blit(bystander, player2_pos) 
-            screen.blit(prey, player_pos) 
-            if sonicCDSec == 10:
-                screen.blit(SaveYour, SaveYour_pos)
-                if SaveYour_pos.x != 0:
-                    SaveYour_pos.x += -35
+            screen.blit(prey, player_pos)                
+            def attack(sec):
+                if sonicCDSec == sec:
+                    screen.blit(SaveYour, SaveYour_pos)
+                    if SaveYour_pos.x != 0:
+                        SaveYour_pos.x += -100
+                        SaveYourAudio.play()
+                if sonicCDSec == sec + 1:
+                    screen.blit(commit, commit_pos)
+                    if commit_pos.x != 0:
+                        commit_pos.x += -30 * dt
+            attack(1)
+            """ def Enemy_attack(z):
+                SaveYour_pos = pygame.Vector2(1600, 400)
+                commit_pos = pygame.Vector2(1600,600)
+                if sonicCDSec == z:
+                    screen.blit(SaveYour, SaveYour_pos)
+                    SaveYour_pos.x -= 35
                     pygame.mixer.Sound.play(SaveYourAudio)
-            if sonicCDSec == 10 + 1:
-                screen.blit(commit, commit_pos) 
-                if commit_pos.x != 0:
-                    commit_pos.x += -35
-            if sonicCDSec == 10 + 1:
-                screen.blit(github, github_pos) 
-                if github_pos.x != 0:
-                    github_pos.x += -35
+                if sonicCDSec == z + 1:
+                    screen.blit(commit, commit_pos) 
+                    commit_pos.x -= 35      
+            Enemy_attack(1) """
             #Get the enemy into frame
             if sonicCDSec == 8:
                 if enemy_pos.x != 555:
                     enemy_pos.x += 35
-            if sonicCDMin == 2 and sonicCDSec == 10:
-                if enemy_pos.x != -55:
-                    enemy_pos.x -= 55
+            if sonicCDSec == 12:
+                if enemy_pos.x != 300:
+                    enemy_pos.x += -35
+            if sonicCDSec == 14:
+                if enemy_pos.x != 555:
+                    enemy_pos.x +=35
+            
             if player_pos.x > 1750 :
                 player_pos.x = 1700
                 player2_pos.x = 1700
@@ -175,12 +186,12 @@ def play():
                 player2_pos.y = 1
             
             #Add the foreground after the player and enemy for layering            
-            for i in range(0, tiles):
+            """ for i in range(0, tiles):
                 screen.blit(SaveYour, (i * bg_width + floorSpeed - bg_width, +400))
                 pygame.mixer.Sound.play(SaveYourAudio)
             for i in range(0, tiles):
                 screen.blit(commit, (i * bg_width + bgSpeed - bg_width, +650))
-                pygame.mixer.Sound.play(SaveYourAudio)
+                pygame.mixer.Sound.play(SaveYourAudio) """
             for i in range(0, tiles):
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
             #Add the HUD above everything else
