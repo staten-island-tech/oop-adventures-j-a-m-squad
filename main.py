@@ -1,5 +1,6 @@
 # Example file showing a circle moving on screen
 import pygame
+from classHUD import HUD
 
 # pygame setup
 pygame.init()
@@ -21,6 +22,8 @@ while running:
     screen.fill("purple")
 
     pygame.draw.circle(screen, "red", player_pos, 40)
+
+    HUD("soniccd.ttf")
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_w]:
