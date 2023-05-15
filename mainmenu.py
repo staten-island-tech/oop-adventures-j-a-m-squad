@@ -41,8 +41,8 @@ def play():
         player2_pos = pygame.Vector2(screen.get_width()/ 1.75, screen.get_height() / 1.75)
         enemy_pos = pygame.Vector2(-555, 360)
         #Load and play music
-        # pygame.mixer.music.load("assets\sounds\Save Your Work audio.mp3")
-        # pygame.mixer.music.play(-1)
+        pygame.mixer.music.load("final escape instr umental.ogg")
+        pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
         sonicJumpWacky = pygame.mixer.Sound("assets\sounds\I'm outta here.ogg")
@@ -184,6 +184,11 @@ def play():
             if player_pos.y < 0:
                 player_pos.y = 1
                 player2_pos.y = 1
+
+            if sonicCDMin == 5 and sonicCDSec == 20:
+                pygame.quit()
+                os.system('python GameOverSubstate.py')
+                print("TIME OVER")
             
             #Add the foreground after the player and enemy for layering            
             """ for i in range(0, tiles):
