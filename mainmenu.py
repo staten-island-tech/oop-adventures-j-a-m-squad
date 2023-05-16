@@ -1,7 +1,7 @@
 import pygame, sys
 from button import Button
 import math
-import menu
+from menu import *
 import os
 from pyvidplayer import Video
 from ClassHUD import HUD
@@ -12,12 +12,12 @@ pygame.display.set_caption("Menu")
 
 BG = pygame.transform.scale(pygame.image.load("tails.png").convert(), (1920, 1080))
 SCREEN = pygame.display.set_mode((1920, 1080))
-pygame.display.set_caption("COOL")
 
 BG = pygame.transform.scale(pygame.image.load("IMG_8638.jpg"), (1920,1080))
 
 def get_font(size): # Returns Press-Start-2P in the desired size
     return pygame.font.Font("assets/fonts/sonic1.ttf", size)
+
 
 def play():
     while True:
@@ -32,21 +32,17 @@ def play():
         #Setup Game
         screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.RESIZABLE)
         clock = pygame.time.Clock()
-        start = pygame.time.get_ticks()
         running = True
         dt = 0
         saving = 0
+        start = pygame.time.get_ticks()
         FontSonic = pygame.font.Font("assets/fonts/sonic1.ttf", 64)
         #Setup the players and enemys position on the screen
         player_pos = pygame.Vector2(screen.get_width() / 1.5, screen.get_height() / 1.92)
         player2_pos = pygame.Vector2(screen.get_width()/ 1.75, screen.get_height() / 1.75)
         enemy_pos = pygame.Vector2(-555, 360)
         #Load and play music
-<<<<<<< Updated upstream
         pygame.mixer.music.load("final escape instr umental.ogg")
-=======
-        pygame.mixer.music.load("assets\music\Sfinal escape instr umental.ogg")
->>>>>>> Stashed changes
         pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
@@ -74,21 +70,9 @@ def play():
         jump = 20
         jumpVelocity = jump
         #Variables for HUD
-        scoreLabel = FontSonic.render('SCORE', False, (255,255,0))
-        scoreValueText = FontSonic.render('0', False, (255,255,255))
-        timeLabel = FontSonic.render('TIME', False, (255,255,0))
-        ringsLabel = FontSonic.render('RINGS', False, (255,255,0))
-        ringsValueText = FontSonic.render('0', False, (255,255,255))
-        healthSprite = pygame.transform.scale(pygame.image.load("assets/images/UI/sonicLifeCounter.png"), (75,50))
-        healthValueText = FontSonic.render('3', False, (255,255,255))
         SaveYour = FontSonic.render('SAVE YOUR WORK', False, (255,255,0))
         commit =  FontSonic.render('COMMIT TO GITHUB', False, (255,255,0))
         #Variables for Time
-        sonicCDMil = 0
-        sonicCDSec = 0
-        sonicCDMin = 0
-        finalMil = 00
-        finalSec = 00
         #Everything after this point is what happens while our game is running
         while running:
             SaveYour_pos = pygame.Vector2(1500, 400)
@@ -107,26 +91,6 @@ def play():
                     if keys[pygame.K_LSHIFT] and keys[pygame.K_SPACE]:
                         pygame.mixer.Sound.play(sonicJumpWacky)
             #Time logic handled here
-            counting = pygame.time.get_ticks() - start
-            if (math.floor(start) >= 0):
-                sonicCDSec = (math.floor((math.floor(counting) / 1000) % 60))
-                sonicCDMil = ((round(((math.floor(counting)) % 1000) / 10) % 100))
-                sonicCDMin = (math.floor(math.floor((math.floor(counting) / 1000) / 60) % 60))
-
-            if (sonicCDMil < 10):
-                finalMil = sonicCDMil
-            else:
-                finalMil = sonicCDMil
-            if (sonicCDSec < 10):
-                finalSec = sonicCDSec
-            else:
-                finalSec = sonicCDSec
-
-            timeValue = "%s'0%s'%s" % (sonicCDMin, sonicCDSec, sonicCDMil)
-            if (sonicCDSec >= 10):
-                timeValue = "%s'%s'%s" % (sonicCDMin, sonicCDSec, sonicCDMil)
-
-            timeValueText = FontSonic.render(timeValue, False, (255,255,255))
             #Adds our background
             for i in range(tiles):
                 #Forces our background to scroll
@@ -144,17 +108,6 @@ def play():
             screen.blit(predator, enemy_pos)
             screen.blit(bystander, player2_pos) 
             screen.blit(prey, player_pos)                
-            def attack(sec):
-                if sonicCDSec == sec:
-                    screen.blit(SaveYour, SaveYour_pos)
-                    if SaveYour_pos.x != 0:
-                        SaveYour_pos.x += -100
-                        SaveYourAudio.play()
-                if sonicCDSec == sec + 1:
-                    screen.blit(commit, commit_pos)
-                    if commit_pos.x != 0:
-                        commit_pos.x += -30 * dt
-            attack(1)
             """ def Enemy_attack(z):
                 SaveYour_pos = pygame.Vector2(1600, 400)
                 commit_pos = pygame.Vector2(1600,600)
@@ -167,15 +120,6 @@ def play():
                     commit_pos.x -= 35      
             Enemy_attack(1) """
             #Get the enemy into frame
-            if sonicCDSec == 8:
-                if enemy_pos.x != 555:
-                    enemy_pos.x += 35
-            if sonicCDSec == 12:
-                if enemy_pos.x != 300:
-                    enemy_pos.x += -35
-            if sonicCDSec == 14:
-                if enemy_pos.x != 555:
-                    enemy_pos.x +=35
             
             if player_pos.x > 1750 :
                 player_pos.x = 1700
@@ -189,12 +133,6 @@ def play():
             if player_pos.y < 0:
                 player_pos.y = 1
                 player2_pos.y = 1
-
-            if sonicCDMin == 5 and sonicCDSec == 20:
-                pygame.quit()
-                os.system('python GameOverSubstate.py')
-                print("TIME OVER")
-            
             #Add the foreground after the player and enemy for layering            
             """ for i in range(0, tiles):
                 screen.blit(SaveYour, (i * bg_width + floorSpeed - bg_width, +400))
@@ -205,14 +143,7 @@ def play():
             for i in range(0, tiles):
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
             #Add the HUD above everything else
-            screen.blit(scoreLabel, (25,15))
-            screen.blit(scoreValueText, (374,15))
-            screen.blit(timeLabel, (25,75))
-            screen.blit(timeValueText, (175,75))
-            screen.blit(ringsLabel, (25, 135))
-            screen.blit(ringsValueText, (374, 135))
-            screen.blit(healthSprite, (30, 900))
-            screen.blit(healthValueText, (118, 892))
+            HUD(start)
             #All the keys our Game uses
             keys = pygame.key.get_pressed()
             if keys[pygame.K_ESCAPE]:

@@ -12,7 +12,6 @@ SCREEN = pygame.display.set_mode((1920, 1080))
 BG = pygame.transform.scale(pygame.image.load("IMG_8638.jpg"), (1920,1080))
 CURSOR = pygame.transform.scale2x(pygame.image.load("cursor.png"))
 
-<<<<<<< Updated upstream
 def options():
     while True:
         wega = pygame.transform.scale(pygame.image.load("assets\images\characters\meow.jpg"), (1080,1080))
@@ -20,20 +19,6 @@ def options():
         SCREEN.fill((0,0,0))
         SCREEN.blit(wega, (400, 0))
         pygame.mixer.Sound.play(spooky)
-=======
-        def main_menu():
-            while True:
-                pygame.mouse.set_visible(False)
-
-                cursor = pygame.image.load("assets/iamges/cursor.png")
-                rect4Cursor = cursor.get_rect()
-
-                rect4Cursor.center = pygame.mouse.get_pos() 
-                self.SCREEN.blit(cursor, rect4Cursor)
-
-                self.SCREEN.blit(self.BG, (0, 0))
-                self.SCREEN.blit(self.CURSOR, pygame.mouse.get_pos())
->>>>>>> Stashed changes
 
         pygame.display.update()
 
