@@ -23,7 +23,7 @@ while running:
 
     pygame.draw.circle(screen, "red", player_pos, 40)
 
-    HUD("soniccd.ttf")
+    HUD()
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_w]:
