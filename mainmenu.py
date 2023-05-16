@@ -42,7 +42,11 @@ def play():
         player2_pos = pygame.Vector2(screen.get_width()/ 1.75, screen.get_height() / 1.75)
         enemy_pos = pygame.Vector2(-555, 360)
         #Load and play music
+<<<<<<< Updated upstream
         pygame.mixer.music.load("final escape instr umental.ogg")
+=======
+        pygame.mixer.music.load("assets\music\Sfinal escape instr umental.ogg")
+>>>>>>> Stashed changes
         pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
