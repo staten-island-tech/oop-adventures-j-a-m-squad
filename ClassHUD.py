@@ -42,17 +42,23 @@ class HUD:
         else:
             self.finalSec = sonicCDSec
 
-        timeValue = "%s" % (sonicCDMin) +"'" + "0%s" % (sonicCDSec) + "'" + '"%s' % (sonicCDMil)
+        timeValue = "0%s" % (sonicCDMin) +"'" + "0%s" % (sonicCDSec) + '"%s' % (sonicCDMil)
+        if (sonicCDMil <= 9):
+            timeValue = "0%s" % (sonicCDMin) +"'" + "0%s" % (sonicCDSec) + '"0%s' % (sonicCDMil)
         if (sonicCDSec >= 10):
-            timeValue = "%s" % (sonicCDMin) +"'" + "%s" % (sonicCDSec) + "'" + '"%s' % (sonicCDMil)
+            timeValue = "0%s" % (sonicCDMin) +"'" + "%s" % (sonicCDSec) + '"%s' % (sonicCDMil)
+        if (sonicCDMin >= 10):
+            timeValue = "%s" % (sonicCDMin) +"'" + "%s" % (sonicCDSec) + '"%s' % (sonicCDMil)
 
         self.timeValueText = self.daFont.render(timeValue, False, (255,255,255))
 
         self.screen = pygame.display.get_surface()
 
-        self.screen.blit(self.scoreLabelShadow, (27,15))
+        self.screen.blit(self.scoreLabelShadow, (30,15))
         self.screen.blit(self.scoreLabel, (25,15))
+        self.screen.blit(self.scoreValueTextShadow, (379, 15))
         self.screen.blit(self.scoreValueText, (374,15))
+        self.screen.blit(self.timeLabelShadow, (30,75))
         self.screen.blit(self.timeLabel, (25,75))
         self.screen.blit(self.timeValueText, (175,75))
         self.screen.blit(self.ringsLabel, (25, 135))
