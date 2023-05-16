@@ -10,8 +10,11 @@ class HUD:
         self.start = daStartingTime
 
         self.daFont = pygame.font.Font("assets/fonts/sonic1.ttf", 64)
+        self.scoreLabelShadow = self.daFont.render('SCORE', False, (0,0,0))
         self.scoreLabel = self.daFont.render('SCORE', False, (255,255,0))
+        self.scoreValueTextShadow = self.daFont.render('0', False, (0,0,0))
         self.scoreValueText = self.daFont.render('0', False, (255,255,255))
+        self.timeLabelShadow = self.daFont.render('TIME', False, (0,0,0))
         self.timeLabel = self.daFont.render('TIME', False, (255,255,0))
         self.ringsLabel = self.daFont.render('RINGS', False, (255,255,0))
         self.ringsValueText = self.daFont.render('0', False, (255,255,255))
@@ -47,6 +50,7 @@ class HUD:
 
         self.screen = pygame.display.get_surface()
 
+        self.screen.blit(self.scoreLabelShadow, (27,15))
         self.screen.blit(self.scoreLabel, (25,15))
         self.screen.blit(self.scoreValueText, (374,15))
         self.screen.blit(self.timeLabel, (25,75))
