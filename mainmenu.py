@@ -40,6 +40,8 @@ def play():
         player_pos = pygame.Vector2(screen.get_width() / 1.5, screen.get_height() / 1.92)
         player2_pos = pygame.Vector2(screen.get_width()/ 1.75, screen.get_height() / 1.75)
         enemy_pos = pygame.Vector2(-555, 360)
+        SaveYour_pos = pygame.Vector2(1500, 400)
+        commit_pos = pygame.Vector2(1500, 600)
         #Load and play music
         # pygame.mixer.music.load("assets\sounds\Save Your Work audio.mp3")
         # pygame.mixer.music.play(-1)
@@ -86,8 +88,6 @@ def play():
         finalSec = 00
         #Everything after this point is what happens while our game is running
         while running:
-            SaveYour_pos = pygame.Vector2(1500, 400)
-            commit_pos = pygame.Vector2(1500,600)
             saving += 1
             #Quits the game
             for event in pygame.event.get():
@@ -138,19 +138,37 @@ def play():
             #Adds our Player, Player 2, and enemy
             screen.blit(predator, enemy_pos)
             screen.blit(bystander, player2_pos) 
-            screen.blit(prey, player_pos)                
+            screen.blit(prey, player_pos) 
+        
             def attack(sec):
+                def e():
+                    SaveYour_pos = pygame.Vector2(1500, 400)
+                    commit_pos = pygame.Vector2(1500, 600)
+                e()
                 if sonicCDSec == sec:
                     screen.blit(SaveYour, SaveYour_pos)
-                    if SaveYour_pos.x != 0:
-                        SaveYour_pos.x += -100
+                    if SaveYour_pos.x != -100:
+                       SaveYour_pos.x += -50
+                       SaveYourAudio.play()
+                if sonicCDSec == sec + 1:
+                    screen.blit(commit, commit_pos)
+                    if commit_pos.x != -100:
+                        commit_pos.x += -50
+            attack(10)         
+
+            """ def attack(sec):
+                if sonicCDSec == sec:
+                    screen.blit(SaveYour, SaveYour_pos)
+                    if SaveYour_pos.x != -100:
+                        SaveYour_pos.x += -30
                         SaveYourAudio.play()
                 if sonicCDSec == sec + 1:
                     screen.blit(commit, commit_pos)
-                    if commit_pos.x != 0:
-                        commit_pos.x += -30 * dt
+                    if commit_pos.x != -100:
+                        commit_pos.x += -30
             attack(1)
-            def Enemy_attack(z):
+            attack(4) """
+            """ def Enemy_attack(z):
                 SaveYour_pos = pygame.Vector2(1600, 400)
                 commit_pos = pygame.Vector2(1600,600)
                 if sonicCDSec == z:
@@ -160,7 +178,7 @@ def play():
                 if sonicCDSec == z + 1:
                     screen.blit(commit, commit_pos) 
                     commit_pos.x -= 35      
-            Enemy_attack(1)
+            Enemy_attack(1) """
             #Get the enemy into frame
             if sonicCDSec == 8:
                 if enemy_pos.x != 555:
