@@ -4,6 +4,7 @@ import math
 import menu
 import os
 from pyvidplayer import Video
+from ClassHUD import HUD
 pygame.init()
 
 SCREEN = pygame.display.set_mode((1920, 1080))
