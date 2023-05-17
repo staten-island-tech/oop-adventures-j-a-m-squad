@@ -5,6 +5,7 @@ from menu import *
 import os
 from pyvidplayer import Video
 from ClassHUD import HUD
+from enemy import whale
 pygame.init()
 
 SCREEN = pygame.display.set_mode((1920, 1080))
@@ -51,7 +52,7 @@ def play():
         #Loads the Player and Enemy
         prey = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (200,200))
         bystander = pygame.transform.scale(pygame.image.load("assets\images\characters\When you outside and smell that ZAZA.png"), (150,150))
-        predator = pygame.transform.scale(pygame.image.load("Untitled.png"), (300,280))
+        predator = pygame.transform.scale(pygame.image.load("WhalenPic.png"), (300,280))
         #Loads our Background and Foreground and scales them to the size of our screen
         bg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustBg.png").convert(), (SCREEN_WIDTH, SCREEN_HEIGHT))
         fg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustFloor.png").convert_alpha(), (SCREEN_WIDTH+500, SCREEN_HEIGHT+500))
@@ -75,6 +76,7 @@ def play():
         #Variables for Time
         #Everything after this point is what happens while our game is running
         while running:
+
             SaveYour_pos = pygame.Vector2(1500, 400)
             commit_pos = pygame.Vector2(1500,600)
             saving += 1
@@ -107,7 +109,9 @@ def play():
             #Adds our Player, Player 2, and enemy
             screen.blit(predator, enemy_pos)
             screen.blit(bystander, player2_pos) 
-            screen.blit(prey, player_pos)                
+            screen.blit(prey, player_pos)          
+            whale(start, 10, 11) 
+            whale(start, 14, 15)     
             """ def Enemy_attack(z):
                 SaveYour_pos = pygame.Vector2(1600, 400)
                 commit_pos = pygame.Vector2(1600,600)
