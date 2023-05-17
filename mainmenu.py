@@ -68,7 +68,7 @@ def play():
         #Variables for jumping
         boingoing = False
         jumpGravity = 1
-        jump = 20
+        jump = 16
         jumpVelocity = jump
         #Everything after this point is what happens while our game is running
         while running:
