@@ -5,7 +5,7 @@ from menu import *
 import os
 from pyvidplayer import Video
 from ClassHUD import HUD
-from enemy import *
+from attacks import *
 pygame.init()
 
 SCREEN = pygame.display.set_mode((1920, 1080))
@@ -70,10 +70,6 @@ def play():
         jumpGravity = 1
         jump = 20
         jumpVelocity = jump
-        #Variables for HUD
-        SaveYour = FontSonic.render('SAVE YOUR WORK', False, (255,255,0))
-        commit =  FontSonic.render('COMMIT TO GITHUB', False, (255,255,0))
-        #Variables for Time
         #Everything after this point is what happens while our game is running
         while running:
 
@@ -110,21 +106,8 @@ def play():
             screen.blit(predator, enemy_pos)
             screen.blit(bystander, player2_pos) 
             screen.blit(prey, player_pos)          
-            whale(start, 10)
-            whale(start, 14)     
-            """ def Enemy_attack(z):
-                SaveYour_pos = pygame.Vector2(1600, 400)
-                commit_pos = pygame.Vector2(1600,600)
-                if sonicCDSec == z:
-                    screen.blit(SaveYour, SaveYour_pos)
-                    SaveYour_pos.x -= 35
-                    pygame.mixer.Sound.play(SaveYourAudio)
-                if sonicCDSec == z + 1:
-                    screen.blit(commit, commit_pos) 
-                    commit_pos.x -= 35      
-            Enemy_attack(1) """
+            Basic(start, 10, 0)
             #Get the enemy into frame
-            
             if player_pos.x > 1750 :
                 player_pos.x = 1700
                 player2_pos.x = 1700
