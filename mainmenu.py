@@ -5,7 +5,7 @@ from menu import *
 import os
 from pyvidplayer import Video
 from ClassHUD import HUD
-from enemy import whale
+from enemy import *
 pygame.init()
 
 SCREEN = pygame.display.set_mode((1920, 1080))
@@ -110,8 +110,8 @@ def play():
             screen.blit(predator, enemy_pos)
             screen.blit(bystander, player2_pos) 
             screen.blit(prey, player_pos)          
-            whale(start, 10, 11) 
-            whale(start, 14, 15)     
+            whale(start, 10)
+            whale(start, 14)     
             """ def Enemy_attack(z):
                 SaveYour_pos = pygame.Vector2(1600, 400)
                 commit_pos = pygame.Vector2(1600,600)

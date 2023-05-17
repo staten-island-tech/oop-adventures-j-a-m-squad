@@ -9,7 +9,7 @@ SaveYour_pos = pygame.Vector2(1500, 400)
 commit_pos = pygame.Vector2(1500,600)
 SaveYourAudio = pygame.mixer.Sound("assets\sounds\Save Your Work audio.mp3")
 class whale:
-    def __init__(self,daStartingTime, attack, attack2):
+    def __init__(self,daStartingTime, seconds4timing):
         self.start = daStartingTime
         self.predator = pygame.transform.scale(pygame.image.load("WhalenPic.png"), (300,280))
 
@@ -43,15 +43,19 @@ class whale:
             self.screen.blit(self.predator, enemy_pos)
             if enemy_pos.x != 1500:
                 enemy_pos.x += 30
-        if sonicCDSec == attack:
-            self.screen.blit(self.SaveYour, SaveYour_pos == (1500, 400))
+        if sonicCDSec == seconds4timing:
+            self.screen.blit(self.SaveYour, SaveYour_pos)
             if SaveYour_pos.x != 0:
                 SaveYour_pos.x -= 30
+            elif SaveYour_pos.x != 1500:
+                SaveYour_pos.x += 1500
             pygame.mixer.Sound.play(SaveYourAudio)
-        if sonicCDSec == attack2:
-            self.screen.blit(self.commit, (1500, 600))
+        if sonicCDSec == seconds4timing + 1:
+            self.screen.blit(self.commit, commit_pos)            
             if commit_pos.x != 0:
                 commit_pos.x -= 30
+            elif commit_pos.x != 1500:
+                commit_pos.x += 1500
         
         
 
