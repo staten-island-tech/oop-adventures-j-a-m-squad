@@ -1,6 +1,5 @@
 import pygame
 import math
-import mainmenu
 
 pygame.init()
 pygame.font.init()
@@ -63,6 +62,6 @@ class HUD:
         self.screen.blit(self.timeValueText, (175,75))
         self.screen.blit(self.ringsLabel, (25, 135))
         self.screen.blit(self.ringsValueText, (374, 135))
-        self.screen.blit(self.healthSprite, (30, 900))
-        self.screen.blit(self.healthValueText, (118, 892))
+        self.screen.blit(self.healthSprite, (30, 1000))
+        self.screen.blit(self.healthValueText, (118, 992))
 
