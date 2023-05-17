@@ -95,7 +95,7 @@ def play():
                 screen.blit(bg, (i * bg_width + bgSpeed - bg_width, 0))
             #How fast our Background and Foreground should scroll
             #Change the minus sign to the plus sign to make everything go backwards or vice versa
-            bgSpeed -= 25
+            bgSpeed -= 10
             floorSpeed += 25
             #Resets Scrolling
             if abs(bgSpeed) > bg_width:
@@ -107,6 +107,7 @@ def play():
             screen.blit(bystander, player2_pos) 
             screen.blit(prey, player_pos)          
             Basic(start, 10, 0)
+            Basic(start, 15, 0)
             #Get the enemy into frame
             if player_pos.x > 1750 :
                 player_pos.x = 1700
