@@ -106,8 +106,8 @@ def play():
             screen.blit(predator, enemy_pos)
             screen.blit(bystander, player2_pos) 
             screen.blit(prey, player_pos)          
-            Basic(start, 10, 0)
-            Basic(start, 15, 0)
+            Basic(start, 10)
+            Basic(start, 15)
             #Get the enemy into frame
             if player_pos.x > 1750 :
                 player_pos.x = 1700
@@ -138,13 +138,13 @@ def play():
                 pygame.quit()
             #Every key below this is keys for movement
             if keys[pygame.K_a]:
-                player_pos.x -= 1000 * dt
+                player_pos.x -= 1111 * dt
                 player2_pos.x -= 950 * dt
                 if keys[pygame.K_LSHIFT]:
                     player_pos.x -= 5000 * dt
                     player2_pos.x -= 4500 * dt
             if keys[pygame.K_d]:
-                player_pos.x += 1000 * dt
+                player_pos.x += 1111 * dt
                 player2_pos.x += 950 * dt
                 if keys[pygame.K_LSHIFT]: 
                     player_pos.x += 5000 * dt
@@ -156,13 +156,13 @@ def play():
                     jump = 60
             #Alternative keys for movement
             if keys[pygame.K_LEFT]:
-                player_pos.x -= 1000 * dt
+                player_pos.x -= 1111 * dt
                 player2_pos.x -= 950 * dt
                 if keys[pygame.K_LSHIFT]:
                     player_pos.x -= 5000 * dt
                     player2_pos.x -= 4500 * dt
             if keys[pygame.K_RIGHT]:
-                player_pos.x += 1000 * dt
+                player_pos.x += 1111 * dt
                 player2_pos.x += 950 * dt
                 if keys[pygame.K_LSHIFT]:
                     player_pos.x += 5000 * dt
