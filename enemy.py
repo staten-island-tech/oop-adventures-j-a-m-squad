@@ -48,14 +48,14 @@ class whale:
             if SaveYour_pos.x != 0:
                 SaveYour_pos.x -= 30
             elif SaveYour_pos.x != 1500:
-                SaveYour_pos.x += 1500
+                SaveYour_pos.x += 1500 #It was this fucking easy Michael
             pygame.mixer.Sound.play(SaveYourAudio)
         if sonicCDSec == seconds4timing + 1:
             self.screen.blit(self.commit, commit_pos)            
             if commit_pos.x != 0:
                 commit_pos.x -= 30
             elif commit_pos.x != 1500:
-                commit_pos.x += 1500
+                commit_pos.x += 1500 #stu-pid Jessica lover
         
         
 
