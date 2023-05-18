@@ -1,11 +1,9 @@
 import pygame, sys
-from button import Button
 import math
 from menu import *
-import os
-from pyvidplayer import Video
 from ClassHUD import HUD
 from attacks import *
+from berkovich_class import *
 pygame.init()
 
 SCREEN = pygame.display.set_mode((1920, 1080))
@@ -106,8 +104,8 @@ def play():
             screen.blit(predator, enemy_pos)
             screen.blit(bystander, player2_pos) 
             screen.blit(prey, player_pos)          
-            Basic(start, 10)
-            Basic(start, 15)
+            Basic(start, 0)
+            Basic(start, 0)
             #Get the enemy into frame
             if player_pos.x > 1750 :
                 player_pos.x = 1700
@@ -132,6 +130,7 @@ def play():
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
             #Add the HUD above everything else
             HUD(start)
+            berkobitch(start)
             #All the keys our Game uses
             keys = pygame.key.get_pressed()
             if keys[pygame.K_ESCAPE]:

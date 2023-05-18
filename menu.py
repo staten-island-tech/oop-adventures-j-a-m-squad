@@ -1,12 +1,11 @@
 #Menu
-import pygame   
-import pygame, sys
+import pygame
 import os
 from button import Button
 from mainmenu import play
 pygame.init()
 def get_font(size): # Returns Press-Start-2P in the desired size
-        return pygame.font.Font("assets/fonts/sonic1.ttf", size)
+        return pygame.font.Font("assets/fonts/HelpMe.ttf", size)
 
 SCREEN = pygame.display.set_mode((1920, 1080))
 BG = pygame.transform.scale(pygame.image.load("IMG_8638.jpg"), (1920,1080))
