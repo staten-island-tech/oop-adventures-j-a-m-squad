@@ -1,7 +1,7 @@
 import pygame
 import math
 import random
-class berkobitch:
+class berkovich:
         def __init__(self, daStartingTime):
             self.start = daStartingTime
 

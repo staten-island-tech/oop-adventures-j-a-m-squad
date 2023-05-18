@@ -42,14 +42,14 @@ class Basic:
             self.screen.blit(self.poop, enemy_pos)
             if enemy_pos.x != 1500:
                 enemy_pos.x += 30
-        if sonicCDSec >= seconds4timing:
+        if sonicCDSec == seconds4timing:
             self.screen.blit(self.SaveYour, SaveYour_pos)
             if SaveYour_pos.x != -0:
                 SaveYour_pos.x -= 15
             elif SaveYour_pos.x != 1500:
                 SaveYour_pos.x += 1500 #It was this fucking easy Michael
             pygame.mixer.Sound.play(SaveYourAudio)
-        if sonicCDSec >= seconds4timing + 1:
+        if sonicCDSec == seconds4timing + 1:
             self.screen.blit(self.commit, commit_pos)            
             if commit_pos.x != -0:
                 commit_pos.x -= 30

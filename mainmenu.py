@@ -4,6 +4,7 @@ from menu import *
 from ClassHUD import HUD
 from attacks import *
 from berkovich_class import *
+from player import *
 pygame.init()
 
 SCREEN = pygame.display.set_mode((1920, 1080))
@@ -53,9 +54,7 @@ def play():
         fg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustFloor.png").convert_alpha(), (SCREEN_WIDTH+500, SCREEN_HEIGHT+500))
         #Sets the background and foreground as rectangles in order to manipulate them later
         bg_width = bg.get_width()
-        bg_rect = bg.get_rect()
         fg_width = fg.get_width()
-        fg_rect = fg.get_rect()
         #Variabels for scrolling images
         bgSpeed = 0
         floorSpeed = 0
@@ -100,8 +99,7 @@ def play():
             #Adds our Player, Player 2, and enemy
             screen.blit(predator, enemy_pos)
             screen.blit(bystander, player2_pos) 
-            screen.blit(prey, player_pos)          
-            Basic(start, 0)
+            screen.blit(prey, player_pos)
             Basic(start, 0)
             #Get the enemy into frame
             if player_pos.x > 1750 :
@@ -127,50 +125,50 @@ def play():
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
             #Add the HUD above everything else
             HUD(start)
-            berkobitch(start)
-            #All the keys our Game uses
+            berkovich(start)
+            # #All the keys our Game uses
             keys = pygame.key.get_pressed()
             if keys[pygame.K_ESCAPE]:
                 pygame.quit()
-            #Every key below this is keys for movement
-            if keys[pygame.K_a]:
-                player_pos.x -= 1111 * dt
-                player2_pos.x -= 950 * dt
-                if keys[pygame.K_LSHIFT]:
-                    player_pos.x -= 5000 * dt
-                    player2_pos.x -= 4500 * dt
-            if keys[pygame.K_d]:
-                player_pos.x += 1111 * dt
-                player2_pos.x += 950 * dt
-                if keys[pygame.K_LSHIFT]: 
-                    player_pos.x += 5000 * dt
-                    player2_pos.x += 4500 * dt
-            #Enables Jumping        
-            if keys[pygame.K_SPACE]:
-                boingoing = True
-                if keys[pygame.K_LSHIFT]:
-                    jump = 60
-            #Alternative keys for movement
-            if keys[pygame.K_LEFT]:
-                player_pos.x -= 1111 * dt
-                player2_pos.x -= 950 * dt
-                if keys[pygame.K_LSHIFT]:
-                    player_pos.x -= 5000 * dt
-                    player2_pos.x -= 4500 * dt
-            if keys[pygame.K_RIGHT]:
-                player_pos.x += 1111 * dt
-                player2_pos.x += 950 * dt
-                if keys[pygame.K_LSHIFT]:
-                    player_pos.x += 5000 * dt
-                    player2_pos.x += 4500 * dt
-            #Jump logic handled here
-            if boingoing:
-                player_pos.y -= jumpVelocity
-                player2_pos.y -= jumpVelocity
-                jumpVelocity -= jumpGravity
-                if jumpVelocity < -jump:
-                    boingoing = False
-                    jumpVelocity = jump
+            # #Every key below this is keys for movement
+            # if keys[pygame.K_a]:
+            #     player_pos.x -= 1111 * dt
+            #     player2_pos.x -= 950 * dt
+            #     if keys[pygame.K_LSHIFT]:
+            #         player_pos.x -= 5000 * dt
+            #         player2_pos.x -= 4500 * dtS
+            # if keys[pygame.K_d]:
+            #     player_pos.x += 1111 * dt
+            #     player2_pos.x += 950 * dt
+            #     if keys[pygame.K_LSHIFT]: 
+            #         player_pos.x += 5000 * dt
+            #         player2_pos.x += 4500 * dt
+            # #Enables Jumping        
+            # if keys[pygame.K_SPACE]:
+            #     boingoing = True
+            #     if keys[pygame.K_LSHIFT]:
+            #         jump = 60
+            # #Alternative keys for movement
+            # if keys[pygame.K_LEFT]:
+            #     player_pos.x -= 1111 * dt
+            #     player2_pos.x -= 950 * dt
+            #     if keys[pygame.K_LSHIFT]:
+            #         player_pos.x -= 5000 * dt
+            #         player2_pos.x -= 4500 * dt
+            # if keys[pygame.K_RIGHT]:
+            #     player_pos.x += 1111 * dt
+            #     player2_pos.x += 950 * dt
+            #     if keys[pygame.K_LSHIFT]:
+            #         player_pos.x += 5000 * dt
+            #         player2_pos.x += 4500 * dt
+            # #Jump logic handled here
+            # if boingoing:
+            #     player_pos.y -= jumpVelocity
+            #     player2_pos.y -= jumpVelocity
+            #     jumpVelocity -= jumpGravity
+            #     if jumpVelocity < -jump:
+            #         boingoing = False
+            #         jumpVelocity = jump
             #Adds our work to the screen
             pygame.display.flip()
             #The FPS our game runs at
