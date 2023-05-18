@@ -37,6 +37,11 @@ class berkobitch:
                  self.screen.fill((0,0,0))
                  self.screen.blit(self.poop, (400,0))
                  pygame.mixer.Sound.play(self.goofyahh)
+                 pygame.mixer.Sound.play(self.goofyahh)
+                 pygame.mixer.Sound.play(self.goofyahh)
+                 pygame.mixer.Sound.play(self.goofyahh)
+                 pygame.mixer.Sound.play(self.goofyahh)
+                 pygame.mixer.Sound.play(self.goofyahh)
                  pygame.display.update()
                  
 
