@@ -4,8 +4,8 @@ import os
 from button import Button
 from mainmenu import play
 pygame.init()
-def get_font(size): # Returns Press-Start-2P in the desired size
-        return pygame.font.Font("assets/fonts/HelpMe.ttf", size)
+def get_font(size):
+        return pygame.font.Font("assets/fonts/Avenir-BlackOblique.ttf", size)
 
 SCREEN = pygame.display.set_mode((1920, 1080))
 BG = pygame.transform.scale(pygame.image.load("IMG_8638.jpg"), (1920,1080))
@@ -22,7 +22,9 @@ def options():
         pygame.display.update()
 
 def main_menu():
-    while True: 
+    while True:
+        pygame.mixer.music.load("Worst Soundcloud in History.ogg")
+        pygame.mixer.music.play(-1) 
         
         SCREEN.blit(BG, (0, 0))
 
@@ -33,11 +35,11 @@ def main_menu():
         MENU_RECT = MENU_TEXT.get_rect(center=(1000, 300))
 
         PLAY_BUTTON = Button(image=pygame.transform.scale(pygame.image.load("meow.jpg"), (300,150)), pos=(1000, 450), 
-                            text_input="PLAY", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
+                            text_input="PLAY", font=get_font(64), base_color="White", hovering_color="White")
         OPTIONS_BUTTON = Button(image=pygame.image.load("lol.png"), pos=(1000, 600), 
-                            text_input="OPTIONS", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
+                            text_input="OPTIONS", font=get_font(64), base_color="White", hovering_color="White")
         QUIT_BUTTON = Button(image=pygame.image.load("lol.png"), pos=(1000, 750), 
-                            text_input="QUIT", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
+                            text_input="QUIT", font=get_font(64), base_color="White", hovering_color="White")
         
         SCREEN.blit(MENU_TEXT, MENU_RECT)
         for button in [PLAY_BUTTON, OPTIONS_BUTTON, QUIT_BUTTON]:

@@ -14,9 +14,6 @@ SCREEN = pygame.display.set_mode((1920, 1080))
 
 BG = pygame.transform.scale(pygame.image.load("IMG_8638.jpg"), (1920,1080))
 
-def get_font(size): # Returns Press-Start-2P in the desired size
-    return pygame.font.Font("assets/fonts/sonic1.ttf", size)
-
 
 def play():
     while True:
