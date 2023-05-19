@@ -39,7 +39,8 @@ def play():
         player2_pos = pygame.Vector2(screen.get_width()/ 1.75, screen.get_height() / 1.75)
         enemy_pos = pygame.Vector2(-555, 360)
         #Load and play music
-        pygame.mixer.music.load("final escape instr umental.ogg")
+        pygame.mixer.music.load("assets/music/Trip to Burger King.ogg")
+        pygame.mixer.music.set_volume(0.5)
         pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
@@ -100,7 +101,7 @@ def play():
             screen.blit(predator, enemy_pos)
             screen.blit(bystander, player2_pos) 
             screen.blit(prey, player_pos)
-            Basic(start, 0)
+            Basic(start, 8)
             #Get the enemy into frame
             if player_pos.x > 1750 :
                 player_pos.x = 1700
