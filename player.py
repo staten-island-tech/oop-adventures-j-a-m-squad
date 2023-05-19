@@ -3,7 +3,7 @@ import mainmenu
 
 pygame.init()
 
-class albert(pygame):
+class albert(pygame.sprite.Sprite):
     def __init__(self, deltaTime, playerImage):
         self.display = pygame.display.get_surface()
 
