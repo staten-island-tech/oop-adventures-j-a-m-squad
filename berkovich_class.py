@@ -6,8 +6,7 @@ class berkovich:
             self.start = daStartingTime
 
             self.poop = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (1080,1080))
-            self.goofyahh = pygame.mixer.Sound("ahh.ogg")
-            self.goofyahh.set_volume(0.1)
+            self.goofyahh = pygame.mixer.Sound("funni.ogg")
             self.goofy = False
             
             self.sonicCDMil = 0
