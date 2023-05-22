@@ -45,7 +45,6 @@ def play():
         fg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustFloor.png").convert_alpha(), (SCREEN_WIDTH+500, SCREEN_HEIGHT+500))
         #Sets the background and foreground as rectangles in order to manipulate them later
         bg_width = bg.get_width()
-        fg_width = fg.get_width()
         #Variabels for scrolling images
         bgSpeed = 0
         floorSpeed = 0
@@ -84,7 +83,7 @@ def play():
             Basic(start, 0)
             #Add the foreground after the player and enemy for layering            
             for i in range(0, tiles):
-                screen.blit(fg, (i * fg_width + floorSpeed - fg_width, -500))
+                screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
             #Add the HUD above everything else
             HUD(start)
             berkovich(start)
@@ -105,5 +104,5 @@ def play():
             #Adds our work to the screen
             pygame.display.flip()
             #The FPS our game runs at
-            dt = clock.tick(60) / 1000
+            dt = clock.tick(360) / 1000
             pygame.display.update()
