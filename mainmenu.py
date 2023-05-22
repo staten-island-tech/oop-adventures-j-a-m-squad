@@ -99,7 +99,7 @@ def play():
             #Adds our Player, Player 2, and enemy
             screen.blit(predator, enemy_pos)
             screen.blit(bystander, player2_pos) 
-            screen.blit(prey, player_pos)
+            albert(dt, prey, player_pos)
             Basic(start, 0)
             #Get the enemy into frame
             if player_pos.x > 1750 :

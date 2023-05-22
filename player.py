@@ -4,7 +4,7 @@ import mainmenu
 pygame.init()
 
 class albert(pygame.sprite.Sprite):
-    def __init__(self, deltaTime, playerImage):
+    def __init__(self, deltaTime, playerImage, playerVector = pygame.Vector2):
         self.display = pygame.display.get_surface()
 
         self.boingoing = False
@@ -13,7 +13,7 @@ class albert(pygame.sprite.Sprite):
         self.jumpVelocity = self.jump
 
         self.thingamajig = playerImage
-        self.playerPosition = pygame.Vector2(self.display.get_width() / 1.5, self.display.get_height() / 1.92)
+        self.playerPosition = playerVector
         self.dt = deltaTime
 
         self.sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
