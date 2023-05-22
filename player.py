@@ -4,16 +4,18 @@ import mainmenu
 pygame.init()
 
 class albert(pygame.sprite.Sprite):
-    def __init__(self, deltaTime, playerImage, playerVector = pygame.Vector2):
+    def __init__(self, x, y, deltaTime, playerImage, playerVector = pygame.Vector2):
         self.display = pygame.display.get_surface()
-        
         self.thingamajig = playerImage
         self.playerPosition = playerVector
         self.dt = deltaTime
-
+        self.x = x
+        self.velx = 10
+        self.y = y
+        self.vely = 10
         self.sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
         self.sonicJumpWacky = pygame.mixer.Sound("assets\sounds\I'm outta here.ogg")
-
+        self.hitbox = (self.x, self.y, 64, 64)
         self.keys = pygame.key.get_pressed()
 
         for event in pygame.event.get():
