@@ -102,19 +102,6 @@ def play():
             screen.blit(bystander, player2_pos) 
             albert(dt, prey, player_pos)
             Basic(start, 0)
-            #Get the enemy into frame
-            if player_pos.x > 1750 :
-                player_pos.x = 1700
-                player2_pos.x = 1700
-            if player_pos.x < -100:
-                player_pos.x = 0
-                player2_pos.x = 0
-            if player_pos.y > 563:
-                player_pos.y = 562.5
-                player2_pos.y = 562.5
-            if player_pos.y < 0:
-                player_pos.y = 1
-                player2_pos.y = 1
             #Add the foreground after the player and enemy for layering            
             """ for i in range(0, tiles):
                 screen.blit(SaveYour, (i * bg_width + floorSpeed - bg_width, +400))
@@ -145,10 +132,8 @@ def play():
             #         player_pos.x += 5000 * dt
             #         player2_pos.x += 4500 * dt
             # #Enables Jumping        
-            # if keys[pygame.K_SPACE]:
-            #     boingoing = True
-            #     if keys[pygame.K_LSHIFT]:
-            #         jump = 60
+            if keys[pygame.K_SPACE]:
+                boingoing = True
             # #Alternative keys for movement
             # if keys[pygame.K_LEFT]:
             #     player_pos.x -= 1111 * dt
@@ -163,13 +148,13 @@ def play():
             #         player_pos.x += 5000 * dt
             #         player2_pos.x += 4500 * dt
             # #Jump logic handled here
-            # if boingoing:
-            #     player_pos.y -= jumpVelocity
-            #     player2_pos.y -= jumpVelocity
-            #     jumpVelocity -= jumpGravity
-            #     if jumpVelocity < -jump:
-            #         boingoing = False
-            #         jumpVelocity = jump
+            if boingoing:
+                player_pos.y -= jumpVelocity
+                player2_pos.y -= jumpVelocity
+                jumpVelocity -= jumpGravity
+                if jumpVelocity < -jump:
+                    boingoing = False
+                    jumpVelocity = jump
             #Adds our work to the screen
             pygame.display.flip()
             #The FPS our game runs at

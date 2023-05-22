@@ -6,12 +6,7 @@ pygame.init()
 class albert(pygame.sprite.Sprite):
     def __init__(self, deltaTime, playerImage, playerVector = pygame.Vector2):
         self.display = pygame.display.get_surface()
-
-        self.boingoing = False
-        self.jumpGravity = 1
-        self.jump = 16
-        self.jumpVelocity = self.jump
-
+        
         self.thingamajig = playerImage
         self.playerPosition = playerVector
         self.dt = deltaTime
@@ -35,13 +30,6 @@ class albert(pygame.sprite.Sprite):
             self.playerPosition.x -= 1000 * self.dt
         if self.keys[pygame.K_RIGHT]:
             self.playerPosition.x += 1000 * self.dt
-
-        if self.boingoing:
-            self.playerPosition.y -= self.jumpVelocity
-            self.jumpVelocity -= self.jumpGravity
-            if self.jumpVelocity < -self.jump:
-                self.boingoing = False
-                self.jumpVelocity = self.jump
 
         self.display.blit(self.thingamajig, self.playerPosition)
                 
