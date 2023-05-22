@@ -36,7 +36,6 @@ def play():
         FontSonic = pygame.font.Font("assets/fonts/sonic1.ttf", 64)
         #Setup the players and enemys position on the screen
         player_pos = pygame.Vector2(screen.get_width() / 1.5, screen.get_height() / 1.92)
-        player2_pos = pygame.Vector2(screen.get_width()/ 1.75, screen.get_height() / 1.75)
         enemy_pos = pygame.Vector2(-555, 360)
         #Load and play music
         pygame.mixer.music.load("assets/music/Trip to Burger King.ogg")
@@ -48,7 +47,6 @@ def play():
         SaveYourAudio = pygame.mixer.Sound("assets\sounds\Save Your Work audio.mp3")
         #Loads the Player and Enemy
         prey = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (200,200))
-        bystander = pygame.transform.scale(pygame.image.load("assets\images\characters\When you outside and smell that ZAZA.png"), (150,150))
         predator = pygame.transform.scale(pygame.image.load("WhalenPic.png"), (300,280))
         #Loads our Background and Foreground and scales them to the size of our screen
         bg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustBg.png").convert(), (SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -99,7 +97,6 @@ def play():
                 floorSpeed = 0
             #Adds our Player, Player 2, and enemy
             screen.blit(predator, enemy_pos)
-            screen.blit(bystander, player2_pos) 
             albert(dt, prey, player_pos)
             Basic(start, 0)
             #Add the foreground after the player and enemy for layering            
@@ -150,7 +147,6 @@ def play():
             # #Jump logic handled here
             if boingoing:
                 player_pos.y -= jumpVelocity
-                player2_pos.y -= jumpVelocity
                 jumpVelocity -= jumpGravity
                 if jumpVelocity < -jump:
                     boingoing = False
