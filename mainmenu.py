@@ -100,7 +100,7 @@ def play():
             #Adds our Player, Player 2, and enemy
             screen.blit(predator, enemy_pos)
             screen.blit(bystander, player2_pos) 
-            albert(dt, prey, player_pos)
+            albert(dt, prey, 900,900,250, 250, player_pos)
             Basic(start, 0)
             #Add the foreground after the player and enemy for layering            
             """ for i in range(0, tiles):

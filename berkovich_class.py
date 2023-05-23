@@ -2,20 +2,17 @@ import pygame
 import math
 import random
 class berkovich:
-        def __init__(self, daStartingTime, x, y):
+        def __init__(self, daStartingTime):
             self.start = daStartingTime
 
             self.poop = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (1080,1080))
             self.goofyahh = pygame.mixer.Sound("ahh.ogg")
             self.goofy = False
-            self.x = x
-            self.y = y
             self.sonicCDMil = 0
             self.sonicCDSec = 0
             self.sonicCDMin = 0
             self.finalMil = 00
             self.finalSec = 00
-            self.hitbox = (self.x, self.y, 64, 64)
 
             counting = pygame.time.get_ticks() - self.start
 
