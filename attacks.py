@@ -7,7 +7,7 @@ SaveYour_pos = pygame.Vector2(1500, 300)
 commit_pos = pygame.Vector2(1500,666)
 SaveYourAudio = pygame.mixer.Sound("assets\sounds\Save Your Work audio.mp3")
 
-class Basic:
+class basicAttack:
     def __init__(self,daStartingTime, seconds4timing): #Without specified minutes, it will reapeat everytime the secounds are equal to the input
         self.start = daStartingTime
         self.poop = pygame.transform.scale(pygame.image.load("WhalenPic.png"), (300,280))

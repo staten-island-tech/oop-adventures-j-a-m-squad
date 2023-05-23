@@ -82,7 +82,11 @@ def play():
                 floorSpeed = 0
             #Adds our Player, Player 2, and enemy
             albert(dt, prey, player_pos)
+<<<<<<< Updated upstream
             Basic(start, 10)
+=======
+            Attack(start, 0)
+>>>>>>> Stashed changes
             #Add the foreground after the player and enemy for layering            
             for i in range(0, tiles):
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
