@@ -5,6 +5,7 @@ from ClassHUD import HUD
 from attacks import *
 from berkovich_class import *
 from player import *
+from lyrics import drivethru
 pygame.init()
 
 SCREEN = pygame.display.set_mode((1920, 1080))
@@ -35,6 +36,7 @@ def play():
         player_pos = pygame.Vector2(screen.get_width() / 1.5, screen.get_height() / 1.92)
         #Load and play music
         pygame.mixer.music.load("assets/music/Trip to Burger King.ogg")
+        pygame.mixer.music.set_volume(0.5)
         pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
@@ -80,13 +82,14 @@ def play():
                 floorSpeed = 0
             #Adds our Player, Player 2, and enemy
             albert(dt, prey, player_pos)
-            Basic(start, 0)
+            Basic(start, 10)
             #Add the foreground after the player and enemy for layering            
             for i in range(0, tiles):
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
             #Add the HUD above everything else
             HUD(start)
             berkovich(start)
+            drivethru(start)
             # #All the keys our Game uses
             keys = pygame.key.get_pressed()
             if keys[pygame.K_ESCAPE]:
