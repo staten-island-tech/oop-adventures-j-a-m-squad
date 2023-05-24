@@ -35,7 +35,7 @@ def play():
         #Setup the players and enemys position on the screen
         player_pos = pygame.Vector2(screen.get_width() / 1.5, screen.get_height() / 1.92)
         #Load and play music
-        pygame.mixer.music.load("assets/music/Trip to Burger King.ogg")
+        pygame.mixer.music.load("assets\music\Trip to Burger King.ogg")
         pygame.mixer.music.set_volume(0.5)
         pygame.mixer.music.play(-1)
         #Load Sound Effects
@@ -82,11 +82,7 @@ def play():
                 floorSpeed = 0
             #Adds our Player, Player 2, and enemy
             albert(dt, prey, player_pos)
-<<<<<<< Updated upstream
-            Basic(start, 10)
-=======
-            Attack(start, 0)
->>>>>>> Stashed changes
+            basicAttack(start, 10)
             #Add the foreground after the player and enemy for layering            
             for i in range(0, tiles):
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))

@@ -10,6 +10,7 @@ class drivethru:
         self.daFont = pygame.font.Font("assets/fonts/sonic1.ttf", 64)
         self.FirstBar = self.daFont.render('Im in a drive thru of burgerking', False, (255,255,255))
         self.SecondBar = self.daFont.render('Can I please get a Whopper jr with onion rings', False, (255,255,255))
+        self.ThirdBar = self.daFont.render('and make it a meal so I can get a drink', False, (255,255,255))
         self.sonicCDMil = 0
         self.sonicCDSec = 0
         self.sonicCDMin = 0
@@ -32,11 +33,17 @@ class drivethru:
         
         self.screen = pygame.display.get_surface()
 
-        if sonicCDSec >= 1 and sonicCDSec <= 3: 
+        if sonicCDSec >= 1 and sonicCDSec <= 2: 
             self.screen.blit(self.FirstBar,general_pos)
-            if general_pos.x != -10:
-                general_pos.x -= 37
-            elif general_pos.x != 1700:
-                general_pos.x += 1710
-        if sonicCDSec >= 3 and sonicCDSec <= 5:
+            if general_pos.x != -1000:
+                general_pos.x -= 50
+            elif general_pos.x < 1700:
+                general_pos.x += 2700
+        if sonicCDSec >= 4 and sonicCDSec <= 5:
             self.screen.blit(self.SecondBar, general_pos)
+            if general_pos.x != -1000:
+                general_pos.x -= 50
+            elif general_pos.x < 1700:
+                general_pos.x += 2700
+        if sonicCDSec >= 6 and sonicCDSec <= 7:
+                self.screen.blit(self.ThirdBar, general_pos)
