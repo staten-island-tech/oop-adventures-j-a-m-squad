@@ -5,7 +5,7 @@ from ClassHUD import HUD
 from attacks import *
 from berkovich_class import *
 from player import *
-from lyrics import drivethru
+from enemy import micheal
 pygame.init()
 
 SCREEN = pygame.display.set_mode((1920, 1080))
@@ -23,7 +23,6 @@ def play():
         SCREEN_HEIGHT = 1080
         #Setup Game
         screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-        daScreenCenter = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
         clock = pygame.time.Clock()
         running = True
         dt = 0
@@ -31,13 +30,14 @@ def play():
         #Setup the players and enemys position on the screen
         player_pos = pygame.Vector2(screen.get_width() / 1.5, screen.get_height() / 1.92)
         #Load and play music
-        pygame.mixer.music.load("assets\music\Trip to Burger King.ogg")
+        pygame.mixer.music.load("assets/music/Trip to Burger King.ogg")
         pygame.mixer.music.set_volume(0.5)
         pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
         #Loads the Player and Enemy
         prey = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (200,200))
+        preyHitbox = prey.get_rect()
         #Loads our Background and Foreground and scales them to the size of our screen
         bg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustBg.png").convert(), (SCREEN_WIDTH, SCREEN_HEIGHT))
         fg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustFloor.png").convert_alpha(), (SCREEN_WIDTH+500, SCREEN_HEIGHT+500))
@@ -77,7 +77,8 @@ def play():
             if abs(floorSpeed) > bg_width:
                 floorSpeed = 0
             #Adds our Player, Player 2, and enemy
-            albert(dt, prey, player_pos)
+            albert(dt, prey, preyHitbox, player_pos)
+            micheal(start)
             basicAttack(start, 10)
             #Add the foreground after the player and enemy for layering            
             for i in range(0, tiles):

@@ -1,8 +1,6 @@
 import pygame
 import math
 
-from pygame.sprite import _Group
-
 pygame.init()
 
 enemy_pos = pygame.Vector2(0, 360)

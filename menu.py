@@ -23,8 +23,6 @@ def options():
 
 def main_menu():
     while True:
-        pygame.mixer.music.load("Worst Soundcloud in History.ogg")
-        pygame.mixer.music.play(-1) 
         
         SCREEN.blit(BG, (0, 0))
 

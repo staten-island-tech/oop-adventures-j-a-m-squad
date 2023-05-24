@@ -3,10 +3,11 @@ import pygame
 pygame.init()
 
 class albert(pygame.sprite.Sprite):
-    def __init__(self, deltaTime, playerImage, playerVector = pygame.Vector2):
+    def __init__(self, deltaTime, playerImage, playerHitbox = pygame.Rect, playerVector = pygame.Vector2):
         self.display = pygame.display.get_surface()
         
         self.thingamajig = playerImage
+        self.doohickey = playerHitbox
         self.playerPosition = playerVector
         self.dt = deltaTime
 
@@ -31,5 +32,7 @@ class albert(pygame.sprite.Sprite):
             self.playerPosition.x += 1000 * self.dt
 
         self.display.blit(self.thingamajig, self.playerPosition)
+        pygame.draw.rect(self.display, (255,0,255), self.doohickey, 100)
+        self.doohickey.topleft = (self.playerPosition)
                 
         
