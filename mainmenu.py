@@ -9,13 +9,8 @@ from lyrics import drivethru
 pygame.init()
 
 SCREEN = pygame.display.set_mode((1920, 1080))
-pygame.display.set_caption("Menu")
-
-BG = pygame.transform.scale(pygame.image.load("tails.png").convert(), (1920, 1080))
-SCREEN = pygame.display.set_mode((1920, 1080))
 
 BG = pygame.transform.scale(pygame.image.load("IMG_8638.jpg"), (1920,1080))
-
 
 def play():
     while True:
@@ -27,7 +22,8 @@ def play():
         SCREEN_WIDTH = 1920
         SCREEN_HEIGHT = 1080
         #Setup Game
-        screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.RESIZABLE)
+        screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+        daScreenCenter = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
         clock = pygame.time.Clock()
         running = True
         dt = 0
@@ -82,18 +78,13 @@ def play():
                 floorSpeed = 0
             #Adds our Player, Player 2, and enemy
             albert(dt, prey, player_pos)
-<<<<<<< Updated upstream
-            Basic(start, 10)
-=======
-            Attack(start, 0)
->>>>>>> Stashed changes
+            basicAttack(start, 10)
             #Add the foreground after the player and enemy for layering            
             for i in range(0, tiles):
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
             #Add the HUD above everything else
             HUD(start)
             berkovich(start)
-            drivethru(start)
             # #All the keys our Game uses
             keys = pygame.key.get_pressed()
             if keys[pygame.K_ESCAPE]:
