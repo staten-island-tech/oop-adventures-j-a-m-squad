@@ -45,21 +45,23 @@ class basicAttack:
 
         if sonicCDSec == seconds4timing:
             pygame.draw.rect(self.screen, (255,0,0), self.thingamajig, 200)
-            self.thingamajig.topleft = (SaveYour_pos.x - 5, SaveYour_pos.y)
+            self.thingamajig.topleft = (SaveYour_pos.x, SaveYour_pos.y)
             self.screen.blit(self.SaveYour, SaveYour_pos)
             if SaveYour_pos.x != -0:
-                SaveYour_pos.x -= 15
+                SaveYour_pos.x -= 35
             elif SaveYour_pos.x != 1500:
                 SaveYour_pos.x += 1500 #It was this fucking easy Michael
+                self.thingamajig.move((1500,300))
             pygame.mixer.Sound.play(SaveYourAudio)
         if sonicCDSec == seconds4timing + 1:
             pygame.draw.rect(self.screen, (255,0,0), self.doohickey, 200)
-            self.doohickey.topleft = (commit_pos.x - 5, commit_pos.y)
+            self.doohickey.topleft = (commit_pos.x, commit_pos.y)
             self.screen.blit(self.commit, commit_pos)            
             if commit_pos.x != -0:
-                commit_pos.x -= 30
+                commit_pos.x -= 35
             elif commit_pos.x != 1500:
                 commit_pos.x += 1500 #i dot
+                self.doohickey.move((1500,666))
         
         
 
