@@ -25,16 +25,21 @@ def play():
         screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         clock = pygame.time.Clock()
         running = True
+        sonicMove = True
         dt = 0
         start = pygame.time.get_ticks()
         #Setup the players and enemys position on the screen
         player_pos = pygame.Vector2(screen.get_width() / 1.5, screen.get_height() / 1.92)
+        enemy_pos = pygame.Vector2(1080, 360)
         #Load and play music
         pygame.mixer.music.load("final escape instr umental.ogg")
         pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
+        test = pygame.mixer.Sound("ow.ogg")
         #Loads the Player and Enemy
+        poop = pygame.transform.scale(pygame.image.load("WhalenPic.png"), (300,280))
+        poopHitbox = poop.get_rect()
         prey = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (200,200))
         preyHitbox = prey.get_rect()
         #Loads our Background and Foreground and scales them to the size of our screen
@@ -76,15 +81,14 @@ def play():
             if abs(floorSpeed) > bg_width:
                 floorSpeed = 0
             #Adds our Player, Player 2, and enemy
-            albert(dt, prey, preyHitbox, player_pos)
-            micheal(start)
-            basicAttack(start, 10)
+            micheal(start, poopHitbox, enemy_pos)
+            albert(dt, prey, sonicMove, preyHitbox, player_pos)
+            basicAttack(start, 10, testBox, iThoguhtThisWasSupposeToBeATest)
             #Add the foreground after the player and enemy for layering            
             for i in range(0, tiles):
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
             #Add the HUD above everything else
             HUD(start)
-            berkovich(start)
             # #All the keys our Game uses
             keys = pygame.key.get_pressed()
             if keys[pygame.K_ESCAPE]:
@@ -99,6 +103,12 @@ def play():
                 if jumpVelocity < -jump:
                     boingoing = False
                     jumpVelocity = jump
+            if preyHitbox.colliderect(poopHitbox) == 1:
+                test.play()
+            if preyHitbox.colliderect(testBox) == 1:
+                test.play()
+            if preyHitbox.colliderect(iThoguhtThisWasSupposeToBeATest) == 1:
+                test.play()
             #Adds our work to the screen
             pygame.display.flip()
             #The FPS our game runs at
