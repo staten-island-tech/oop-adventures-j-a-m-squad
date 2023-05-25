@@ -30,8 +30,7 @@ def play():
         #Setup the players and enemys position on the screen
         player_pos = pygame.Vector2(screen.get_width() / 1.5, screen.get_height() / 1.92)
         #Load and play music
-        pygame.mixer.music.load("assets/music/Trip to Burger King.ogg")
-        pygame.mixer.music.set_volume(0.5)
+        pygame.mixer.music.load("final escape instr umental.ogg")
         pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")

@@ -32,7 +32,7 @@ class micheal(pygame.sprite.Sprite):
 
         self.screen = pygame.display.get_surface()
         
-        if sonicCDSec >= 8 and sonicCDMin == 0:
+        if sonicCDSec >= 8 and sonicCDMin >= 0:
             self.screen.blit(self.poop, enemy_pos)
             if enemy_pos.x != 1500:
                 enemy_pos.x += 30

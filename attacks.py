@@ -15,7 +15,7 @@ class basicAttack:
     def __init__(self,daStartingTime, seconds4timing, attackHitboxes = pygame.Rect): #Without specified minutes, it will reapeat everytime the secounds are equal to the input
         self.start = daStartingTime
 
-        self.daFont = pygame.font.Font("assets/fonts/HelpMe.ttf", 64)
+        self.daFont = pygame.font.Font("assets/fonts/HelpMe.ttf", 50)
         self.SaveYour = self.daFont.render('SAVE YOUR WORK', False, (255,255,255))
         self.commit = self.daFont.render('COMMIT TO GITHUB', False, (255,255,255))
         self.doohickey = attackHitboxes
