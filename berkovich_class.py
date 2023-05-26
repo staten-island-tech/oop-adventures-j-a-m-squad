@@ -6,8 +6,9 @@ class berkovich:
             self.start = daStartingTime
 
             self.poop = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (1080,1080))
-            self.goofyahh = pygame.mixer.Sound("ahh.ogg")
+            self.goofyahh = pygame.mixer.Sound("ow.ogg")
             self.goofy = False
+            
             self.sonicCDMil = 0
             self.sonicCDSec = 0
             self.sonicCDMin = 0
@@ -35,11 +36,6 @@ class berkovich:
             if sonicCDMil == random.randint(1,60):
                  self.screen.fill((0,0,0))
                  self.screen.blit(self.poop, (400,0))
-                 pygame.mixer.Sound.play(self.goofyahh)
-                 pygame.mixer.Sound.play(self.goofyahh)
-                 pygame.mixer.Sound.play(self.goofyahh)
-                 pygame.mixer.Sound.play(self.goofyahh)
-                 pygame.mixer.Sound.play(self.goofyahh)
                  pygame.mixer.Sound.play(self.goofyahh)
                  pygame.display.update()
                  
