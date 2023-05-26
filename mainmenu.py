@@ -5,16 +5,12 @@ from ClassHUD import HUD
 from attacks import *
 from berkovich_class import *
 from player import *
+from enemy import micheal
 pygame.init()
 
 SCREEN = pygame.display.set_mode((1920, 1080))
-pygame.display.set_caption("Menu")
-
-BG = pygame.transform.scale(pygame.image.load("tails.png").convert(), (1920, 1080))
-SCREEN = pygame.display.set_mode((1920, 1080))
 
 BG = pygame.transform.scale(pygame.image.load("IMG_8638.jpg"), (1920,1080))
-
 
 def play():
     while True:
@@ -23,39 +19,34 @@ def play():
                     #Stops running the game
                 pygame.quit()
                 sys.exit()
-
         SCREEN_WIDTH = 1920
         SCREEN_HEIGHT = 1080
         #Setup Game
-        screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.RESIZABLE)
+        screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         clock = pygame.time.Clock()
         running = True
+        sonicMove = True
         dt = 0
-        saving = 0
         start = pygame.time.get_ticks()
-        FontSonic = pygame.font.Font("assets/fonts/sonic1.ttf", 64)
         #Setup the players and enemys position on the screen
         player_pos = pygame.Vector2(screen.get_width() / 1.5, screen.get_height() / 1.92)
-        player2_pos = pygame.Vector2(screen.get_width()/ 1.75, screen.get_height() / 1.75)
-        enemy_pos = pygame.Vector2(-555, 360)
+        enemy_pos = pygame.Vector2(1080, 360)
         #Load and play music
         pygame.mixer.music.load("assets/music/Trip to Burger King.ogg")
-        pygame.mixer.music.set_volume(0.5)
         pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
-        sonicJumpWacky = pygame.mixer.Sound("assets\sounds\I'm outta here.ogg")
-        SaveYourAudio = pygame.mixer.Sound("assets\sounds\Save Your Work audio.mp3")
+        test = pygame.mixer.Sound("ow.ogg")
         #Loads the Player and Enemy
+        poop = pygame.transform.scale(pygame.image.load("WhalenPic.png"), (300,280))
+        poopHitbox = poop.get_rect()
         prey = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (200,200))
-        bystander = pygame.transform.scale(pygame.image.load("assets\images\characters\When you outside and smell that ZAZA.png"), (150,150))
-        predator = pygame.transform.scale(pygame.image.load("WhalenPic.png"), (300,280))
+        preyHitbox = prey.get_rect()
         #Loads our Background and Foreground and scales them to the size of our screen
         bg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustBg.png").convert(), (SCREEN_WIDTH, SCREEN_HEIGHT))
         fg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustFloor.png").convert_alpha(), (SCREEN_WIDTH+500, SCREEN_HEIGHT+500))
         #Sets the background and foreground as rectangles in order to manipulate them later
         bg_width = bg.get_width()
-        fg_width = fg.get_width()
         #Variabels for scrolling images
         bgSpeed = 0
         floorSpeed = 0
@@ -67,13 +58,8 @@ def play():
         jumpVelocity = jump
         #Everything after this point is what happens while our game is running
         while running:
-
-            SaveYour_pos = pygame.Vector2(1500, 400)
-            commit_pos = pygame.Vector2(1500,600)
-            saving += 1
             #Quits the game
             for event in pygame.event.get():
-                saving += 1
                 if event.type == pygame.QUIT:
                     #Stops running the game
                     running = False
@@ -81,9 +67,6 @@ def play():
                 elif event.type == pygame.KEYUP:
                     if keys[pygame.K_SPACE]:
                         pygame.mixer.Sound.play(sonicJump)
-                    if keys[pygame.K_LSHIFT] and keys[pygame.K_SPACE]:
-                        pygame.mixer.Sound.play(sonicJumpWacky)
-            #Time logic handled here
             #Adds our background
             for i in range(tiles):
                 #Forces our background to scroll
@@ -98,67 +81,36 @@ def play():
             if abs(floorSpeed) > bg_width:
                 floorSpeed = 0
             #Adds our Player, Player 2, and enemy
-            screen.blit(predator, enemy_pos)
-            screen.blit(bystander, player2_pos) 
-            albert(dt, prey, 900,900,250, 250, player_pos)
-            Basic(start, 0)
+            micheal(start, poopHitbox, enemy_pos)
+            albert(dt, prey, sonicMove, preyHitbox, player_pos)
+            basicAttack(start, 10, testBox, iThoguhtThisWasSupposeToBeATest)
             #Add the foreground after the player and enemy for layering            
-            """ for i in range(0, tiles):
-                screen.blit(SaveYour, (i * bg_width + floorSpeed - bg_width, +400))
-                pygame.mixer.Sound.play(SaveYourAudio)
-            for i in range(0, tiles):
-                screen.blit(commit, (i * bg_width + bgSpeed - bg_width, +650))
-                pygame.mixer.Sound.play(SaveYourAudio) """
             for i in range(0, tiles):
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
             #Add the HUD above everything else
             HUD(start)
-            berkovich(start)
             # #All the keys our Game uses
             keys = pygame.key.get_pressed()
             if keys[pygame.K_ESCAPE]:
                 pygame.quit()
-            # #Every key below this is keys for movement
-            # if keys[pygame.K_a]:
-            #     player_pos.x -= 1111 * dt
-            #     player2_pos.x -= 950 * dt
-            #     if keys[pygame.K_LSHIFT]:
-            #         player_pos.x -= 5000 * dt
-            #         player2_pos.x -= 4500 * dtS
-            # if keys[pygame.K_d]:
-            #     player_pos.x += 1111 * dt
-            #     player2_pos.x += 950 * dt
-            #     if keys[pygame.K_LSHIFT]: 
-            #         player_pos.x += 5000 * dt
-            #         player2_pos.x += 4500 * dt
             # #Enables Jumping        
             if keys[pygame.K_SPACE]:
                 boingoing = True
-            # #Alternative keys for movement
-            # if keys[pygame.K_LEFT]:
-            #     player_pos.x -= 1111 * dt
-            #     player2_pos.x -= 950 * dt
-            #     if keys[pygame.K_LSHIFT]:
-            #         player_pos.x -= 5000 * dt
-            #         player2_pos.x -= 4500 * dt
-            # if keys[pygame.K_RIGHT]:
-            #     player_pos.x += 1111 * dt
-            #     player2_pos.x += 950 * dt
-            #     if keys[pygame.K_LSHIFT]:
-            #         player_pos.x += 5000 * dt
-            #         player2_pos.x += 4500 * dt
             # #Jump logic handled here
             if boingoing:
                 player_pos.y -= jumpVelocity
-                player2_pos.y -= jumpVelocity
                 jumpVelocity -= jumpGravity
                 if jumpVelocity < -jump:
                     boingoing = False
                     jumpVelocity = jump
+            if preyHitbox.colliderect(poopHitbox) == 1:
+                test.play()
+            if preyHitbox.colliderect(testBox) == 1:
+                test.play()
+            if preyHitbox.colliderect(iThoguhtThisWasSupposeToBeATest) == 1:
+                test.play()
             #Adds our work to the screen
             pygame.display.flip()
             #The FPS our game runs at
-            dt = clock.tick(60) / 1000
-
-
+            dt = clock.tick(360) / 1000
             pygame.display.update()
