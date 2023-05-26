@@ -33,8 +33,8 @@ class micheal(pygame.sprite.Sprite):
         self.screen = pygame.display.get_surface()
         
         if sonicCDSec >= 8 and sonicCDMin >= 0:
-            self.screen.blit(self.poop, enemyVector)
             pygame.draw.rect(self.screen, (255,0,0), self.ouchy, 200)
+            self.screen.blit(self.poop, enemyVector)
             self.ouchy.topleft = enemyVector
             if enemyVector.x != 1500:
                 enemyVector.x += 30
