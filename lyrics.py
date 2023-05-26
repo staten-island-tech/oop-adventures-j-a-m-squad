@@ -11,6 +11,7 @@ class drivethru:
         self.FirstBar = self.daFont.render('Im in a drive thru of burgerking', False, (255,255,255))
         self.SecondBar = self.daFont.render('Can I please get a Whopper jr with onion rings', False, (255,255,255))
         self.ThirdBar = self.daFont.render('and make it a meal so I can get a drink', False, (255,255,255))
+        self.FourthBar = self.daFont.render('No, Im not finished, thats not everything', False, (255,255,255))
         self.sonicCDMil = 0
         self.sonicCDSec = 0
         self.sonicCDMin = 0
@@ -46,4 +47,15 @@ class drivethru:
             elif general_pos.x < 1700:
                 general_pos.x += 2700
         if sonicCDSec >= 6 and sonicCDSec <= 7:
-                self.screen.blit(self.ThirdBar, general_pos)
+            self.screen.blit(self.ThirdBar, general_pos)
+            if general_pos.x != -1000:
+                general_pos.x -=50
+            elif general_pos.x <1700:
+                general_pos.x += 2700
+        if sonicCDSec >= 8 and sonicCDSec <= 9:
+            self.screen.blit(self.FourthBar, general_pos)
+            if general_pos.x != -1000:
+                general_pos.x -=50
+            elif general_pos.x <1700:
+                general_pos.x += 2700
+
