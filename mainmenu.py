@@ -104,9 +104,11 @@ def play():
                     boingoing = False
                     jumpVelocity = jump
             if preyHitbox.colliderect(poopHitbox) == 1:
-                test.play()
+                pygame.quit()
+                os.system('python GameOverSubstate.py')
             if preyHitbox.colliderect(testBox) == 1:
-                test.play()
+                pygame.quit()
+                os.system('python GameOverSubstate.py')
             if preyHitbox.colliderect(iThoguhtThisWasSupposeToBeATest) == 1:
                 test.play()
             #Adds our work to the screen
