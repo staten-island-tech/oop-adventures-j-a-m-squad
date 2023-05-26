@@ -36,7 +36,7 @@ def play():
         pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
-        test = pygame.mixer.Sound("ow.ogg")
+        test = pygame.mixer.Sound("ahh.ogg")
         #Loads the Player and Enemy
         poop = pygame.transform.scale(pygame.image.load("WhalenPic.png"), (300,280))
         poopHitbox = poop.get_rect()
@@ -104,9 +104,11 @@ def play():
                     boingoing = False
                     jumpVelocity = jump
             if preyHitbox.colliderect(poopHitbox) == 1:
-                test.play()
+                pygame.quit()
+                os.system('python GameOverSubstate.py')
             if preyHitbox.colliderect(testBox) == 1:
-                test.play()
+                pygame.quit()
+                os.system('python GameOverSubstate.py')
             if preyHitbox.colliderect(iThoguhtThisWasSupposeToBeATest) == 1:
                 test.play()
             #Adds our work to the screen

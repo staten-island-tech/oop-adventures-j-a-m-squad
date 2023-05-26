@@ -4,6 +4,7 @@ import math
 pygame.init()
 pygame.font.init()
 
+daLives = 3
 class HUD:
     def __init__(self, daStartingTime):
         self.start = daStartingTime
