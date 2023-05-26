@@ -1,16 +1,14 @@
 import pygame
 import math
 
-from pygame.sprite import _Group
-
 pygame.init()
 
-enemy_pos = pygame.Vector2(0, 360)
-
 class micheal(pygame.sprite.Sprite):
-    def __init__(self, daStartingTime):
+    def __init__(self, daStartingTime, enemyHitbox = pygame.Rect, enemyVector = pygame.Vector2):
         self.start = daStartingTime
         self.poop = pygame.transform.scale(pygame.image.load("WhalenPic.png"), (300,280))
+        self.enemyPosition = enemyVector
+        self.ouchy = enemyHitbox
 
         self.sonicCDMil = 0
         self.sonicCDSec = 0
@@ -34,7 +32,9 @@ class micheal(pygame.sprite.Sprite):
 
         self.screen = pygame.display.get_surface()
         
-        if sonicCDSec >= 8 and sonicCDMin == 0:
-            self.screen.blit(self.poop, enemy_pos)
-            if enemy_pos.x != 1500:
-                enemy_pos.x += 30
+        if sonicCDSec >= 8 and sonicCDMin >= 0:
+            self.screen.blit(self.poop, enemyVector)
+            pygame.draw.rect(self.screen, (255,0,0), self.ouchy, 200)
+            self.ouchy.topleft = enemyVector
+            if enemyVector.x != 1500:
+                enemyVector.x += 30

@@ -2,19 +2,24 @@ import pygame
 import math
 pygame.font.init()
 
-enemy_pos = pygame.Vector2(0, 360)
 SaveYour_pos = pygame.Vector2(1500, 300)
 commit_pos = pygame.Vector2(1500,666)
 SaveYourAudio = pygame.mixer.Sound("assets\sounds\Save Your Work audio.mp3")
 
+test = pygame.transform.scale(pygame.image.load("lol.png"), (600,75))
+
+testBox = test.get_rect()
+iThoguhtThisWasSupposeToBeATest = test.get_rect()
+
 class basicAttack:
-    def __init__(self,daStartingTime, seconds4timing): #Without specified minutes, it will reapeat everytime the secounds are equal to the input
+    def __init__(self,daStartingTime, seconds4timing, attackHitbox1 = pygame.Rect, attackHitbox2 = pygame.Rect): #Without specified minutes, it will reapeat everytime the secounds are equal to the input
         self.start = daStartingTime
-        self.poop = pygame.transform.scale(pygame.image.load("WhalenPic.png"), (300,280))
 
         self.daFont = pygame.font.Font("assets/fonts/HelpMe.ttf", 64)
         self.SaveYour = self.daFont.render('SAVE YOUR WORK', False, (255,255,255))
         self.commit = self.daFont.render('COMMIT TO GITHUB', False, (255,255,255))
+        self.doohickey = attackHitbox1
+        self.thingamajig = attackHitbox2
         
         self.sonicCDMil = 0
         self.sonicCDSec = 0
@@ -38,23 +43,25 @@ class basicAttack:
 
         self.screen = pygame.display.get_surface()
 
-        if sonicCDSec >= 8 and sonicCDMin == 0:
-            self.screen.blit(self.poop, enemy_pos)
-            if enemy_pos.x != 1500:
-                enemy_pos.x += 30
         if sonicCDSec == seconds4timing:
+            pygame.draw.rect(self.screen, (255,0,0), self.thingamajig, 200)
+            self.thingamajig.topleft = (SaveYour_pos.x, SaveYour_pos.y)
             self.screen.blit(self.SaveYour, SaveYour_pos)
             if SaveYour_pos.x != -0:
-                SaveYour_pos.x -= 15
+                SaveYour_pos.x -= 35
             elif SaveYour_pos.x != 1500:
                 SaveYour_pos.x += 1500 #It was this fucking easy Michael
+                self.thingamajig.move((1500,300))
             pygame.mixer.Sound.play(SaveYourAudio)
         if sonicCDSec == seconds4timing + 1:
+            pygame.draw.rect(self.screen, (255,0,0), self.doohickey, 200)
+            self.doohickey.topleft = (commit_pos.x, commit_pos.y)
             self.screen.blit(self.commit, commit_pos)            
             if commit_pos.x != -0:
-                commit_pos.x -= 30
+                commit_pos.x -= 35
             elif commit_pos.x != 1500:
                 commit_pos.x += 1500 #i dot
+                self.doohickey.move((1500,666))
         
         
 
