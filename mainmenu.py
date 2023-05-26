@@ -54,7 +54,7 @@ def play():
         #Variables for jumping
         boingoing = False
         jumpGravity = 1
-        jump = 16
+        jump = 18
         jumpVelocity = jump
         #Everything after this point is what happens while our game is running
         while running:
@@ -104,13 +104,11 @@ def play():
                     boingoing = False
                     jumpVelocity = jump
             if preyHitbox.colliderect(poopHitbox) == 1:
-                pygame.quit()
-                os.system('python GameOverSubstate.py')
+                test.play()
             if preyHitbox.colliderect(testBox) == 1:
-                pygame.quit()
                 os.system('python GameOverSubstate.py')
             if preyHitbox.colliderect(iThoguhtThisWasSupposeToBeATest) == 1:
-                test.play()
+                os.system('python GameOverSubstate.py')
             #Adds our work to the screen
             pygame.display.flip()
             #The FPS our game runs at
