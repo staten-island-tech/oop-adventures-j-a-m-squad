@@ -36,7 +36,7 @@ def play():
         pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
-        test = pygame.mixer.Sound("ow.ogg")
+        test = pygame.mixer.Sound("ahh.ogg")
         #Loads the Player and Enemy
         poop = pygame.transform.scale(pygame.image.load("WhalenPic.png"), (300,280))
         poopHitbox = poop.get_rect()
@@ -89,6 +89,7 @@ def play():
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
             #Add the HUD above everything else
             HUD(start)
+            berkovich(start)
             # #All the keys our Game uses
             keys = pygame.key.get_pressed()
             if keys[pygame.K_ESCAPE]:
