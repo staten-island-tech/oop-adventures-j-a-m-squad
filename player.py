@@ -2,6 +2,7 @@ import pygame
 
 pygame.init()
 
+
 class albert(pygame.sprite.Sprite):
     def __init__(self, deltaTime, playerImage, playerInControl, playerHitbox = pygame.Rect, playerVector = pygame.Vector2):
         self.display = pygame.display.get_surface()
@@ -35,6 +36,5 @@ class albert(pygame.sprite.Sprite):
         self.doohickey.topleft = (self.playerPosition)
         pygame.draw.rect(self.display, (255,0,255), self.doohickey, 100)
         self.display.blit(self.thingamajig, self.playerPosition)
-
                 
         
