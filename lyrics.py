@@ -12,6 +12,10 @@ class drivethru:
         self.SecondBar = self.daFont.render('Can I please get a Whopper jr with onion rings', False, (255,255,255))
         self.ThirdBar = self.daFont.render('and make it a meal so I can get a drink', False, (255,255,255))
         self.FourthBar = self.daFont.render('No, Im not finished, thats not everything', False, (255,255,255))
+        self.FifthBar = self.daFont.render('Can I please get a Double Whopper with no cheese?', False, (255,255,255))
+        self.SixthBar = self.daFont.render('Can I please get a number two with a large drink?', False, (255,255,255))
+        self.SeventhBar = self.daFont.render('I got money so I dont care how much it costs me', False, (255,255,255))
+        self.EigthBar = self.daFont.render('So just throw in some extra fries, dont make them salty', False, (255,255,255))
         self.sonicCDMil = 0
         self.sonicCDSec = 0
         self.sonicCDMin = 0
@@ -49,13 +53,36 @@ class drivethru:
         if sonicCDSec >= 6 and sonicCDSec <= 7:
             self.screen.blit(self.ThirdBar, general_pos)
             if general_pos.x != -1000:
-                general_pos.x -=50
+                general_pos.x -= 50
             elif general_pos.x <1700:
                 general_pos.x += 2700
-        if sonicCDSec >= 8 and sonicCDSec <= 9:
+        if sonicCDSec >= 9 and sonicCDSec <= 10:
             self.screen.blit(self.FourthBar, general_pos)
             if general_pos.x != -1000:
                 general_pos.x -=50
             elif general_pos.x <1700:
                 general_pos.x += 2700
-
+        if sonicCDSec >= 11 and sonicCDSec <= 12:
+            self.screen.blit(self.FifthBar, general_pos)
+            if general_pos.x != -1000:
+                general_pos.x -=50
+            elif general_pos.x <1700:
+                general_pos.x += 2700
+        if sonicCDSec >= 14 and sonicCDSec <= 15:
+            self.screen.blit(self.SixthBar, general_pos)
+            if general_pos.x != -1000:
+                general_pos.x -=50
+            elif general_pos.x <1700:
+                general_pos.x += 2700
+        if sonicCDSec >= 16 and sonicCDSec <= 17:
+            self.screen.blit(self.SeventhBar, general_pos)
+            if general_pos.x != -1000:
+                general_pos.x -=50
+            elif general_pos.x <1700:
+                general_pos.x += 2700
+        if sonicCDSec >= 18 and sonicCDSec <= 19:
+            self.screen.blit(self.EigthBar, general_pos)
+            if general_pos.x != -1000:
+                general_pos.x -=50
+            elif general_pos.x <1700:
+                general_pos.x += 2700
