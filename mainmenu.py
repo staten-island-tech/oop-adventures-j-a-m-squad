@@ -6,6 +6,7 @@ from attacks import *
 from berkovich_class import *
 from player import *
 from enemy import micheal
+from lyrics import *
 pygame.init()
 
 SCREEN = pygame.display.set_mode((1920, 1080))
@@ -85,6 +86,7 @@ def play():
             micheal(start, poopHitbox, enemy_pos)
             albert(dt, prey, sonicMove, preyHitbox, player_pos)
             basicAttack(start, 10, testBox, iThoguhtThisWasSupposeToBeATest)
+            drivethru(start)
             #Add the foreground after the player and enemy for layering            
             for i in range(0, tiles):
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
