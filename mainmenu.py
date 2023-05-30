@@ -73,8 +73,8 @@ def play():
                 elif event.type == pygame.KEYUP:
                     if keys[pygame.K_SPACE]:
                         pygame.mixer.Sound.play(sonicJump)
-                if MENU_MOUSE_POS[0] in range(poopHitbox.left, poopHitbox.right) and MENU_MOUSE_POS[1] in range(poopHitbox.top, poopHitbox.bottom):
-                    test.play()
+            if MENU_MOUSE_POS[0] in range(poopHitbox.left, poopHitbox.right) and MENU_MOUSE_POS[1] in range(poopHitbox.top, poopHitbox.bottom):
+                test.play()
             #Adds our background
             for i in range(tiles):
                 #Forces our background to scroll
