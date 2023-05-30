@@ -1,7 +1,7 @@
 import pygame, sys
 import math
 from menu import *
-from ClassHUD import *
+from ClassHUD import HUD
 from attacks import *
 from berkovich_class import *
 from player import *
@@ -27,7 +27,6 @@ def play():
         clock = pygame.time.Clock()
         running = True
         sonicMove = True
-        daLives = 3
         dt = 0
         start = pygame.time.get_ticks()
         #Setup the players and enemys position on the screen
@@ -110,10 +109,8 @@ def play():
             if preyHitbox.colliderect(poopHitbox) == 1:
                 test.play()
             if preyHitbox.colliderect(testBox) == 1:
-                daLives - 1
+                os.system('python GameOverSubstate.py')
             if preyHitbox.colliderect(iThoguhtThisWasSupposeToBeATest) == 1:
-                daLives - 1
-            if daLives == 0:
                 os.system('python GameOverSubstate.py')
             #Adds our work to the screen
             pygame.display.flip()

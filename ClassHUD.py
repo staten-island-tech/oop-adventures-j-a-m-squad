@@ -5,7 +5,6 @@ pygame.init()
 pygame.font.init()
 
 daLives = 3
-
 class HUD:
     def __init__(self, daStartingTime):
         self.start = daStartingTime
@@ -20,6 +19,7 @@ class HUD:
         self.ringsLabel = self.daFont.render('RINGS', False, (255,255,0))
         self.ringsValueText = self.daFont.render('0', False, (255,255,255))
         self.healthSprite = pygame.transform.scale(pygame.image.load("assets/images/UI/sonicLifeCounter.png"), (75,50))
+        self.healthValueText = self.daFont.render('3', False, (255,255,255))
 
         self.sonicCDMil = 0
         self.sonicCDSec = 0
@@ -49,11 +49,8 @@ class HUD:
             timeValue = "0%s" % (sonicCDMin) +"'" + "%s" % (sonicCDSec) + '"%s' % (sonicCDMil)
         if (sonicCDMin >= 10):
             timeValue = "%s" % (sonicCDMin) +"'" + "%s" % (sonicCDSec) + '"%s' % (sonicCDMil)
-        
-        healthValue = "%s" % (daLives)
 
         self.timeValueText = self.daFont.render(timeValue, False, (255,255,255))
-        self.healthValueText = self.daFont.render(healthValue, False, (255,255,255))
 
         self.screen = pygame.display.get_surface()
 
