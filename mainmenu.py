@@ -95,8 +95,6 @@ def play():
             #Add the foreground after the player and enemy for layering            
             for i in range(0, tiles):
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
-            SCREEN.blit(CURSOR, pygame.mouse.get_pos())
-            pygame.display.update()
             #Add the HUD above everything else
             HUD(start)
             # #All the keys our Game uses
