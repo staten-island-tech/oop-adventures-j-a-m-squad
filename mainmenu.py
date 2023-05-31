@@ -60,7 +60,7 @@ def play():
         tiles = math.ceil(SCREEN_WIDTH  / bg_width) + 2
         #Variables for jumping
         boingoing = False
-        jumpGravity = 1
+        jumpGravity = 0.75
         jump = 18
         jumpVelocity = jump
         #Everything after this point is what happens while our game is running
@@ -92,7 +92,7 @@ def play():
             #Adds our Player, Player 2, and enemy
             micheal(start, poopHitbox, enemy_pos)
             albert(dt, prey, sonicMove, preyHitbox, player_pos)
-            basicAttack(start, 10, testBox, iThoguhtThisWasSupposeToBeATest)
+            basicAttack(start, 10, 11, testBox, iThoguhtThisWasSupposeToBeATest)
             #Add the foreground after the player and enemy for layering            
             for i in range(0, tiles):
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
@@ -116,6 +116,8 @@ def play():
             if preyHitbox.colliderect(testBox) == 1:
                 os.system('python GameOverSubstate.py')
             if preyHitbox.colliderect(iThoguhtThisWasSupposeToBeATest) == 1:
+                os.system('python GameOverSubstate.py')
+            if preyHitbox.colliderect(poopHitbox) == 1:
                 os.system('python GameOverSubstate.py')
             #Adds our work to the screen
             pygame.display.flip()
