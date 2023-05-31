@@ -10,8 +10,6 @@ pygame.init()
 
 SCREEN = pygame.display.set_mode((1920, 1080))
 
-CURSOR = pygame.transform.scale2x(pygame.image.load("cursor.png"))
-
 def play():
     while True:
         for event in pygame.event.get():
@@ -19,11 +17,6 @@ def play():
                     #Stops running the game
                 pygame.quit()
                 sys.exit()
-
-        MENU_MOUSE_POS = pygame.mouse.get_pos()
-        MENU_MOUSE_HITBOX = CURSOR.get_rect()
-        MENU_MOUSE_HITBOX.topleft = MENU_MOUSE_POS
-        pygame.mouse.set_visible(False)
 
         SCREEN_WIDTH = 1920
         SCREEN_HEIGHT = 1080
@@ -73,8 +66,6 @@ def play():
                 elif event.type == pygame.KEYUP:
                     if keys[pygame.K_SPACE]:
                         pygame.mixer.Sound.play(sonicJump)
-            if MENU_MOUSE_POS[0] in range(poopHitbox.left, poopHitbox.right) and MENU_MOUSE_POS[1] in range(poopHitbox.top, poopHitbox.bottom):
-                test.play()
             #Adds our background
             for i in range(tiles):
                 #Forces our background to scroll
@@ -91,7 +82,7 @@ def play():
             #Adds our Player, Player 2, and enemy
             micheal(start, poopHitbox, enemy_pos)
             albert(dt, prey, sonicMove, preyHitbox, player_pos)
-            basicAttack(start, 10, testBox, iThoguhtThisWasSupposeToBeATest)
+            basicAttack(start, 10, 50, 50, testBox, iThoguhtThisWasSupposeToBeATest)
             #Add the foreground after the player and enemy for layering            
             for i in range(0, tiles):
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
