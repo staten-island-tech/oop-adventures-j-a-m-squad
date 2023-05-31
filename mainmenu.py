@@ -1,17 +1,16 @@
 import pygame, sys
 import math
 from menu import *
-from ClassHUD import HUD
+from ClassHUD import *
 from attacks import *
 from berkovich_class import *
 from player import *
 from enemy import micheal
-from lyrics import drivethru
 pygame.init()
 
 SCREEN = pygame.display.set_mode((1920, 1080))
 
-BG = pygame.transform.scale(pygame.image.load("IMG_8638.jpg"), (1920,1080))
+CURSOR = pygame.transform.scale2x(pygame.image.load("cursor.png"))
 
 def play():
     while True:
@@ -20,6 +19,12 @@ def play():
                     #Stops running the game
                 pygame.quit()
                 sys.exit()
+
+        MENU_MOUSE_POS = pygame.mouse.get_pos()
+        MENU_MOUSE_HITBOX = CURSOR.get_rect()
+        MENU_MOUSE_HITBOX.topleft = MENU_MOUSE_POS
+        pygame.mouse.set_visible(False)
+
         SCREEN_WIDTH = 1920
         SCREEN_HEIGHT = 1080
         #Setup Game
@@ -68,6 +73,8 @@ def play():
                 elif event.type == pygame.KEYUP:
                     if keys[pygame.K_SPACE]:
                         pygame.mixer.Sound.play(sonicJump)
+            if MENU_MOUSE_POS[0] in range(poopHitbox.left, poopHitbox.right) and MENU_MOUSE_POS[1] in range(poopHitbox.top, poopHitbox.bottom):
+                test.play()
             #Adds our background
             for i in range(tiles):
                 #Forces our background to scroll
@@ -85,11 +92,11 @@ def play():
             micheal(start, poopHitbox, enemy_pos)
             albert(dt, prey, sonicMove, preyHitbox, player_pos)
             basicAttack(start, 10, testBox, iThoguhtThisWasSupposeToBeATest)
-            basicAttack(start, 14, testBox, iThoguhtThisWasSupposeToBeATest )
-            drivethru(start)
             #Add the foreground after the player and enemy for layering            
             for i in range(0, tiles):
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
+            SCREEN.blit(CURSOR, pygame.mouse.get_pos())
+            pygame.display.update()
             #Add the HUD above everything else
             HUD(start)
             # #All the keys our Game uses
@@ -106,8 +113,6 @@ def play():
                 if jumpVelocity < -jump:
                     boingoing = False
                     jumpVelocity = jump
-            if preyHitbox.colliderect(poopHitbox) == 1:
-                test.play()
             if preyHitbox.colliderect(testBox) == 1:
                 os.system('python GameOverSubstate.py')
             if preyHitbox.colliderect(iThoguhtThisWasSupposeToBeATest) == 1:
