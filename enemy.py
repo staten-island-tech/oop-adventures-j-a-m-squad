@@ -1,6 +1,6 @@
 import pygame
 import math
-
+import time
 pygame.init()
 
 class micheal(pygame.sprite.Sprite):
@@ -9,7 +9,7 @@ class micheal(pygame.sprite.Sprite):
         self.poop = pygame.transform.scale(pygame.image.load("WhalenPic.png"), (300,280))
         self.enemyPosition = enemyVector
         self.ouchy = enemyHitbox
-
+        self.victory = pygame.transform.scale(pygame.image.load("victory_royale.png"), (1920,1080))
         self.sonicCDMil = 0
         self.sonicCDSec = 0
         self.sonicCDMin = 0
@@ -38,3 +38,6 @@ class micheal(pygame.sprite.Sprite):
             self.ouchy.topleft = enemyVector
             if enemyVector.x != 1500:
                 enemyVector.x += 30
+        if sonicCDMin == 1:
+            self.screen.blit(self.victory, (0,0))
+            time.sleep(100)

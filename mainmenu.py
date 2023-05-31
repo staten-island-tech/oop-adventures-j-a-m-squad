@@ -6,6 +6,7 @@ from attacks import *
 from berkovich_class import *
 from player import *
 from enemy import micheal
+from lyrics import *
 pygame.init()
 
 SCREEN = pygame.display.set_mode((1920, 1080))
@@ -97,6 +98,7 @@ def play():
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
             #Add the HUD above everything else
             HUD(start)
+            drivethru(start)
             # #All the keys our Game uses
             keys = pygame.key.get_pressed()
             if keys[pygame.K_ESCAPE]:
