@@ -38,6 +38,10 @@ class micheal(pygame.sprite.Sprite):
             self.ouchy.topleft = enemyVector
             if enemyVector.x != 1500:
                 enemyVector.x += 30
+            elif enemyVector.x == 1500 and sonicCDSec >= 14 and sonicCDSec <= 15:
+                enemyVector.x -= 30
+
+
         if sonicCDMin == 1:
             self.screen.blit(self.victory, (0,0))
             time.sleep(100)
