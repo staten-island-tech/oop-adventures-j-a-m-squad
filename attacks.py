@@ -13,7 +13,7 @@ testBox = test.get_rect()
 iThoguhtThisWasSupposeToBeATest = test.get_rect()
 
 class basicAttack:
-    def __init__(self,daStartingTime, seconds4timing, attackHitbox1 = pygame.Rect, attackHitbox2 = pygame.Rect): #Without specified minutes, it will reapeat everytime the secounds are equal to the input
+    def __init__(self,daStartingTime, seconds4timing, attackSpeed = int, attackSpeedToo = int, attackHitbox1 = pygame.Rect, attackHitbox2 = pygame.Rect): #Without specified minutes, it will reapeat everytime the secounds are equal to the input
         self.start = daStartingTime
 
         self.daFont = pygame.font.Font("assets/fonts/HelpMe.ttf", 64)
@@ -46,20 +46,20 @@ class basicAttack:
 
         if sonicCDSec == random.randint(1,60):
             pygame.draw.rect(self.screen, (255,0,0), self.thingamajig, 200)
-            self.thingamajig.topleft = (SaveYour_pos.x, SaveYour_pos.y)
+            self.thingamajig.topleft = (SaveYour_pos)
             self.screen.blit(self.SaveYour, SaveYour_pos)
             if SaveYour_pos.x != -0:
-                SaveYour_pos.x -= 50
+                SaveYour_pos.x -= attackSpeed
             elif SaveYour_pos.x != 1500:
                 SaveYour_pos.x += 1500 #It was this fucking easy Michael
                 self.thingamajig.move((1500,300))
             pygame.mixer.Sound.play(SaveYourAudio)
         if sonicCDSec == random.randint(1,60) + 1:
             pygame.draw.rect(self.screen, (255,0,0), self.doohickey, 200)
-            self.doohickey.topleft = (commit_pos.x, commit_pos.y)
+            self.doohickey.topleft = (commit_pos)
             self.screen.blit(self.commit, commit_pos)            
             if commit_pos.x != -0:
-                commit_pos.x -= 50
+                commit_pos.x -= attackSpeedToo
             elif commit_pos.x != 1500:
                 commit_pos.x += 1500 #i dot
                 self.doohickey.move((1500,666))
