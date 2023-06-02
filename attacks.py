@@ -51,7 +51,7 @@ class basicAttack:
             if SaveYour_pos.x != -0:
                 SaveYour_pos.x -= attackSpeed
             elif SaveYour_pos.x != 1500:
-                SaveYour_pos.x += 1500 #It was this fucking easy Michael
+                SaveYour_pos.x += 1500 #It was this easy Michael
                 self.thingamajig.move((1500,300))
             pygame.mixer.Sound.play(SaveYourAudio)
         if sonicCDSec == seconds4timing+ 1:
