@@ -1,5 +1,6 @@
 import pygame
 import math
+import random
 pygame.font.init()
 
 SaveYour_pos = pygame.Vector2(1500, 300)
@@ -53,7 +54,7 @@ class basicAttack:
                 SaveYour_pos.x += 1500 #It was this fucking easy Michael
                 self.thingamajig.move((1500,300))
             pygame.mixer.Sound.play(SaveYourAudio)
-        if sonicCDSec == seconds4timing + 1:
+        if sonicCDSec == seconds4timing+ 1:
             pygame.draw.rect(self.screen, (255,0,0), self.doohickey, 200)
             self.doohickey.topleft = (commit_pos)
             self.screen.blit(self.commit, commit_pos)            
@@ -62,8 +63,6 @@ class basicAttack:
             elif commit_pos.x != 1500:
                 commit_pos.x += 1500 #i dot
                 self.doohickey.move((1500,666))
-        
-        
 
 
             
