@@ -1,5 +1,6 @@
 import pygame
 import math
+import os
 
 pygame.init()
 pygame.font.init()
@@ -65,4 +66,8 @@ class HUD:
         self.screen.blit(self.ringsValueText, (374, 135))
         self.screen.blit(self.healthSprite, (30, 1000))
         self.screen.blit(self.healthValueText, (118, 992))
+
+        if sonicCDSec >= 30:
+            os.system('python VictorySubstate.py')
+
 
