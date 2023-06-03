@@ -6,8 +6,8 @@ from pygame.locals import *
 pygame.init()
 pygame.font.init()
 #Screen Width and Height Variable (Makes it super easy if we ever want to change it)
-SCREEN_WIDTH = 1920
-SCREEN_HEIGHT = 1080
+SCREEN_WIDTH = 1600
+SCREEN_HEIGHT = 900
 #Setup Game
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.RESIZABLE)
 clock = pygame.time.Clock()
