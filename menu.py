@@ -2,7 +2,7 @@
 import pygame
 import os
 from button import Button
-from mainmenu import play
+from main import play
 pygame.init()
 def get_font(size):
         return pygame.font.Font("assets/fonts/Avenir-BlackOblique.ttf", size)
