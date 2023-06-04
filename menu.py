@@ -6,8 +6,8 @@ from main import play
 pygame.init()
 def get_font(size):
         return pygame.font.Font("assets/fonts/Avenir-BlackOblique.ttf", size)
-display = pygame.display.set_mode((1920, 1080), pygame.OPENGL | pygame.DOUBLEBUF)
-SCREEN = pygame.Surface((1920, 1080))
+
+SCREEN = pygame.display.set_mode((1920, 1080), pygame.DOUBLEBUF | pygame.RESIZABLE)
 BG = pygame.transform.scale(pygame.image.load("IMG_8638.jpg"), (1920,1080))
 CURSOR = pygame.transform.scale2x(pygame.image.load("cursor.png"))
 
