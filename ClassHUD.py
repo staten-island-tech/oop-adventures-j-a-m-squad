@@ -11,7 +11,7 @@ class HUD:
         self.start = daStartingTime
 
         self.daFont = pygame.font.Font("assets/fonts/sonic1.ttf", 64)
-        self.scoreLabel = pygame.transform.scale(pygame.image.load("assets/images/UI/score.png"), (75,75))
+        self.scoreLabel = pygame.transform.scale(pygame.image.load("assets/images/UI/score.png"), (100,75))
         self.scoreValueTextShadow = self.daFont.render('0', False, (0,0,0))
         self.scoreValueText = self.daFont.render('0', False, (255,255,255))
         self.timeLabelShadow = self.daFont.render('TIME', False, (0,0,0))
