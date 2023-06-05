@@ -65,7 +65,7 @@ class HUD:
         self.screen.blit(self.healthSprite, (30, 1000))
         self.screen.blit(self.healthValueText, (118, 992))
 
-        if sonicCDMin == 4 and sonicCDSec == 11:
+        if sonicCDSec == 5:
             pygame.quit()
             os.system('python VictoryRoyaleSubstate.py')
 
