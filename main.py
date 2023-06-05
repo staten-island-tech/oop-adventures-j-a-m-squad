@@ -24,6 +24,7 @@ def play():
         clock = pygame.time.Clock()
         running = True
         sonicMove = True
+        mad = True
         dt = 0
         start = pygame.time.get_ticks()
         #Setup the players and enemys position on the screen
@@ -79,7 +80,7 @@ def play():
             if abs(floorSpeed) > bg_width:
                 floorSpeed = 0
             #Adds our Player, Player 2, and enemy
-            micheal(start, poopHitbox, enemy_pos)
+            micheal(start, poopHitbox, enemy_pos, mad)
             albert(dt, prey, sonicMove, preyHitbox, player_pos)
             basicAttack(start, 10, 50, 50, testBox, iThoguhtThisWasSupposeToBeATest)
             #Add the foreground after the player and enemy for layering            

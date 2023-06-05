@@ -4,12 +4,11 @@ import time
 pygame.init()
 
 class micheal(pygame.sprite.Sprite):
-    def __init__(self, daStartingTime, enemyHitbox = pygame.Rect, enemyVector = pygame.Vector2):
+    def __init__(self, daStartingTime, enemyHitbox = pygame.Rect, enemyVector = pygame.Vector2, grr = bool):
         self.start = daStartingTime
         self.poop = pygame.transform.scale(pygame.image.load("WhalenPic.png"), (300,280))
         self.enemyPosition = enemyVector
         self.ouchy = enemyHitbox
-        self.victory = pygame.transform.scale(pygame.image.load("victory_royale.png"), (1920,1080))
         self.sonicCDMil = 0
         self.sonicCDSec = 0
         self.sonicCDMin = 0
@@ -38,10 +37,6 @@ class micheal(pygame.sprite.Sprite):
             self.ouchy.topleft = enemyVector
             if enemyVector.x != 1500:
                 enemyVector.x += 30
-            elif enemyVector.x == 1500 and sonicCDSec >= 14 and sonicCDSec <= 15:
+        if grr:
+            if enemyVector.x == 1500:
                 enemyVector.x -= 30
-
-
-        if sonicCDMin == 1:
-            self.screen.blit(self.victory, (0,0))
-            time.sleep(100)
