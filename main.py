@@ -6,10 +6,8 @@ from attacks import *
 from berkovich_class import *
 from player import *
 from enemy import micheal
-from lyrics import *
+from StardustSpeedwayZone import *
 pygame.init()
-
-SCREEN = pygame.display.set_mode((1920, 1080))
 
 def play():
     while True:
@@ -26,6 +24,7 @@ def play():
         clock = pygame.time.Clock()
         running = True
         sonicMove = True
+        mad = True
         dt = 0
         start = pygame.time.get_ticks()
         #Setup the players and enemys position on the screen
@@ -43,8 +42,8 @@ def play():
         prey = pygame.transform.scale(pygame.image.load("assets\images\characters\Berkovich.jpeg"), (200,200))
         preyHitbox = prey.get_rect()
         #Loads our Background and Foreground and scales them to the size of our screen
-        bg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustBg.png").convert(), (SCREEN_WIDTH, SCREEN_HEIGHT))
-        fg = pygame.transform.scale(pygame.image.load("assets\images\stages\Stardust Speedway\stardustFloor.png").convert_alpha(), (SCREEN_WIDTH+500, SCREEN_HEIGHT+500))
+        bg = pygame.transform.scale(pygame.image.load("assets\images\stages\stardustBg.png").convert(), (SCREEN_WIDTH, SCREEN_HEIGHT))
+        fg = pygame.transform.scale(pygame.image.load("assets\images\stages\stardustFloor.png").convert_alpha(), (SCREEN_WIDTH, SCREEN_HEIGHT * 1.1))
         #Sets the background and foreground as rectangles in order to manipulate them later
         bg_width = bg.get_width()
         #Variabels for scrolling images
@@ -81,12 +80,12 @@ def play():
             if abs(floorSpeed) > bg_width:
                 floorSpeed = 0
             #Adds our Player, Player 2, and enemy
-            micheal(start, poopHitbox, enemy_pos)
+            micheal(start, poopHitbox, enemy_pos, mad)
             albert(dt, prey, sonicMove, preyHitbox, player_pos)
             basicAttack(start, 10, 50, 50, testBox, iThoguhtThisWasSupposeToBeATest)
             #Add the foreground after the player and enemy for layering            
             for i in range(0, tiles):
-                screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
+                screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -200))
             #Add the HUD above everything else
             HUD(start)
             # #All the keys our Game uses
