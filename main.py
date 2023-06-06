@@ -42,7 +42,7 @@ def play():
         preyHitbox = prey.get_rect()
         #Loads our Background and Foreground and scales them to the size of our screen
         bg = pygame.transform.scale(pygame.image.load("assets\images\stages\stardustBg.png").convert(), (SCREEN_WIDTH, SCREEN_HEIGHT))
-        fg = pygame.transform.scale(pygame.image.load("assets\images\stages\stardustFloor.png").convert_alpha(), (SCREEN_WIDTH + 500, SCREEN_HEIGHT + 500))
+        fg = pygame.transform.scale(pygame.image.load("assets\images\stages\stardustFloor.png").convert_alpha(), (SCREEN_WIDTH, SCREEN_HEIGHT))
         #Sets the background and foreground as rectangles in order to manipulate them later
         bg_width = bg.get_width()
         #Variabels for scrolling images
@@ -84,7 +84,7 @@ def play():
             basicAttack(start, 10, 50, 50, testBox, iThoguhtThisWasSupposeToBeATest)
             #Add the foreground after the player and enemy for layering            
             for i in range(0, tiles):
-                screen.blit(fg, (i * bg_width + floorSpeed - bg_width, 0))
+                screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -100))
             #Add the HUD above everything else
             HUD(start)
             HUD.updateScore(1)
