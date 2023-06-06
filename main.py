@@ -87,7 +87,7 @@ def play():
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, 0))
             #Add the HUD above everything else
             HUD(start)
-            HUD.updateScore(start)
+            HUD.updateScore(1)
             # #All the keys our Game uses
             keys = pygame.key.get_pressed()
             if keys[pygame.K_ESCAPE]:
