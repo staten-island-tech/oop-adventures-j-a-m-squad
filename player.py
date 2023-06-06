@@ -23,15 +23,15 @@ class albert(pygame.sprite.Sprite):
                 pygame.mixer.Sound.play(self.sonicJump)
         if self.canMove:
             if self.keys[pygame.K_a]:
-                self.playerPosition.x -= 1500 * self.dt
+                self.playerPosition.x -= 1 * self.dt
             if self.keys[pygame.K_d]:
-                self.playerPosition.x += 1500 * self.dt   
+                self.playerPosition.x += 1 * self.dt   
             if self.keys[pygame.K_SPACE]:
                 self.boingoing = True
             if self.keys[pygame.K_LEFT]:
-                self.playerPosition.x -= 1500 * self.dt
+                self.playerPosition.x -= 1 * self.dt
             if self.keys[pygame.K_RIGHT]:
-                self.playerPosition.x += 1500 * self.dt
+                self.playerPosition.x += 1 * self.dt
         
         self.doohickey.topleft = (self.playerPosition)
         pygame.draw.rect(self.display, (255,0,255), self.doohickey, 100)
