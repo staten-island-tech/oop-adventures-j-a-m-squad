@@ -44,7 +44,7 @@ class basicAttack:
 
         self.screen = pygame.display.get_surface()
 
-        if sonicCDSec == random.randint(1,60):
+        if sonicCDSec == seconds4timing:
             pygame.draw.rect(self.screen, (255,0,0), self.thingamajig, 200)
             self.thingamajig.topleft = (SaveYour_pos)
             self.screen.blit(self.SaveYour, SaveYour_pos)
@@ -54,7 +54,7 @@ class basicAttack:
                 SaveYour_pos.x += 1500 #It was this easy Michael
                 self.thingamajig.move((1500,300))
             pygame.mixer.Sound.play(SaveYourAudio)
-        if sonicCDSec == random.randint(1,60) + 1:
+        if sonicCDSec == seconds4timing+ 1:
             pygame.draw.rect(self.screen, (255,0,0), self.doohickey, 200)
             self.doohickey.topleft = (commit_pos)
             self.screen.blit(self.commit, commit_pos)            

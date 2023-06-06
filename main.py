@@ -43,7 +43,7 @@ def play():
         preyHitbox = prey.get_rect()
         #Loads our Background and Foreground and scales them to the size of our screen
         bg = pygame.transform.scale(pygame.image.load("assets\images\stages\stardustBg.png").convert(), (SCREEN_WIDTH, SCREEN_HEIGHT))
-        fg = pygame.transform.scale(pygame.image.load("assets\images\stages\stardustFloor.png").convert_alpha(), (SCREEN_WIDTH + 500, SCREEN_HEIGHT + 500))
+        fg = pygame.transform.scale(pygame.image.load("assets\images\stages\stardustFloor.png").convert_alpha(), (SCREEN_WIDTH, SCREEN_HEIGHT * 1.1))
         #Sets the background and foreground as rectangles in order to manipulate them later
         bg_width = bg.get_width()
         #Variabels for scrolling images
