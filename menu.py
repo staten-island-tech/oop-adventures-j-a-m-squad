@@ -17,7 +17,6 @@ def options():
         spooky = pygame.mixer.Sound("assets\sounds\HL2 Stalker Scream.ogg")
         SCREEN.fill((0,0,0))
         SCREEN.blit(wega, (400, 0))
-        pygame.mixer.Sound.play(spooky)
 
         pygame.display.update()
 
