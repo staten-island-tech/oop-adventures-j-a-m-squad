@@ -11,7 +11,8 @@ class HUD:
         self.start = daStartingTime
 
         self.daFont = pygame.font.Font("assets/fonts/sonic1.ttf", 64)
-        self.scoreLabel = pygame.transform.scale(pygame.image.load("assets/images/UI/score.png"), (75,75))
+        self.scoreLabelShadow = self.daFont.render('SCORE', False, (0,0,0))
+        self.scoreLabel = self.daFont.render('SCORE', False, (255,255,0))
         self.scoreValueTextShadow = self.daFont.render('0', False, (0,0,0))
         self.scoreValueText = self.daFont.render('0', False, (255,255,255))
         self.timeLabelShadow = self.daFont.render('TIME', False, (0,0,0))
@@ -54,6 +55,7 @@ class HUD:
 
         self.screen = pygame.display.get_surface()
 
+        self.screen.blit(self.scoreLabelShadow, (30,15))
         self.screen.blit(self.scoreLabel, (25,15))
         self.screen.blit(self.scoreValueTextShadow, (379, 15))
         self.screen.blit(self.scoreValueText, (374,15))
@@ -65,7 +67,7 @@ class HUD:
         self.screen.blit(self.healthSprite, (30, 1000))
         self.screen.blit(self.healthValueText, (118, 992))
 
-        if sonicCDSec == 20:
+        if sonicCDSec == 30:
             pygame.quit()
             os.system('python VictoryRoyaleSubstate.py')
 
