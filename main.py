@@ -111,5 +111,5 @@ def play():
             #Adds our work to the screen
             pygame.display.flip()
             #The FPS our game runs at
-            dt = clock.tick(360) / 10000
+            dt = clock.tick(360) / 1
             pygame.display.update()
