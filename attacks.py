@@ -46,6 +46,7 @@ class basicAttack:
 
         if sonicCDSec == seconds4timing:
             pygame.draw.rect(self.screen, (255,0,0), self.thingamajig, 200)
+            self.thingamajig.move((1500,300))
             self.thingamajig.topleft = (SaveYour_pos)
             self.screen.blit(self.SaveYour, SaveYour_pos)
             if SaveYour_pos.x != -0:
@@ -56,6 +57,7 @@ class basicAttack:
             pygame.mixer.Sound.play(SaveYourAudio)
         if sonicCDSec == seconds4timing + 1:
             pygame.draw.rect(self.screen, (255,0,0), self.doohickey, 200)
+            self.doohickey.move((1500,300))
             self.doohickey.topleft = (commit_pos)
             self.screen.blit(self.commit, commit_pos)            
             if commit_pos.x != -0:
