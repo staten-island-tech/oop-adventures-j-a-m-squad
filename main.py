@@ -82,6 +82,8 @@ def play():
             micheal(start, poopHitbox, enemy_pos, mad)
             albert(dt, prey, sonicMove, preyHitbox, player_pos)
             basicAttack(start, 10, 50, 50, testBox, iThoguhtThisWasSupposeToBeATest)
+            basicAttack(start, 15, 50, 50, testBox, iThoguhtThisWasSupposeToBeATest)
+            basicAttack(start, 20, 50, 50, testBox, iThoguhtThisWasSupposeToBeATest)
             #Add the foreground after the player and enemy for layering            
             for i in range(0, tiles):
                 screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -500))
