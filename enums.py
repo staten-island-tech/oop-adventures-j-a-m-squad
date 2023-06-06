@@ -11,3 +11,5 @@ floorSpeed = 0
 
 bg_width = 1920
 tiles = math.ceil(SCREEN_WIDTH  / bg_width) + 2
+
+score = 0

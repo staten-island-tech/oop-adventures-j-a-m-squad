@@ -6,7 +6,6 @@ from attacks import *
 from berkovich_class import *
 from player import *
 from enemy import micheal
-from StardustSpeedwayZone import *
 pygame.init()
 
 def play():
@@ -31,7 +30,7 @@ def play():
         player_pos = pygame.Vector2(screen.get_width() / 1.5, screen.get_height() / 1.92)
         enemy_pos = pygame.Vector2(1080, 360)
         #Load and play music
-        pygame.mixer.music.load("assets/music/darnell wet fart.ogg")
+        pygame.mixer.music.load("final escape instr umental.ogg")
         pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")

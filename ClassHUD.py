@@ -5,22 +5,26 @@ import os
 pygame.init()
 pygame.font.init()
 
-daLives = 3
 class HUD:
-    def __init__(self, daStartingTime):
+    def __init__(self, daStartingTime, score:int = 0):
         self.start = daStartingTime
+
+        self.scoreText = ""
 
         self.daFont = pygame.font.Font("assets/fonts/sonic1.ttf", 64)
         self.scoreLabelShadow = self.daFont.render('SCORE', False, (0,0,0))
         self.scoreLabel = self.daFont.render('SCORE', False, (255,255,0))
-        self.scoreValueTextShadow = self.daFont.render('0', False, (0,0,0))
-        self.scoreValueText = self.daFont.render('0', False, (255,255,255))
+        self.scoreValueTextShadow = self.daFont.render(self.scoreText, False, (0,0,0))
+        self.scoreValueText = self.daFont.render(self.scoreText, False, (255,255,255))
         self.timeLabelShadow = self.daFont.render('TIME', False, (0,0,0))
         self.timeLabel = self.daFont.render('TIME', False, (255,255,0))
         self.ringsLabel = self.daFont.render('RINGS', False, (255,255,0))
         self.ringsValueText = self.daFont.render('0', False, (255,255,255))
         self.healthSprite = pygame.transform.scale(pygame.image.load("assets/images/UI/sonicLifeCounter.png"), (75,50))
         self.healthValueText = self.daFont.render('3', False, (255,255,255))
+
+        def updateScore(newScore):
+            self.scoreText = f"{newScore}"
 
         self.sonicCDMil = 0
         self.sonicCDSec = 0
@@ -54,6 +58,11 @@ class HUD:
         self.timeValueText = self.daFont.render(timeValue, False, (255,255,255))
 
         self.screen = pygame.display.get_surface()
+
+        if sonicCDSec == sonicCDSec:
+            score += 1
+            updateScore(score)
+
 
         self.screen.blit(self.scoreLabelShadow, (30,15))
         self.screen.blit(self.scoreLabel, (25,15))
