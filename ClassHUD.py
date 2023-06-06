@@ -6,10 +6,10 @@ pygame.init()
 pygame.font.init()
 
 class HUD:
-    def __init__(self, daStartingTime, score:int = 0):
+    def __init__(self, daStartingTime, scoreText = ""):
         self.start = daStartingTime
 
-        self.scoreText = ""
+        self.scoreText = scoreText
 
         self.daFont = pygame.font.Font("assets/fonts/sonic1.ttf", 64)
         self.scoreLabelShadow = self.daFont.render('SCORE', False, (0,0,0))
@@ -22,9 +22,6 @@ class HUD:
         self.ringsValueText = self.daFont.render('0', False, (255,255,255))
         self.healthSprite = pygame.transform.scale(pygame.image.load("assets/images/UI/sonicLifeCounter.png"), (75,50))
         self.healthValueText = self.daFont.render('3', False, (255,255,255))
-
-        def updateScore(newScore):
-            self.scoreText = f"{newScore}"
 
         self.sonicCDMil = 0
         self.sonicCDSec = 0
@@ -59,10 +56,6 @@ class HUD:
 
         self.screen = pygame.display.get_surface()
 
-        if sonicCDSec == sonicCDSec:
-            score += 1
-            updateScore(score)
-
 
         self.screen.blit(self.scoreLabelShadow, (30,15))
         self.screen.blit(self.scoreLabel, (25,15))
@@ -79,5 +72,7 @@ class HUD:
         if sonicCDSec == 30:
             pygame.quit()
             os.system('python VictoryRoyaleSubstate.py')
+    def updateScore(newScore):
+        scoreText = f"{newScore}"
 
 

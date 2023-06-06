@@ -19,7 +19,7 @@ def play():
         SCREEN_WIDTH = 1920
         SCREEN_HEIGHT = 1080
         #Setup Game
-        screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+        screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.RESIZABLE | pygame.DOUBLEBUF)
         clock = pygame.time.Clock()
         running = True
         sonicMove = True
@@ -84,9 +84,10 @@ def play():
             basicAttack(start, 10, 50, 50, testBox, iThoguhtThisWasSupposeToBeATest)
             #Add the foreground after the player and enemy for layering            
             for i in range(0, tiles):
-                screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -200))
+                screen.blit(fg, (i * bg_width + floorSpeed - bg_width, 0))
             #Add the HUD above everything else
             HUD(start)
+            HUD.updateScore(start)
             # #All the keys our Game uses
             keys = pygame.key.get_pressed()
             if keys[pygame.K_ESCAPE]:
