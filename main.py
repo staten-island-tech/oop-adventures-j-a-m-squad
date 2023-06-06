@@ -6,7 +6,6 @@ from attacks import *
 from berkovich_class import *
 from player import *
 from enemy import micheal
-from StardustSpeedwayZone import *
 pygame.init()
 
 def play():
@@ -20,7 +19,7 @@ def play():
         SCREEN_WIDTH = 1920
         SCREEN_HEIGHT = 1080
         #Setup Game
-        screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+        screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.RESIZABLE | pygame.DOUBLEBUF)
         clock = pygame.time.Clock()
         running = True
         sonicMove = True
@@ -31,7 +30,7 @@ def play():
         player_pos = pygame.Vector2(screen.get_width() / 1.5, screen.get_height() / 1.92)
         enemy_pos = pygame.Vector2(1080, 360)
         #Load and play music
-        pygame.mixer.music.load("assets/music/darnell wet fart.ogg")
+        pygame.mixer.music.load("final escape instr umental.ogg")
         pygame.mixer.music.play(-1)
         #Load Sound Effects
         sonicJump = pygame.mixer.Sound("assets\sounds\sonicJump.ogg")
@@ -43,7 +42,7 @@ def play():
         preyHitbox = prey.get_rect()
         #Loads our Background and Foreground and scales them to the size of our screen
         bg = pygame.transform.scale(pygame.image.load("assets\images\stages\stardustBg.png").convert(), (SCREEN_WIDTH, SCREEN_HEIGHT))
-        fg = pygame.transform.scale(pygame.image.load("assets\images\stages\stardustFloor.png").convert_alpha(), (SCREEN_WIDTH + 500, SCREEN_HEIGHT + 500))
+        fg = pygame.transform.scale(pygame.image.load("assets\images\stages\stardustFloor.png").convert_alpha(), (SCREEN_WIDTH, SCREEN_HEIGHT))
         #Sets the background and foreground as rectangles in order to manipulate them later
         bg_width = bg.get_width()
         #Variabels for scrolling images
@@ -86,9 +85,10 @@ def play():
             basicAttack(start, 14, 37.5, 37.5, testBox, iThoguhtThisWasSupposeToBeATest)
             #Add the foreground after the player and enemy for layering            
             for i in range(0, tiles):
-                screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -200))
+                screen.blit(fg, (i * bg_width + floorSpeed - bg_width, -100))
             #Add the HUD above everything else
             HUD(start)
+            HUD.updateScore(1)
             # #All the keys our Game uses
             keys = pygame.key.get_pressed()
             if keys[pygame.K_ESCAPE]:
