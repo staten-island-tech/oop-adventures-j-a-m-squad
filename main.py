@@ -6,6 +6,7 @@ from attacks import *
 from berkovich_class import *
 from player import *
 from enemy import micheal
+from pyvidplayer import Video     
 pygame.init()
 
 def play():
@@ -111,7 +112,7 @@ def play():
                 pygame.quit() #NO MORE
                 os.system('python GameOverSubstate.py')
             #Adds our work to the screen
-            pygame.display.flip()
+            pygame.display.flip()     
             #The FPS our game runs at
             dt = clock.tick(360) / 1
             pygame.display.update()

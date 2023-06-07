@@ -33,6 +33,9 @@ class albert(pygame.sprite.Sprite):
             if self.keys[pygame.K_RIGHT]:
                 self.playerPosition.x += 1 * self.dt
         
+        if abs(playerVector.x) > self.display.get_width():
+            playerVector.x = 0
+        
         self.doohickey.topleft = (self.playerPosition)
         pygame.draw.rect(self.display, (255,0,255), self.doohickey, 100)
         self.display.blit(self.thingamajig, self.playerPosition)
