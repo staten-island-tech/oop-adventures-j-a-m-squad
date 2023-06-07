@@ -73,7 +73,7 @@ def play():
             #How fast our Background and Foreground should scroll
             #Change the minus sign to the plus sign to make everything go backwards or vice versa
             bgSpeed -= 10
-            floorSpeed += 25
+            floorSpeed += 25 
             #Resets Scrolling
             if abs(bgSpeed) > bg_width:
                 bgSpeed = 0
